@@ -13,10 +13,11 @@ pages = {
         st.Page("./conteudo/4_inspecao_de_arvores.py", title="Inspeção de Árvores", icon=":material/forest:"),
         st.Page("./conteudo/5_matriz_de_rigidez.py", title="Matriz de Rigidez", icon=":material/background_grid_small:"),
         st.Page("./conteudo/6_propagacao_de_ondas_acusticas.py", title="Propagação de Ondas Acústicas", icon=":material/waves:"),
-        st.Page("./conteudo/7_atenuacao_de_ondas_acusticas.py", title="Atenuação de Ondas Acústicas", icon=":material/cadence:")
+        st.Page("./conteudo/7_atenuacao_de_ondas_acusticas.py", title="Atenuação de Ondas Acústicas", icon=":material/cadence:"),
+        st.Page("./conteudo/8_morfologia_vegetal.py", title="Morfologia Vegetal", icon=":material/waves:")
     ],
     "Links Auxiliares": [
-        st.Page("./aux_files/page.py", title="Início", icon=":material/assignment:")
+        st.Page("./aux_files/links_auxiliares.py", title="Início", icon=":material/assignment:")
     ],
 }
 

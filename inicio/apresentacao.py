@@ -1,11 +1,18 @@
 import streamlit as st
 
 def apresentacao_page(): 
+
+    col1, col2, col3, col4 = st.columns([1, 1, 1, 1])
+    col1.image("https://upload.wikimedia.org/wikipedia/commons/6/6e/Woody_Dicot_Stem_Cross_Section_Quercus_Wood_40x_%2834991087693%29.jpg")
+    col2.image("https://upload.wikimedia.org/wikipedia/commons/4/4c/Gymnosperm_Stem_Soft_Wood_in_Pinus_%2836087417260%29.jpg")
+    col3.image("https://upload.wikimedia.org/wikipedia/commons/a/aa/Gymnosperm_Stem_Circular_Bordered_Pits_in_Pinus_Wood_%2836484401545%29.jpg")
+    col4.image("https://upload.wikimedia.org/wikipedia/commons/a/ac/Gymnosperm_Stem_Soft_Wood_in_Pinus_%2836087426450%29.jpg")
+    
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
     col2.markdown("# 🧱 LabEND | Portal de Ensaios Não Destrutivos")
 
-
+    col3.image("imagens/intro-cap-1.jpg")
     #col2.image("https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Guernica_reproduction_on_tiled_wall%2C_Guernica%2C_Spain_%28PPL3-Altered%29_julesvernex2.jpg/960px-Guernica_reproduction_on_tiled_wall%2C_Guernica%2C_Spain_%28PPL3-Altered%29_julesvernex2.jpg")
 
     col2.markdown("""
@@ -33,27 +40,24 @@ def apresentacao_page():
         🧩 **Dica:** Explore o menu lateral para navegar entre os diferentes tipos de ensaios e descobrir exemplos, imagens e explicações detalhadas sobre cada técnica.
     """)
     
-    with col3.expander("Ultrassom para inspeção de árvores", expanded=True):
-        st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Abstract_pattern_on_a_tree_stump.jpg/330px-Abstract_pattern_on_a_tree_stump.jpg")
-        if st.button("Saiba mais :material/search:", key="us"):
-            st.switch_page("./conteudo/4_inspecao_de_arvores.py")
 
-    with col3.expander("Carbonatação como ensaio complementar a outros ENDs", expanded=True):
-        st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Betonkorrosion_unter_Autobahnbruecke_%2802%29.JPG/330px-Betonkorrosion_unter_Autobahnbruecke_%2802%29.JPG")
-        if st.button("Saiba mais :material/search:", key="carbonatacao"):
-            st.switch_page("./conteudo/3_inspecao_de_estruturas_de_concreto_e_madeira.py")
+    col1, col2, col3, col4, col5 = st.columns([.25, 1, 1, 1, 1.5])
 
-    #with col3.expander("Termografia para inspeção de fachadas", expanded=True):
-    #    st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Infrared_thermal_imaging_during_a_yacht_survey.jpg/500px-Infrared_thermal_imaging_during_a_yacht_survey.jpg")
-    #    if st.button("Saiba mais :material/search:", key="termografia"):
-    #        st.switch_page("./conteudos/3_inspecao_de_estruturas_de_concreto_e_madeira.py")
-
-    with col3.expander("Ensaio de flexão estática conforme ABNT NBR 7190", expanded=True):
-        st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Stacked_Timber_Displaying_Growth_Rings.jpg/330px-Stacked_Timber_Displaying_Growth_Rings.jpg")
-        if st.button("Saiba mais :material/search:", key="flexao_estatica"):
-            #st.switch_page("./conteudo/2_classificacao_madeira_estrutural.py")
-            st.switch_page("./conteudo/2_classificacao_madeira_estrutural.py")
-            
+    col2.image(
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Abstract_pattern_on_a_tree_stump.jpg/330px-Abstract_pattern_on_a_tree_stump.jpg",
+        caption="Ultrassom para inspeção de árvores",
+        width="stretch"
+    )
+    col3.image(
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Betonkorrosion_unter_Autobahnbruecke_%2802%29.JPG/330px-Betonkorrosion_unter_Autobahnbruecke_%2802%29.JPG",
+        caption="Ensaio de profundidade de carbonatação como ensaio complementar a outros ENDs",
+        width="stretch"
+    )
+    col4.image(
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Stacked_Timber_Displaying_Growth_Rings.jpg/330px-Stacked_Timber_Displaying_Growth_Rings.jpg",
+        caption="Ensaio de flexão estática conforme ABNT NBR 7190",
+        width="stretch"
+    )
 
 if __name__ == "__main__":
     apresentacao_page()

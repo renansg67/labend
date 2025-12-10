@@ -292,6 +292,13 @@ def matriz_de_rigidez_page():
 
     col2.subheader("Propagação nos planos")
 
+    col1, col2, col3 = st.columns([.25, 3, 1.5])
+
+    col3.image(
+        "imagens/velocidades.png",
+        caption="Velocidades das ondas longitudinais e transversais nas direções principais e planos."
+    )
+
     col2.markdown("##### Propagação de ondas no plano 12")
 
     col2.latex(r"""

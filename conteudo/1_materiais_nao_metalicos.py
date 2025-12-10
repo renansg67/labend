@@ -40,7 +40,7 @@ def materiais_nao_metalicos_page():
 
     col2.write("Comparada ao concreto, diversos métodos de ensaio análogos são utilizados para a madeira, com as devidas adaptações. Por se tratar de um material ortotrópico, ou seja, com propriedades elásticas distintas em três planos ortogonais de isotropia, a maior dificuldade está relacionada à elevada heterogeneidade apresentada pela madeira, que, ao compor estruturas vivas como as árvores, possui diversas particularidades que exigem atenção em sua caracterização. A utilização de ensaios não destrutivos, como o de propagação de ondas de tensão, tem ganhado cada vez mais espaço devido à correlação existente com as propriedades de resistência e rigidez. Além desse método, o ensaio de flexão estática normatizado pela ABNT NBR 7190:2022 estabelece o procedimento adequado para caracterizar a propriedade de rigidez, fornecendo aos profissionais da área a possibilidade de incorporar métodos vibracionais baseados no cálculo do módulo de elasticidade a partir da frequência fundamental de ressonância obtida por meio da análise de Fourier. Nesta parte serão detalhados os métodos de vibração transversal, em que uma barra biapoiada é posta em oscilação após sofrer uma deflexão inicial, e o dos modos de vibração, que permitem calcular propriedades como os módulos de elasticidade longitudinal e transversal a partir dos modos flexionais e torsionais.")
 
-    col2.header(":factory: Concreto")
+    col2.header("Concreto")
 
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
@@ -226,7 +226,7 @@ def materiais_nao_metalicos_page():
 
     col2.write("Além disso, o ensaio deve contemplar concretos endurecidos de maior resistência, de modo que o pino não ultrapasse o limite de penetração estabelecido em norma.")
 
-    col2.header(":deciduous_tree: Madeira")
+    col2.header("Madeira")
 
     col2.write("A caracterização de peças em madeira segue o que está estabelecido na ABNT NBR 7190:2022. A norma estabelece que a caracterização das propriedades de resistência e rigidez da madeira devem ser obtidas na condição-padrão, quando a umidade das peças encontra-se em 12%. A umidade em base seca é dada por")
 
@@ -307,7 +307,7 @@ def materiais_nao_metalicos_page():
 
     col2.subheader("**Ensaio de flexão estática**")
 
-    col2.write("Quando falamos do método de flexão estática, podemos usar tanto o ensaio de 3 pontos quanto o de 4 pontos para a determinação do módulo de elasticidade, porém, com a reformulação da ABNT NBR 7190, para lotes de florestas plantadas não homogêneos, é possível utilizar a parte quatro da norma para determinação do módulo de elasticidade na flexão estática a partir da equação")
+    col2.write("Quando falamos do método de flexão estática, podemos usar tanto o ensaio de 3 pontos quanto o de 4 pontos para a determinação do módulo de elasticidade, porém, com a reformulação da ABNT NBR 7190, para lotes de florestas plantadas não homogêneos, é possível utilizar a parte 4 da norma para determinação do módulo de elasticidade na flexão estática a partir da equação")
 
     col2.latex(r'''
         \begin{equation}
@@ -325,13 +325,28 @@ def materiais_nao_metalicos_page():
         \end{equation}
     ''')
 
-    col2.write("seguindo o aparato experimental mostrado abaixo")
+    col2.write("seguindo o aparato experimental mostrado")
+
+    
+    col2.container(horizontal_alignment="center").image(
+        "imagens/flexao-3-pontos.png", 
+        caption="Ensaio de 3 pontos de viga deitada.",
+        width=650
+    )
 
     col2.markdown("A premissa do ensaio é ser não destrutivo, por conta disso, a carga $\\Delta F$ aplicada é de $10\\%$ a $40\\%$ da máxima para ruptura da peça, e precisa ser estimada antes da realização do ensaio de flexão estática. Com a deflexão máxima $\\Delta e$ obtida por sensores de deslocamento, calcula-se o módulo de elasticidade $E_{0}$.")
 
     col2.subheader("Método da propagação de ondas de tensão")
 
     col2.markdown("Por fim, o método de propagação de ondas de tensão, envolve a propagação de ondas ultrassônicas por meio do impacto -- regime transiente -- ou por meio de transdutores que emitem feixes ultrassônicos com frequências acima da audível por humanos,  caracterizando o regime estacionário. Ambos os métodos podem ser utilizados em diferentes contextos de ensaios, como: Cronometragem do tempo de viagem do pulso acústico, pulso-eco e pitch and catch.")
+
+    col1, col2, col3 = st.columns([.25, 3, 1.5])
+
+    col3.image(
+        "imagens/curva-atenuacao.png", 
+        caption="Curva de atenuação com decaimento exponencial.",
+        width=350
+    )
 
     col2.markdown("##### Barra viscoelástica submetida a um impacto")
 
@@ -349,7 +364,15 @@ def materiais_nao_metalicos_page():
 
     col2.write("Tal sequência de eventos é fundamental para o entendimento dos 3 ensaios citados anteriormente.")
 
-    col2.markdown("Cronometragem do tempo de propagação da onda de tensão")
+    col2.markdown("##### Cronometragem do tempo de propagação da onda de tensão")
+    
+    col1, col2, col3 = st.columns([.25, 3, 1.5])
+
+    col3.image(
+        "imagens/cronometragem.png", 
+        caption="Cronometragem do tempo de propagação da onda de tensão entre acelerômetros.",
+        width=350
+    )
 
     col2.write("No ensaio de cronometragem do tempo de viagem do pulso acústico, a extremidade impactada pode possuir tanto acelerômetros quanto transdutores dependendo do circuito utilizado para a medição. Fundamentalmente, esse tipo de ensaio requer que os sensores sejam posicionados nas extremidades da barra nas faces laterais, já que o impacto ocorre na seção transversal. Associados a um cronômetro, um acelerômetro é responsável por captar o sinal da onda de compressão e iniciar a contagem do cronômetro. O pulso, ao alcançar a extremidade oposta é detectado por outro acelerômetro que envia o sinal para o cronômetro pausar a contagem. A partir do tempo obtido e utilizando conceitos de cinemática do movimento retilíneo e uniforme, determina-se a velocidade de propagação conhecendo-se o comprimento da barra ensaiada")
 
@@ -369,9 +392,25 @@ def materiais_nao_metalicos_page():
         \end{equation}
     ''')
 
+    col1, col2, col3 = st.columns([.25, 3, 1.5])
+
     col2.write("Neste método é interessante ressaltar que ao analisar a velocidade e aceleração das partículas em função do tempo, nota-se que a velocidade decai exponencialmente, enquanto que a aceleração permanece constante até que a propagação seja totalmente atenuada. Além disso o comportamento das curvas do sinal é distinto em cada caso. As partículas por estarem sujeita à vibração longitudinal causada pela onda de compressão, oscilam em torno de um ponto de equilíbrio. Se traçássemos um segmento vertical contendo este ponto, notaríamos que em metade do tempo a onda se move concordando com o sentido de propagação e, na outra metade, realiza um movimento que discorda do sentido positivo da propagação. Já com relação à aceleração das partículas, os pulsos ocupam somente o primeiro quadrante do gráfico, mostrando que a aceleração pode ser maior ou igual a zero, porém, sempre concorda com o sentido da onda de compressão.")
 
+    col3.image(
+        "imagens/pulso-eco.png", 
+        caption="Arranjo do aparato para ensaio de pulso-eco.",
+        width=350
+    )
+
+    col1, col2, col3 = st.columns([.25, 3, 1.5])
+    
     col2.markdown("##### *Pitch and catch*")
+
+    col3.image(
+        "imagens/pitch-and-catch.png", 
+        caption="Arranjo do aparato para ensaio de pitch and catch.",
+        width=350
+    )
 
     col2.write("No método *pitch and catch* o aparato consiste na associação de transdutores, um de emissão e outro de recepção do sinal acústico, a um osciloscópio. Diferente dos métodos que envolvem impactar o espécime de forma abrupta, neste a emissão origina-se do sinal elétrico enviado pelo osciloscópio através dos cabos a ele conectados, transmissão para o transdutor emissor e conversão do sinal elétrico pelo transdutor em ondas mecânicas que atravessam o material. Os transdutores, dispostos nas faces laterais nos extremos da amostra longilínea, são responsáveis pela emissão e recepção do sinal. Neste ensaio, o transdutor receptor, capta o sinal e o osciloscópio mostra a amplitude da tensão em volts como função do tempo. Esse método também pode ser utilizado na obtenção das grandezas mostradas anteriormente.")
 

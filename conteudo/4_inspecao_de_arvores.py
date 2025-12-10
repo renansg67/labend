@@ -120,20 +120,19 @@ def inspecao_de_arvores():
         )
     )
 
+    col3.image(
+        "imagens/secao1.png",
+        caption="Arranjo de transdutores ao longo da seção transversal.",
+        width=400
+    )
 
-    col2.write("Tanto o alburno como o cerne fazem parte do xilema secundário. O caule aumenta muito mais de diâmetro na periferia. O raio parenquimático tende a sofrer dilatação na região do floema, devido ao maior crescimento da periferia. Ele está presente tanto no xilema quanto no floema. O floema secundário é formado por células condutoras como os elementos de tubo crivado e suas células companheiras, raio parenquimático e tecidos de sustentação, podendo ser fibras ou esclereides. Da mesma forma do que no floema, no câmbio temos as iniciais fusiformes e as radiais. As radiais produzem raio parenquimático para dentro e para fora em relação ao câmbio. Já as fusiformes produzem os elementos de tubo crivado e suas células companheiras e os elementos axiais como fibras e esclereides. Em coníferas o xilema normalmente é composto somente por traqueides e células de raio, raramente parênquima axial. No floema, há presença de células crivadas em sucessão. Devido ao rompimento que ocorre nas camadas de maior diâmetro na epiderme, o felogênio é responsável por produzir súber para fora e feloderme para dentro.")
-
-    data = [
-        {"Atributo": "Folhas", "Gimnospermas": "Aciculifoliadas", "Angiospermas": "Latifoliadas"},
-        {"Atributo": "Elementos de vaso", "Gimnospermas": "Não", "Angiospermas": "Sim"},
-        {"Atributo": "Fruto", "Gimnospermas": "Não", "Angiospermas": "Sim"},
-        {"Atributo": "Exemplos", "Gimnospermas": "Araucária, pinus", "Angiospermas": "Quase todas as nativas"},
-        {"Atributo": "Flores", "Gimnospermas": "Não", "Angiospermas": "Sim"},
-        {"Atributo": "Casca ao redor das sementes", "Gimnospermas": "Não", "Angiospermas": "Sim"},
-        {"Atributo": "Sementes ao redor de um eixo", "Gimnospermas": "Sim", "Angiospermas": "Não"},
-    ]
-
-    col2.table(data)
+    col3.image(
+        "imagens/secao2.png",
+        caption=(
+            "Mapa de calor gerado a partir da interpolação das velocidades ao longo de vários caminhos."
+        ),
+        width=400
+    )
 
     col2.write("As angiospermas englobam as monocotiledôneas (coco, milho, arroz e trigo) e as dicotiledôneas (soja, trigo, amendoim e café).")
 
@@ -199,6 +198,11 @@ def inspecao_de_arvores():
     col2.write("Dessa forma, o hipsômetro constitui uma ferramenta prática e de boa relação custo-benefício, sendo muito utilizada em conjunto com o clinômetro e outros instrumentos de medição, como o trado de incremento ou o radar de penetração, no contexto de inspeções técnicas de árvores urbanas.")
 
     col2.latex(r"H=L(\tan\alpha\pm\tan\beta)")
+
+    col2.image(
+        "imagens/hipsometro.png",
+        caption="Diferentes situações de uso do hipsômetro."
+    )
 
     col2.subheader("Trado de incremento")
 

@@ -50,9 +50,11 @@ def classificacao_madeira_estrutural_page():
 
     col2.subheader("Classificação visual")
 
+    col1, col2, col3 = st.columns([.25, 3, 1.5])
+
     col2.write("Os parâmetros visuais¹ levam em conta a presença de defeitos. Neste caso, dependendo do tamanho dos defeitos diferentes classes podem ser atribuídas à peça, devendo ser descartada para uso estrutural, caso ultrapasse os limites estabelecidos em norma.")
 
-    col2.info("¹Fissuras passantes ou não passantes; Inclinação excessiva das fibras; Dano mecânico; Presença de nós; Ataque biológico; Presença de medula; Bolsas de resina; Distorções dimensionais como: Arqueamento, torcimento, esmoado, encanoamento e encurvamento.")
+    col3.info("¹Fissuras passantes ou não passantes; Inclinação excessiva das fibras; Dano mecânico; Presença de nós; Ataque biológico; Presença de medula; Bolsas de resina; Distorções dimensionais como: Arqueamento, torcimento, esmoado, encanoamento e encurvamento.")
 
     col2.subheader("Classificação mecânica")
 
