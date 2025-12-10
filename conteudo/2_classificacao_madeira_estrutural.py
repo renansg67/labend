@@ -70,5 +70,11 @@ def classificacao_madeira_estrutural_page():
 
     col2.write("O mesmo vale para o módulo de elasticidade obtido no ensaio de flexão estática que, a depender da umidade da peça, precisa ser corrigido conforme a relação mostrada anteriormente.")
 
+    col2.info("""
+        **Referências**
+               
+        * **ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS**. NBR 7190:2022 — Projeto de estruturas de madeira. Rio de Janeiro: ABNT, 2022.      
+    """)
+
 if __name__ == "__main__":
     classificacao_madeira_estrutural_page()

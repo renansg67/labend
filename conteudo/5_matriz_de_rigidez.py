@@ -124,19 +124,6 @@ def matriz_de_rigidez_page():
         \end{bmatrix}
     """)
 
-    col2.write("em termos das velocidade de propagação das ondas longitudinais e transversais")
-
-    col2.latex(r"""
-    C=\rho\begin{bmatrix}
-        V_{11}^{2} & V_{12}^{2} & V_{12}^{2} & & &\\ 
-        & V_{11}^{2} & V_{12}^{2} & & &\\
-        & & V_{11}^{2} & & &\\
-        & & & V_{44}^{2} & & \\
-        & & & & V_{44}^{2} & \\
-        & & & & & V_{44}^{2}\\
-    \end{bmatrix}
-    """)
-
     col2.subheader("Matriz de flexibilidade")
 
     col2.latex(r"""
@@ -275,19 +262,6 @@ def matriz_de_rigidez_page():
     \end{bmatrix}
     """)
 
-    col2.write("em termos das velocidades de propagação das ondas longitudinais, transversais, quase longitudinais e quase transversais, temos")
-
-    col2.latex(r"""
-    C=\rho\begin{bmatrix}
-        V_{11}^{2} & V_{12}^{2} & V_{13}^{2} &&&\\
-        & V_{22}^{2} & V_{23}^{2} &&&\\
-        && V_{33}^{2} &&&\\
-        &&& V_{44}^{2} &&\\
-        &&&& V_{55}^{2} &\\
-        &&&&& V_{66}^{2} \\
-    \end{bmatrix}
-    """)
-
     col2.subheader("Matriz de flexibilidade")
 
     col2.latex(r"""
@@ -309,7 +283,7 @@ def matriz_de_rigidez_page():
         -\dfrac{\nu_{12}}{E_{1}} & \dfrac{1}{E_{2}} & -\dfrac{\nu_{32}}{E_{3}} & & &\\
         -\dfrac{\nu_{13}}{E_{1}} & -\dfrac{\nu_{23}}{E_{2}} & \dfrac{1}{E_{3}} & & &\\
         &&& \dfrac{1}{G_{23}}&&\\
-        &&&& \dfrac{1}{G_{31}}&\\
+        &&&& \dfrac{1}{G_{13}}&\\
         &&&&& \dfrac{1}{G_{12}}\\
     \end{bmatrix}
     """)
@@ -559,6 +533,15 @@ def matriz_de_rigidez_page():
     ]
 
     st.table(data)
+
+    col1, col2, col3 = st.columns([.25, 3, 1.5])
+    col2.info("""
+    **Referências**
+
+    * **BUCUR, Voichita**. Acoustics of Wood. 3. ed. Berlin; Heidelberg: Springer, 2025. ISBN 978-3-662-70208-6
+    * **BEER, F. P.; JOHNSTON JR., E. R.; DEWOLF, J. T.; MAZUREK, D. F.** Mechanics of Materials. 6. ed. New York: McGraw-Hill, 2009.
+
+    """)
 
 if __name__ == "__main__":
     matriz_de_rigidez_page()

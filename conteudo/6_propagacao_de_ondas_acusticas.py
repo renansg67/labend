@@ -242,5 +242,9 @@ def propagacao_de_ondas_acusticas():
 
     col2.write("A alta resolução axial é garantida pela maior largura de banda, caracterizada pela emissão de pulsos de menor duração — pulsos curtos — que conferem essa capacidade ao transdutor.")
 
+    col2.info("""
+    * **AMERICAN SOCIETY FOR NONDESTRUCTIVE TESTING.** ASNT Level III Study Guide: Ultrasonic Testing Method (UT). 2. ed. Columbus, OH: ASNT, 2013.
+    """)
+
 if __name__ == "__main__":
     propagacao_de_ondas_acusticas()

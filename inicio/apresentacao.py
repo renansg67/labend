@@ -30,7 +30,7 @@ def apresentacao_page():
 
         ---
 
-        🧩 **Dica:** Explore o menu superior para navegar entre os diferentes tipos de ensaios e descobrir exemplos, imagens e explicações detalhadas sobre cada técnica.
+        🧩 **Dica:** Explore o menu lateral para navegar entre os diferentes tipos de ensaios e descobrir exemplos, imagens e explicações detalhadas sobre cada técnica.
     """)
     
     with col3.expander("Ultrassom para inspeção de árvores", expanded=True):
@@ -48,17 +48,11 @@ def apresentacao_page():
     #    if st.button("Saiba mais :material/search:", key="termografia"):
     #        st.switch_page("./conteudos/3_inspecao_de_estruturas_de_concreto_e_madeira.py")
 
-    col1, col2, col3, col4 = st.columns([.25, 1.5, 1.5, 1.5])
-    with col2.expander("Ensaio de flexão estática conforme ABNT NBR 7190", expanded=True):
+    with col3.expander("Ensaio de flexão estática conforme ABNT NBR 7190", expanded=True):
         st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Stacked_Timber_Displaying_Growth_Rings.jpg/330px-Stacked_Timber_Displaying_Growth_Rings.jpg")
         if st.button("Saiba mais :material/search:", key="flexao_estatica"):
             #st.switch_page("./conteudo/2_classificacao_madeira_estrutural.py")
             st.switch_page("./conteudo/2_classificacao_madeira_estrutural.py")
-
-    with col3.expander("Livros e materiais para consulta", expanded=True):
-        st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Christen_Dalsgaard_-_In_a_pine_wood._Study_-_Google_Art_Project.jpg/250px-Christen_Dalsgaard_-_In_a_pine_wood._Study_-_Google_Art_Project.jpg")
-        if st.button("Saiba mais :material/search:", key="intro"):
-            st.switch_page("./biblioteca/introducao.py")
             
 
 if __name__ == "__main__":

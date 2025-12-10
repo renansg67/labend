@@ -27,11 +27,11 @@ def materiais_nao_metalicos_page():
                 - [Pitch and catch](#pitch-and-catch)
                 - [Posicionamento dos acelerômetros](#posicionamento-dos-acelerometros)
     ''')
-                                                          
-    col2.header("Início")
-
+                                                        
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
+    col2.header("Início")
+    
     col3.image("https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/HD.6D.698_%2812365544204%29.jpg/960px-HD.6D.698_%2812365544204%29.jpg", caption="Um dispositivo de monitoramento revolucionário, capaz de detectar instantaneamente falhas em soldas, foi desenvolvido no Laboratório do Noroeste do Pacífico como parte do programa de pesquisa e desenvolvimento em ensaios não destrutivos da AEC. (c. 1970)")
 
     col2.write("Quando se fala de materiais de construção não metálicos, pode-se fazer referência tanto às estruturas de concreto quanto às de madeira, que são amplamente utilizadas. O objetivo da utilização de ensaios não destrutivos para a caracterização desses materiais, como tem se apresentado nas últimas décadas com o avanço do conhecimento e das técnicas da área, é complementar e facilitar as análises, além de permitir maior escalabilidade quanto às condições de resistência e rigidez do material ensaiado. Além disso, esse método visa complementar a caracterização realizada por meio de ensaios destrutivos, podendo encurtar o caminho até a caracterização destrutiva, desde que as propriedades da peça ensaiada sejam conhecidas e existam estudos anteriores detalhados o suficiente para validar o ensaio não destrutivo aplicado com boa margem de confiança. Dependendo do tipo de estudo, é possível até dispensar métodos destrutivos, que exigem mais tempo para execução.")
@@ -45,15 +45,20 @@ def materiais_nao_metalicos_page():
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
     col3.image("https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Burden_Poured_Concrete_Bunker_01.jpg/960px-Burden_Poured_Concrete_Bunker_01.jpg", caption="Chris Burden – 'Pouren Concrete Bunker' (2003). Estação ferroviária de Deutschlandsberg, Estíria (Áustria).")
-    col3.image("https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Schmidt_hammer_testing.jpg/250px-Schmidt_hammer_testing.jpg", caption="Testando a resistência à compressão de um cubo de concreto usando um martelo de Schmidt, de forma incorreta. O martelo deveria ser mantido na posição horizontal para evitar o efeito da gravidade na leitura.")
+    
+    col3.info("""
+        **Ensaios não destrutivos em estruturas em concreto: Aplicação e métodos de ensaio**
+              
+        Canal: Instituto de Engenharia
+              
+        [Link para YouTube]("https://www.youtube.com/watch?v=eFt-84qv7TU")
+    """)
 
-    col2.page_link("https://www.youtube.com/watch?v=eFt-84qv7TU", label="Ensaios não destrutivos em estruturas em concreto – aplicação e métodos de ensaio", icon="🧱")
-
-    col2.write("Conforme o livro *Materiais de Construção Civil* de Falcão Bauer, temos os seguintes ensaios")
+    # col2.write("Conforme o livro *Materiais de Construção Civil* de Falcão Bauer, temos os seguintes ensaios")
 
     col2.subheader("Ensaio para medição da dureza superficial")
 
-    col2.write("Este ensaio visa aferir, a partir do impacto, a dureza superficial do concreto, avaliada nos primeiros 2 cm superficiais. Com base na reflexão do embulo um valor adimensional é lido pelo equipamento para cada impacto. Devido à alta repetibilidade de impactos que pode ocorrer neste ensaio, torna-se fundamental seguir a sequência de passos conforme a ABNT NBR 7584:2012 para a calibração adequada do esclerômetro. Para isso, deve ser feito uso de uma bigorna específica para a calibração. Conforme especifica a norma, no mínimo 10 impactos devem ser realizados na bigorna de modo que o índice esclerométrico obtido seja igual a 80. De posse dos índices obtidos, calcula-se o fator de correção do índice esclerométrico médio efetivo associado a uma área de ensaio por meio da equação")
+    col2.write("Este ensaio visa aferir, a partir do impacto, a dureza superficial do concreto, avaliada nos primeiros 2 cm superficiais. Com base na reflexão do êmbulo um valor adimensional é lido pelo equipamento para cada impacto. Devido à alta repetibilidade de impactos que pode ocorrer neste ensaio, torna-se fundamental seguir a sequência de passos conforme a ABNT NBR 7584:2012 para a calibração adequada do esclerômetro. Para isso, deve ser feito uso de uma bigorna específica para a calibração. Conforme especifica a norma, no mínimo 10 impactos devem ser realizados na bigorna de modo que o índice esclerométrico obtido seja igual a 80. De posse dos índices obtidos, calcula-se o fator de correção do índice esclerométrico médio efetivo associado a uma área de ensaio por meio da equação")
 
     col2.latex(r'''
         \begin{equation}
@@ -101,7 +106,7 @@ def materiais_nao_metalicos_page():
         \end{equation}
     ''')
 
-    col2.write("Além dessas relações, outra fundamental diz respeito ao módulo volumétrico κ, obtido quando o elemento de tensão cúbico é submetido a uma pressão em todas as suas faces simultaneamente:")
+    col2.write("Além dessas relações, outra fundamental diz respeito ao módulo volumétrico $\\kappa$, obtido quando o elemento de tensão cúbico é submetido a uma pressão em todas as suas faces simultaneamente:")
 
     col2.latex(r'''
         \begin{equation}
@@ -109,7 +114,7 @@ def materiais_nao_metalicos_page():
         \end{equation}
     ''')
 
-    col2.write("O módulo de elasticidade também pode ser reescrito em função de μ e λ, conforme a equação:")
+    col2.write("O módulo de elasticidade também pode ser reescrito em função de $\\mu$ e $\\lambda$, conforme a equação:")
 
     col2.latex(r'''
         \begin{equation}
@@ -125,7 +130,7 @@ def materiais_nao_metalicos_page():
         \end{equation}
     ''')
 
-    col2.write("Ao derivar a lei de Hooke em função dos parâmetros de Lamé:")
+    col2.write("Ao expressar a lei de Hooke em função dos parâmetros de Lamé:")
 
     col2.latex(r'''
         \begin{equation}
@@ -137,7 +142,7 @@ def materiais_nao_metalicos_page():
         \end{equation}
     ''')
 
-    col2.write("considerando as seguintes condições:")
+    col2.write("considerando as seguintes condições de carregamento:")
 
     col2.latex(r'''
         \begin{equation}
@@ -373,6 +378,16 @@ def materiais_nao_metalicos_page():
     col2.markdown("##### Posicionamento dos acelerômetros")
 
     col2.write("Durante os ensaios em barras de madeira, deve-se atentar quanto ao posicionamento dos acelerômetros na peça, tendo em vista que a intensidade do sinal depende diretamente do local em que eles se encontram ou quais faces eles são apoiados em relação à fonte de impacto.")
+
+    col2.info("""
+        **Referências**
+              
+        * **FALCÃO BAUER**, **L. A.** Materiais de Construção. 6. ed. Rio de Janeiro: LTC – Livros Técnicos e Científicos, 2019.
+              
+        * **17TH INTERNATIONAL NONDESTRUCTIVE TESTING AND EVALUATION OF WOOD SYMPOSIUM**. Proceedings. Vol. 2. [S.l.: s.n.], 2011. ISBN 978-963-98838-3-3.
+    
+        * **ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS**. NBR 7190:2022 — Projeto de estruturas de madeira. Rio de Janeiro: ABNT, 2022.      
+        """)
 
 if __name__ == "__main__":
     materiais_nao_metalicos_page()

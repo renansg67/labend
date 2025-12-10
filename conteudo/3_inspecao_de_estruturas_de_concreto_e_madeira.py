@@ -251,5 +251,21 @@ def inspecao_concreto():
 
     col2.write("No concreto, o ensaio de termografia pode ser utilizado para detectar falhas superficiais ou subsuperficiais cujos defeitos reflitam na radiação captada na superfície do concreto. É comum sua utilização para detectar regiões com desplacamento do concreto, fissuras e regiões com umidade. Em casos específicos é possível detectar a presença das armaduras. Análogo ao que ocorre em estruturas de madeira, no concreto, falhas que promovam a existência de vazios ou umidade na estrutura modificam as propriedades térmicas de condução do material e, consequentemente, regiões sãs e com defeitos aquecem e esfriam em tempos distintos, apresentando gradientes de temperatura que permitem detectar as falhas com melhor direcionamento. Todavia, é um método que requer o uso de outros métodos não destrutivos permitindo que a inspeção seja detalhada o suficiente para estimar os danos, principalmente em regiões profundas e mais internas da estrutura de concreto.")
 
+    col2.info("""
+        **Referências**
+              
+        * **FALCÃO BAUER**, **L. A.** Materiais de Construção. 6. ed. Rio de Janeiro: LTC – Livros Técnicos e Científicos, 2019.
+              
+        * **ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS**. NBR 7190:2022 — Projeto de estruturas de madeira. Rio de Janeiro: ABNT, 2022.      
+        
+        * **ANDRADE, Silvio.** Carbonatação do Concreto. YouTube, 2016. Disponível em: https://www.youtube.com/watch?v=6up9gQ1Doik. Acesso em: 10/12/2025.      
+        
+        * **LEONI, Matheus.** Aula #111 - Ensaio de potencial de corrosão: o que você precisa saber sobre ele?. YouTube, 2023. Disponível em: https://www.youtube.com/watch?v=4pvZt_55DjQ. Acesso em: 10/12/2025.      
+        
+        * **LEONI, Matheus.** Aula #117 Qual câmera térmica comprar para começar na termografia?. YouTube, 2023. Disponível em: https://www.youtube.com/watch?v=wEntHZkZZT0. Acesso em 10/12/2025.
+        
+        * **SANTOS, Ibere.** AULA ON LINE EM 21 10 20 ENSAIO RADIOGRÁFICO. YouTube, 2020. Disponível em: https://www.youtube.com/watch?v=qJqPGt3ucDc. Acesso em: 10/12/25
+        """)
+
 if __name__ == "__main__":
     inspecao_concreto()

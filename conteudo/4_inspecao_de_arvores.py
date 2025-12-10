@@ -206,13 +206,8 @@ def inspecao_de_arvores():
 
     col2.write("O trado de incremento é um equipamento amplamente utilizado em inspeções arbóreas para a coleta de amostras cilíndricas do lenho, permitindo a análise direta das características anatômicas e mecânicas da madeira. O instrumento consiste em uma broca oca de pequeno diâmetro, acoplada a uma manivela, que é introduzida no tronco em profundidade suficiente para retirar um cilindro da madeira interna, denominado testemunho.")
 
-    col3.image("https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Biologist_taking_wood_core_IMG_20201127_121400.jpg/960px-Biologist_taking_wood_core_IMG_20201127_121400.jpg")
-
-    col3.markdown(
-        'Biologist taking wood core, por Serdar Vardar, disponível em [Wikimedia Commons](https://commons.wikimedia.org/wiki/File%3ABiologist_taking_wood_core_IMG_20201127_121400.jpg), licenciada sob **CC BY-SA 4.0**.',
-        unsafe_allow_html=True
-    )
-
+    col3.image("https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Biologist_taking_wood_core_IMG_20201127_121400.jpg/960px-Biologist_taking_wood_core_IMG_20201127_121400.jpg", caption='Biologist taking wood core, por Serdar Vardar, disponível em [Wikimedia Commons](https://commons.wikimedia.org/wiki/File%3ABiologist_taking_wood_core_IMG_20201127_121400.jpg), licenciada sob **CC BY-SA 4.0**.')
+ 
     col2.write("O principal objetivo do uso do trado de incremento é fornecer informações sobre:")
 
     col2.markdown("""
@@ -228,9 +223,9 @@ def inspecao_de_arvores():
 
     col2.write("Assim, o trado de incremento constitui uma ferramenta valiosa para a caracterização do estado interno do tronco e para a obtenção de dados históricos de crescimento, sendo amplamente empregado em inspeções técnicas de árvores urbanas e em estudos de dendrocronologia.")
 
-    col2.subheader("Ensaio de ancoragem ou estabilidade (*Tree pulling test*)")
+    # col2.subheader("Ensaio de ancoragem ou estabilidade (*Tree pulling test*)")
 
-    col2.subheader("Detecção de raiz")
+    # col2.subheader("Detecção de raiz")
 
     col2.subheader("Câmeras termográficas")
 
@@ -252,6 +247,12 @@ def inspecao_de_arvores():
     col2.subheader("Laudo de inspeção")
 
     col2.write("Após a realização da inspeção, o operador deve preencher um laudo visando documentar os procedimentos realizados em campo conforme as informações requeridas pela normal. Com isso, facilita-se a padronização das informações e procedimentos utilizados para a análise independente do operador que estiver realizando a inspeção. Além disso, é válido ressaltar que as técnicas citadas anteriormente podem ou não ser utilizadas em conjunto, cabendo ao profissional envolvido na inspeção decidir entre quais técnicas e métodos utilizar visando obter os dados necessários para a avaliação de risco, desde que todos os passos e procedimentos sejam documentados.")
+
+    col2.info("""
+    **Referências**
+
+    *   **ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS.** NBR 16246-3: Florestas urbanas — Manejo de árvores, arbustos e outras plantas lenhosas — Parte 3: Avaliação de risco de árvores. Rio de Janeiro: ABNT, 2014.
+    """)
 
 if __name__ == "__main__":
     inspecao_de_arvores()

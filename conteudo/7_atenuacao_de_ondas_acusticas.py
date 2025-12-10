@@ -93,5 +93,14 @@ def atenuacao_de_ondas_acusticas():
 
     col2.write("Outra análise relevante foi feita, associada à propagação de ondas acústicas de cisalhamento em amostras com diferentes larguras dos anéis de crescimento. Nota-se que na direção radial, quando se aumenta largura dos anéis, há baixa correlação entre esse aumento e a alteração da velocidade de propagação, com ela tendendo a permanecer constante. Entretanto, na direção tangencial, ao aumentar a largura dos anéis, as ondas de cisalhamento apresentaram aumento de velocidade de propagação.")
 
+    col2.info("""
+    **Referências**
+
+    * **BUCUR, Voichita**. Acoustics of Wood. 3. ed. Berlin; Heidelberg: Springer, 2025. ISBN 978-3-662-70208-6
+              
+    * **AMERICAN SOCIETY FOR NONDESTRUCTIVE TESTING.** ASNT Level III Study Guide: Ultrasonic Testing Method (UT). 2. ed. Columbus, OH: ASNT, 2013.
+    """)
+
+
 if __name__ == "__main__":
     atenuacao_de_ondas_acusticas()
