@@ -3,55 +3,92 @@ import streamlit as st
 def inspecao_concreto():
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
-    col2.title("Ensaios não destrutivos para a inspeção de estruturas de madeira e concreto")
+    # REVISÃO: Título mais conciso
+    col2.title("Ensaios Não Destrutivos na Inspeção de Estruturas de Madeira e Concreto")
 
     col2.expander(":material/book: Sumário", expanded=True).markdown('''
-        - [Ensaios não destrutivos para a inspeção de estruturas de madeira e concreto](#ensaios-nao-destrutivos-para-a-inspecao-de-estruturas-de-madeira-e-concreto)
-            - [Início](#inicio)
-            - [Madeira](#madeira)
-                - [Cronometragem do tempo de viagem da onda de tensão](#cronometragem-do-tempo-de-viagem-da-onda-de-tensao)
-                - [Penetrografia](#penetrografia)
-                - [*Pilodyn*](#pilodyn)
-                - [Tomografia acústica](#tomografia-acustica)
-                - [Tomografia elétrica](#tomografia-eletrica)
-                - [Termografia](#termografia)
-                - [Radar de penetração de solo (GPR)](#radar-de-penetracao-de-solo-gpr)
+        - [Início](#inicio)
+        - [Madeira](#madeira)
+            - [Cronometragem do Tempo de Viagem da Onda de Tensão](#cronometragem-do-tempo-de-viagem-da-onda-de-tensao)
+            - [Penetrografia](#penetrografia)
+            - [*Pilodyn*](#pilodyn)
+            - [Tomografia Acústica](#tomografia-acustica)
+            - [Tomografia Elétrica](#tomografia-eletrica)
+            - [Termografia](#termografia)
+            - [Radar de Penetração de Solo (GPR)](#radar-de-penetracao-de-solo-gpr)
         - [Concreto](#concreto)
-            - [Método eletromagnético (Pacometria)](#metodo-eletromagnetico-pacometria)
-                - [Pacometria no ensaio de esclerometria](#pacometria-no-ensaio-de-esclerometria)
-                - [Pacometria no ensaio de ultrassonografia](#pacometria-no-ensaio-de-ultrassonografia)
-                - [Pacometria no ensaio de potencial de corrosão](#pacometria-no-ensaio-de-potencial-de-corrosao)
-                - [Pacometria no ensaio de resistividade elétrica](#pacometria-no-ensaio-de-resistividade-eletrica)
-                - [Pacometria no ensaio de penetração de pinos](#pacometria-no-ensaio-de-penetracao-de-pinos)
-            - [Ensaio de penetração de pinos](#ensaio-de-penetracao-de-pinos)
-            - [Ensaio de raios X e $\\gamma$](#ensaio-de-raios-x-e-g-gammag)
-            - [Ensaio de inspeção de imagens](#ensaio-de-inspecao-de-imagens)
-            - [Ensaio de profundidade de carbonatação](#ensaio-de-profundidade-de-carbonatacao)
-            - [Ensaio de resistividade elétrica](#ensaio-de-resistividade-eletrica)
-            - [Ensaio de potencial de corrosão](#ensaio-de-potencial-de-corrosao)
-            - [Radar de penetração de solo (GPR)](#radar-de-penetracao-de-solo-gpr)
+            - [Método Eletromagnético (Pacometria)](#metodo-eletromagnetico-pacometria)
+                - [Usos da Pacometria em outros Ensaios](#usos-da-pacometria-em-outros-ensaios)
+            - [Ensaio de Penetração de Pinos](#ensaio-de-penetracao-de-pinos)
+            - [Ensaio de Raios X e $\\gamma$](#ensaio-de-raios-x-e-g-gammag)
+            - [Inspeção por Imagens](#ensaio-de-inspecao-de-imagens)
+            - [Profundidade de Carbonatação](#ensaio-de-profundidade-de-carbonatacao)
+            - [Resistividade Elétrica](#ensaio-de-resistividade-eletrica)
+            - [Potencial de Corrosão](#ensaio-de-potencial-de-corrosao)
+            - [Radar de Penetração de Solo (GPR)](#radar-de-penetracao-de-solo-gpr)
             - [Termografia](#termografia)
     ''')
 
     col2.header("Início")
 
-    col2.write("Quando se trata da inspeção de estruturas os ensaios não destrutivos têm se mostrado boas alternativas para os ensaios destrutivos até então utilizados isoladamente. Entretanto, com o avanço dos vários métodos de inspeção e da tecnologia empregada tornou-se mais ágil e confiável o diagnóstico das estruturas. Estas estão sempre presentes em nosso cotidiano variando entre diferentes tipos de materiais. A madeira por exemplo, ainda pouco empregada na construção de casas no Brasil, possui uso mais corriqueiro em países como os Estados Unidos. O concreto, por sua vez, é amplamente utilizado em todo o país compondo uma variedade de construções civis, sendo mais predominando que a madeira no setor. Todavia, apesar de ambos os materiais serem adequados para diversos tipos de construções e locais para a habitação e lazer humano, elas estão sujeitos ao desgaste e perde de resistência seja devido à fatores naturais decorrentes do tempo atmosférico ou devido a patologias decorrentes de falhas de processo. Sendo assim, inspecionar estruturas que possuem um papel ativo na sociedade sem ocasionar danos ou comprometimento às mesmas requer a utilização de métodos não destrutivos. Nesta seção serão discutidos os principais métodos utilizados tanto em estruturas de madeira quanto em concreto. Vale ressaltar que no caso da madeira, por ela ser proveniente do material biológico estruturas das árvores, diversos métodos que são utilizadas na madeira viva são estendidos para a madeira pós-abatimento, seja nas toras ou em peças estruturais, cabendo ao operador aplicá-las em diferentes contextos conforme a validação científica dos mesmos. Quanto ao concreto, sua inspeção requer levar em conta a presença da armadura em seu interior. Apesar do nome do ensaio ter como palavra chave o concreto, entender o efeito da armadura é fundamental para a tomada de decisão quanto a real qualidade do concreto inspecionado. A análise se iniciará pela madeira, mostrando ensaios como: o de cronometragem do tempo de viagem da onda de tensão, amplamente utilizado no setor florestal para avaliar a qualidade da madeira em árvores; o ensaio de penetrografia, que pode ser utilizado tanto em estruturas quanto em árvores para avaliar a qualidade da madeira do fuste por meio da análise das amplitudes de resistência à penetração e resistência à rotação; O ensaio de Pilodyn, parecido com o anterior no princípio por envolver a inserção de um metal de pequena espessura para aferir a densidade nas camadas mais superficiais; a tomografia acústica, que pode também ser vista como uma generalização do primeiro ensaio (cronometragem), onde vários sensores são distribuídos ao redor do tronco; o de tomografia elétrica, análogo ao anterior, porém ao invés de propagar ondas acústicas propaga-se corrente elétrica; o de termografia, baseado na detecção de falhas por meio das diferenças de temperatura na superfície do material analisado, fornecendo maior direcionamento à inspeção; o teste de tração, onde é realizada uma tração no tronco para simular a ação do vento e são medidas as cargas aplicadas e a deflexão do tronco para determinação da estabilidade e o GPR, utilizado para mapear o posicionamento das raízes das árvores no solo.")
+    # REVISÃO: Texto de introdução dividido para melhor digestão
+    col2.write("""
+        Os ensaios não destrutivos (ENDs) se consolidaram como alternativas confiáveis aos ensaios destrutivos para o diagnóstico de estruturas, oferecendo agilidade e segurança na avaliação estrutural. Estruturas de **concreto** são amplamente utilizadas no Brasil, enquanto a **madeira** é mais comum em outros países, como os Estados Unidos.
+        
+        Ambos os materiais estão sujeitos a desgaste e perda de resistência devido a fatores ambientais ou patologias decorrentes de falhas de projeto/processo. A inspeção, sem causar danos ou comprometimento, exige a aplicação de métodos não destrutivos e semi-destrutivos.
+    """)
+
+    col2.write("""
+        **Pontos-Chave da Inspeção:**
+        
+        * **Madeira:** Muitos métodos aplicados em árvores vivas (setor florestal) são estendidos para a madeira pós-abatimento (toras ou peças estruturais), exigindo validação científica para cada contexto de aplicação.
+        * **Concreto:** A inspeção do concreto armado requer atenção fundamental à presença da **armadura**. O conhecimento sobre o efeito do aço é crucial para a correta avaliação da qualidade do concreto inspecionado.
+    """)
+    # REVISÃO: Removida a longa lista de ensaios na introdução; eles estão no sumário.
 
     col2.header("Madeira")
 
-    col2.subheader("Cronometragem do tempo de viagem da onda de tensão")
+    col2.subheader("Cronometragem do Tempo de Viagem da Onda de Tensão")
 
-    col2.write("Este ensaio baseia-se em estimar o tempo de viagem de ondas de tensão através da seção transversal da madeira visando avaliar a sua qualidade em diferentes direções. O ensaio faz uso de dois acelerômetros que são posicionados diametralmente opostos no tronco da árvore e, com base num impacto induzido nos no tronco, um sistema de medição associado a ambos os acelerômetros capta os sinais transmitido e recebido e obtém o tempo de propagação. Conhecendo-se a distância entre os acelerômetros calcula-se a velocidade de propagação ao longo do tronco. Estudos já foram realizados para algumas espécies visando obter as velocidades típicas para cada uma, visando facilitar o processo de análise da qualidade interior do tronco quanto a presença de decaimento. A partir dos parâmetros de velocidade estabelecidos, dependendo do valor medido é possível aferir com boa assertividade, árvores com deterioração interna. Todavia, é importante ressaltar que a solução pode não ser definitiva em vários casos devido à vasta gama de espécies e características intrínsecas de cada indivíduo e condições ambientais. Desta maneira, a utilização de métodos complementares diretos pode aumentar a confiabilidade da avaliação e evitar que os abatimentos sejam feitos de forma desnecessária para condições de deterioração em que falsos positivos foram detectados. Tais métodos diretos podem envolver o uso de penetrógrafos e Pilodyn nas direções em que as medidas de velocidades gerarem maior dúvida quanto aos estado real do fuste. Também é importante frisar que outros métodos podem ser utilizados visando aumentar a confiabilidade da inspeção, porém, deve-se considerar a viabilidade dos métodos empregados com relação aos custos envolvidos e quanto ao tempo de execução do ensaio por árvore. Estima-se que, em média, o tempo gasto para realizar o ensaio de cronometragem do tempo de viagem da onda de tensão é de cerca de 2 minutos, enquanto um ensaio baseado no mesmo princípio como o de tomografia acústica leva cerca de 30 minutos. Ou seja, em ambos os casos existem incertezas envolvidas que requerem outros ensaios não destrutivos ou semi destrutivos para a validação, porém, lançar mão de ensaios mais longos de serem realizados requer parcimônia e a avaliação de métodos que garantam tanto a confiabilidade e assertividade nos laudos realizados quanto escalabilidade, tendo em vista a atual situação de várias prefeituras do país que não dispõem de recursos mínimos para sequer adquirir equipamentos mais tecnológicos, limitando-se à inspeção visual. É importante ressaltar que cabe aos profissionais envolvidos na inspeção conhecerem cada espécie e o perfil de tomografia ultrassônica e de velocidades ao redor do tronco. Em algumas espécies, ocos no interior do tronco não necessariamente indicam uma condição de alto risco que exija o abatimento da árvore. Todavia, os estudos precisam avançar visando aprimorar os métodos para avaliação de risco nas árvores, tendo em vista que por ser um método indireto que utiliza ondas de tensão que possuem vários fatores que podem influenciar nas medidas, deve-se atentar quanto aos resultados obtidos visando minimizar decisões equivocadas quanto a condição do fuste.")
+    # REVISÃO: Texto mais estruturado com foco nos dois principais usos
+    col2.write("""
+        Este ensaio é baseado na medição do tempo de viagem de ondas de tensão que atravessam a seção transversal da madeira para avaliar sua qualidade .
+        
+        O método utiliza dois acelerômetros posicionados em lados opostos do tronco. Um impacto induzido gera um sinal, e o tempo de propagação entre o emissor e o receptor é registrado. Conhecendo-se a distância, calcula-se a **velocidade de propagação** ao longo do tronco.
+        
+        #### Avaliação da Condição do Fuste
+        
+        Estudos estabelecem velocidades típicas para diferentes espécies. Velocidades mais baixas que o padrão podem indicar **deterioração interna** ou cavidades.
+        
+        * **Limitações:** A vasta gama de espécies e fatores ambientais podem gerar incertezas (falsos positivos/negativos).
+        * **Recomendação:** Recomenda-se o uso de métodos complementares, como penetrógrafos e *Pilodyn*, para aumentar a confiabilidade e evitar o abate desnecessário.
+        * **Custo/Tempo:** Este método é rápido (cerca de 2 minutos), sendo mais escalável que a Tomografia Acústica (cerca de 30 minutos).
+    """)
 
-    col2.write("Retornando ao contexto do ensaio especificado nesta seção, além da avaliação da condição do fuste, é possível utilizar a cronometragem do tempo de viagem na direção longitudinal do tronco visando determinar a orientação das fibras, ou seja, o ângulo que elas formam em relação à vertical. O conceito por trás deste método consiste em posicionar os acelerômetros de modo que uma reta imaginária que os conecta possua diferentes angulações em relação à vertical, podendo começar em zero e aumentar gradualmente abrangendo ângulos pequenos. A rota com menor tempo de propagação é a que apresenta a direção paralela às fibras devido ao caminho preferencial tomado pelo feixe ultrassônico ao atravessar o material. Tal método tem se mostrado útil para a avaliação e apresenta boa correção com o ângulo medido após o abatimento das toras da árvore para confirmação dos resultados.")
+    col2.write("""
+        #### Determinação da Orientação das Fibras
+        
+        Além da inspeção do fuste, a cronometragem longitudinal pode determinar o ângulo das fibras em relação à vertical.
+        
+        * **Princípio:** Os acelerômetros são posicionados em diferentes angulações em relação à vertical.
+        * **Resultado:** A rota que registra o **menor tempo de propagação** é a que indica a direção paralela às fibras, pois o feixe ultrassônico segue este caminho preferencial. Este método tem mostrado boa correlação com medições pós-abatimento.
+    """)
 
     col2.subheader("Penetrografia")
 
-    col2.write("Este ensaio caracteriza-se pela utilização de brocas de pequeno diâmetro -- micro brocas -- que são direcionadas para o interior da madeira e visa oferecer parâmetros associados à resistência à penetração e ao giro da broca durante a perfuração. Ele é considerado invasivo já que ocasiona na abertura de um orifício no material analisado, porém não gera danos à madeira de árvores vivas quando realizado de forma adequada, de modo que as próprias árvores são capazes de cicatrizar e preencher o local com madeira evitando o ataque de insetos ou fungos.")
-
-    col2.write("Dessa forma, o ensaio de penetrografia baseia-se em duas premissas fundamentais: a demanda de potência à penetração e demanda de potência devido à rotação. Na primeira o atrito é desconsiderado e leva-se em conta somente a dificuldade da broca penetrar concentrando-se a análise em sua ponto. Em contrapartida, na demanda de potência devido à rotação, o atrito é uma grandeza de interesse e pode ser utilizado para avaliar a presença de material na porção lateral da broca com base na resistência apresentada.")
-
-    col2.write("Com base nessas duas medidas é possível avaliar a condição do fuste já que a resistência à penetração pode fornecer dados relacionado à densidade do material, enquanto que a resistência à rotação fornece dados associados à presença de material na lateral da broca. O operador, após realizar o ensaio obtém as duas curvas associadas a cada parâmetro medido, também conhecidas como curvas de amplitude. Com base nisso é possível tomar decisões quanto ao estado do tronco após detectar regiões onda há rachaduras internas, regiões de deterioração, cavidades ou galerias e regiões de madeira sã.")
+    # REVISÃO: Uso de lista para as premissas
+    col2.write("""
+        A penetrografia utiliza **micro brocas** de pequeno diâmetro que penetram no interior da madeira, fornecendo parâmetros de resistência à penetração e resistência ao giro.
+        
+        * **Natureza Invasiva:** É considerado um ensaio invasivo por criar um orifício, mas não gera danos estruturais em árvores vivas, que são capazes de cicatrizar o local.
+        
+        O ensaio é baseado em duas premissas fundamentais de demanda de potência:
+        
+        1. **Resistência à Penetração:** Concentra-se na dificuldade da ponta da broca em perfurar o material (relacionada à **densidade**). O atrito lateral é desconsiderado.
+        2. **Resistência à Rotação (Giro):** Concentra-se no atrito lateral, que pode ser usado para avaliar a presença de material na porção lateral da broca.
+        
+        As **curvas de amplitude** obtidas (gráficos de resistência) permitem ao operador diferenciar regiões de **madeira sã** daquelas com rachaduras internas, deterioração, cavidades ou galerias.
+    """)
 
     col2.subheader("*Pilodyn*")
 
@@ -59,33 +96,86 @@ def inspecao_concreto():
 
     col3.image("https://www.researchgate.net/profile/Pieters-M-2/publication/277127938/figure/fig6/AS:669537175367692@1536641510502/The-Pilodyn-wood-tester-De-Pilodyn-houttester.ppm")
 
-    col2.write("Equipamento manual de pequeno porte constituído de uma agulha na ponta. Possui a finalidade de determinar a qualidade da madeira na região mais próxima à casca avaliando se o material apresenta resistência à penetração adequada. Quanto maior a penetração da agulha, menor a densidade da madeira e vice-versa. Representa um método de medida direta da qualidade da madeira, podendo ser utilizado com outras técnicas para melhora da inspeção.")
+    col2.write("""
+        O *Pilodyn* é um equipamento manual, constituído por uma agulha que é disparada na superfície.
+        
+        Sua finalidade é determinar a qualidade da madeira nas **camadas mais próximas à casca** ao avaliar a resistência à penetração da agulha.
+        
+        * **Princípio:** Quanto maior a penetração da agulha, **menor a densidade** da madeira superficial e vice-versa.
+        * **Uso:** É um método de medida direta que pode ser utilizado em conjunto com técnicas indiretas para refinar a inspeção.
+    """)
 
-    col2.subheader("Tomografia acústica")
+    col2.subheader("Tomografia Acústica")
 
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
-    col2.markdown("Este método é caracterizado pelo uso de um equipamento multi sensor com acelerômetros. Os acelerômetros são distribuídos ao redor do tronco, equidistantes e numa mesma altura ao longo da face lateral do tronco¹. O objetivo do ensaio é avaliar a qualidade da madeira no interior do fuste diferenciando entre regiões de madeira sã, com biodeterioração ou cavidades. Para isso, o ensaio baseia-se na propagação de ondas ultrassônicas no interior do tronco. Os múltiplos sensores distribuídos captam o sinal ultrassônico emitido por um acelerômetro impactado pelo martelo sônico e, com base no arranjo e na distribuição dos mesmos ao longo do tronco, determina-se a velocidade de propagação nas diferentes rotas que conectam o acelerômetro emissor aos receptores. Neste ensaio, é necessário que todos os acelerômetros sejam impactados para que a malha de difração tenha a maior quantidade de dados possível. A quantidade de acelerômetros utilizada varia de acordo com o diâmetro do tronco, mas na maior parte dos casos, 8 sensores oferecem análises representativas do estado do fuste.")
-
-    col2.write("Outro aspecto relevante deste ensaio tem relação com os modelos interpoladores utilizados na diferenciação das velocidades. Os modelos entregam gráficos bidimensionais mostrando a seção do tronco analisada variando entre diferentes categorias ou faixas de velocidade. Velocidade mais lentas podem indicar cavidades ou deterioração da madeira no interior, enquanto que velocidade mais altas representam uma condição de madeira sã, com rigidez e resistência adequados.")
+    col2.markdown("""
+        A Tomografia Acústica utiliza um equipamento **multissensor** com acelerômetros distribuídos de forma equidistante e na mesma altura ao redor do tronco¹.
+        
+        O objetivo é avaliar a qualidade interna do fuste, diferenciando:
+        
+        * Regiões de **madeira sã**
+        * Regiões com **biodeterioração**
+        * **Cavidades**
+        
+        O ensaio se baseia na propagação de **ondas ultrassônicas**  (geradas por um martelo sônico) no interior do tronco. Múltiplos sensores captam o sinal, e as **velocidades de propagação** são medidas nas diferentes rotas entre os sensores. Todos os acelerômetros devem ser impactados para maximizar a coleta de dados.
+        
+        **Interpretação dos Resultados:**
+        
+        Os modelos interpoladores geram **gráficos bidimensionais** (tomogramas) da seção transversal do tronco:
+        
+        * **Velocidades Lentas:** Podem indicar cavidades ou deterioração (baixa rigidez).
+        * **Velocidades Altas:** Representam uma condição de madeira sã, com rigidez e resistência adequadas.
+    """)
 
     col3.info("¹As alturas normalmente utilizadas são: Diâmetro à altura do peito (DAP) e diâmetro à altura do solo (DAS). Os mesmos são obtidos a partir da medida da circunferência do tronco. Ao assumir que o tronco é circular, a aproximação das medidas de diâmetro é feita pela equação $D=C/\\pi$ ou $r=C/(2\\pi)$")
 
-    col2.subheader("Tomografia elétrica")
+    col2.subheader("Tomografia Elétrica")
 
-    col2.write("A tomografia elétrica é baseada em múltiplos sensores, de maneira semelhante ao ensaio de tomografia acústica. Porém, ao invés do ensaio ser baseado na propagação de ondas ultrassônicas no interior do tronco, é corrente elétrica. A partir da corrente propagada entre os sensores, mede-se a resistividade elétrica entre os diferentes pontos a partir da malha de difração estabelecida entre eles. Valores de resistividade mais baixos podem indicar locais com presença de deterioração e cavidades no interior do tronco, enquanto que altos valores de resistividade são bons indicativos de madeira sã com rigidez e resistência adequadas. É importante lembrar que esta técnica depende em grande parte da umidade no interior do tronco. Regiões mais úmidas tendem a apresentar menor resistividade, enquanto secas uma maior resistividade. Dessa forma, mesmo que haja cavidades no interior do fuste, ele pode não ser detectado dependendo de sua condição de umidade. A interpretação também requer cuidados, já que altos valores de resistividade no caso de cavidades secas não indicam rigidez e resistência estrutural da árvore. A análise deve ser feita de maneira atenta visando diferenciar regiões secas devido à cavidades ou madeira sã.")
+    # REVISÃO: Uso de lista para a interpretação e foco na limitação da umidade
+    col2.write("""
+        Semelhante à Tomografia Acústica, este método utiliza múltiplos sensores (eletrodos). No entanto, em vez de ondas ultrassônicas, propaga-se **corrente elétrica** no interior do tronco . A resistividade elétrica é medida entre os diferentes pontos.
+        
+        * **Valores Baixos de Resistividade:** Tendem a indicar locais com presença de **deterioração** e cavidades.
+        * **Valores Altos de Resistividade:** São indicativos de **madeira sã** e de rigidez e resistência adequadas.
+        
+        #### Limitação da Umidade
+        
+        Esta técnica é altamente dependente da umidade do tronco.
+        
+        * Regiões mais úmidas apresentam **menor resistividade**.
+        * Regiões secas apresentam **maior resistividade**.
+        
+        A interpretação requer cautela: uma cavidade seca pode apresentar alta resistividade, o que pode levar a um diagnóstico incorreto de madeira sã. É crucial diferenciar regiões secas devido a cavidades de regiões de madeira sã.
+    """)
 
     col2.subheader("Termografia")
 
-    col2.write("A termografia é uma técnica que tem ganhado cada vez mais espaço no país, podendo ser utilizada para encontrar regiões com fissuras ou danos que podem ser visíveis dependendo dos procedimentos utilizados para a análise. Um fator limitante deste ensaio diz respeito aos horários em que a inspeção é realizada, já que o material requer uma janela de aquecimento ou resfriamento que permita ao equipamento registrar as diferenças de cor tendo em vista as mudanças que ocorrem nas propriedades de condutividade térmica do material podendo indicar locais com material degradado ou com cavidades mais internas que impactam na radiação captada nas camadas mais superficiais do mesmo.")
+    col2.write("""
+        A Termografia utiliza câmeras infravermelhas para detectar falhas com base nas **diferenças de temperatura** na superfície do material .
+        
+        Danos (fissuras, vazios ou cavidades) alteram as propriedades de condutividade térmica do material. Regiões sãs e com defeitos aquecem e esfriam em tempos distintos, criando gradientes de temperatura que são registrados pela câmera.
+        
+        * **Fator Limitante:** A inspeção requer uma **janela de aquecimento ou resfriamento** (diferença de temperatura induzida, natural ou artificial) para que o equipamento possa registrar as diferenças térmicas de forma eficaz.
+    """)
 
-    col2.subheader("Radar de penetração de solo (GPR)")
+    col2.subheader("Radar de Penetração de Solo (GPR)")
 
-    col2.write("O radar de penetração de solo, conhecido pela sigle em inglês, GPR, é utilizado para mapear o posicionamento das raízes no solo. Baseado na emissão e recepção de ondas eletromagnéticas em frequências típicas de ondas de rádio por meio de antenas, o sinal captado pela antena receptora é interpretado e, a partir do processamento do mesmo, é possível estimar o posicionamento das raízes de forma indireta com base na diferença de umidade e outros aspectos das raízes em relação ao solo. Estudos já foram realizados visando avaliar a viabilidade de utilizar o GPR na região do tronco da árvore de modo a identificar cavidades e deterioração no fuste. Todavia, ainda não é o método mais indicado em relação a outros mais consolidados como ensaios ultrassônicos e de penetrografia.")
+    col2.write("""
+        O Radar de Penetração de Solo (Ground Penetrating Radar - GPR) baseia-se na emissão e recepção de ondas eletromagnéticas (frequências de rádio) através de antenas .
+        
+        #### Uso Principal (Madeira)
+        
+        Seu uso mais tradicional é no setor florestal para **mapear o posicionamento das raízes** no solo, com base na diferença de umidade e outras propriedades eletromagnéticas entre as raízes e o solo.
+        
+        #### Uso Secundário (Madeira)
+        
+        Estudos exploram a viabilidade do GPR na região do tronco para identificar cavidades e deterioração no fuste. Contudo, ainda não é o método preferencial em comparação a técnicas mais consolidadas como ultrassom e penetrografia.
+    """)
 
     col2.header("Concreto")
 
-    col2.subheader("Método eletromagnético (Pacometria)")
+    col2.subheader("Método Eletromagnético (Pacometria)")
 
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
@@ -94,63 +184,120 @@ def inspecao_concreto():
         caption="Bosch D-tect: detector por radar eletromagnético para localizar tubulações, cabos e estruturas ocultas com precisão."
     )
 
-    col2.write("O método de pacometria utiliza o princípio eletromagnético para detecção de armaduras no concreto. Por meio da detecção, ele é capaz de obter a espessura do cobrimento, ou seja, a distância da superfície do concreto até à da armadura e estimar o diâmetro das armaduras sem necessidade de abertura de janelas de inspeção. Todavia, deve-se levar em conta os erros envolvidos na aferição de acordo com a profundidade das armaduras e seu arranjo no interior do concreto. Para isso, o máximo de informações relacionadas ao projeto da estrutura deve ser coletado visando melhor direcionamento dos profissionais responsáveis pela inspeção. Este ensaio possui a característica de fornecer apoio a diversos outros ensaios, já que em vários destes é necessário realizar mapeamento das armaduras na estrutura. Alguns dos exemplos serão discutidos a seguir para explanar os principais usos da pacometria em conjunto a outros ensaios.")
+    col2.write("""
+        A pacometria utiliza o princípio **eletromagnético** para a detecção de armaduras no concreto . O equipamento é capaz de:
+        
+        * Determinar a **espessura do cobrimento** (distância da superfície do concreto à armadura).
+        * Estimar o **diâmetro das armaduras**.
+        
+        Tudo isso é feito **sem necessidade de abertura** de janelas de inspeção.
+        
+        É essencial coletar o máximo de informações do projeto estrutural para auxiliar na interpretação dos resultados, minimizando erros que podem ocorrer em função da profundidade e do arranjo complexo das armaduras.
+    """)
 
-    col2.markdown("##### Pacometria no ensaio de esclerometria")
+    col2.markdown("##### Usos da Pacometria em outros Ensaios")
 
-    col2.write("No ensaio de esclerometria, a pacometria deve ser realizada previamente visando mapear as armaduras na área de ensaio definida. Tal procedimento deve ser feito tendo em vista a influência que regiões com armadura exercem no índice esclerométrico obtido do impacto do esclerômetro, podendo superestimar o valor real do concreto. Por avaliar a dureza superficial do concreto nos primeiros $20\\,\\text{mm}$ de profundidade, cobrimentos com espessuras menores podem ocasionar imprecisões no ensaio de esclerometria, portanto, torna-se fundamental a detecção magnética de armaduras para a correta aferição do índice esclerométrico efetivo e, consequentemente, sua resistência à compressão.")
+    col2.write("O mapeamento das armaduras fornecido pela pacometria é fundamental para o sucesso de diversos ensaios complementares:")
 
-    col2.markdown("##### Pacometria no ensaio de ultrassonografia")
+    col2.markdown("###### Pacometria no ensaio de esclerometria")
 
-    col2.write("No ensaio de ultrassonografia, é imprescindível conhecer o correto posicionamento das armaduras no interior do concreto. Tendo em vista as diferentes velocidades de propagação do pulso acústico no concreto e no aço, sendo maior no aço, visando obter as propriedades de rigidez do concreto, deve-se considerar a influência que a armadura exerce nas velocidades medidas, de modo a adaptar o ensaio considerando sua influência ou visando distanciar-se da regiões onde a armadura está presente para minimizar seus efeitos na velocidade de propagação acústica. Neste ensaio, regiões com alta concentração de aço podem superestimar os valores de velocidade de propagação no concreto e, consequentemente, na sua resistência à compressão.")
+    col2.write("Deve ser realizada previamente para **evitar áreas com armadura**. A presença de aço superestima o índice esclerométrico, já que o ensaio avalia a dureza superficial (primeiros $20\\,\\text{mm}$). Cobrimentos finos, em especial, podem levar a imprecisões, tornando o mapeamento essencial para aferir a resistência à compressão efetiva do concreto.")
 
-    col2.markdown("##### Pacometria no ensaio de potencial de corrosão")
+    col2.markdown("###### Pacometria no ensaio de ultrassonografia")
 
-    col1, col2, col3 = st.columns([.25, 3, 1.5])
+    col2.write("É imprescindível para **considerar ou evitar a influência do aço**. A velocidade de propagação do pulso acústico é maior no aço que no concreto. Regiões com alta concentração de aço podem superestimar a velocidade medida e, consequentemente, a resistência à compressão do concreto. O mapeamento auxilia a adaptar o ensaio ou a escolher pontos de medição distantes da armadura.")
 
-    col2.write("Neste ensaio a pacometria é fundamental por permitir aos operadores localizar áreas para a abertura de janelas de inspeção para fixar o eletrodo de trabalho.²")
-
-    col3.info("Polo positivo, vermelho.")
-
-    col2.write("O ensaio de potencial de corrosão caracteriza-se por ser semi-destrutivo já que requer uma pequena quebra da estrutura para acesso às armaduras. Com a pacometria, a definição da janela torna-se um procedimento ágil de ser utilizado para que o ensaio seja o mínimo invasivo.")
-
-    col2.markdown("##### Pacometria no ensaio de resistividade elétrica")
-
-    col2.write("No ensaio de resistividade elétrica a pacometria é fundamental. Conforme é descrito no capítulo onde são detalhados os ensaios para inspeção de estruturas de concreto, vê-se que o ensaio de resistividade elétrica pode aferir tanto a predisposição das armaduras à corrosão, quanto a taxa de corrosão caso o fenômeno já tenha se iniciado. Nas duas situações saber a localização das armaduras é fundamental. No primeiro caso, as regiões de armadura tendem a ser evitadas, enquanto no segundo caso, são buscadas regiões com presença de armadura no local de medição da resistividade $\rho$. Portanto, é imprescindível que o ensaio de pacometria seja feito em conjunto com o de resistividade visando melhorar a qualidade dos dados obtidos.")
-
-    col2.markdown("##### Pacometria no ensaio de penetração de pinos")
-
-    col2.write("Neste ensaio, devido ao disparo de pinos em direção ao concreto realizado por um equipamento específico, torna-se imprescindível conhecer o posicionamento das armaduras já que o ensaio visa aferir a resistência à compressão com base na profundidade alcançada pelo pino até que toda a energia cinética e térmica ao longo do percurso fossem dissipadas. Devido à maior rigidez do aço em relação ao concreto, isso pode ocasionar em redução da profundidade de penetração do pino se disparado num região que contenha armaduras, podendo superestimar os valores de resistência já que uma menor profundidade está associada a uma maior resistência.")
-
-    col2.subheader("Ensaio de penetração de pinos")
-
-    col2.write("Neste ensaio, resgatando tópicos relacionados aos ensaios de caracterização do concreto, devido ao fato da profundidade de penetração dos pinos estar associada às propriedades de resistência e rigidez do concreto, ele pode ser enquadrado com um ensaio de inspeção. A inspeção nesse contexto visa, a partir dos dados de resistência e rigidez obtidos do ensaio verificar se o concreto atende ou não os parâmetros requeridos.")
-
-    col2.subheader("Ensaio de raios X e $\\gamma$")
-
-    col2.write("Ensaios deste tipo envolvem a utilização de radiação ionizante que atravessa os corpos de prova ou amostras estudadas e sensibilizam um filme radiográfico. Regiões mais escuras no filme são características de uma maior incidência de radiação, enquanto regiões mais claras evidenciam que a maior parte da radiação foi absorvida pelo material da amostra. Eles são úteis para avaliações qualitativas de estruturas, mas requerem atenção ao manipular os equipamentos devido aos riscos envolvidos à saúde humana, podendo gerar mutações nas células e câncer.")
-
-    col2.write("Apesar de ambos lidarem com radiação ionizante, os dois ensaios se diferenciam em vários aspectos. Os que serão tratados aqui dizem respeito à: Fonte de radiação, energia de radiação, complexidade dos equipamentos, necessidade de energia elétrica, radiação pós-ensaio e espessura das amostras ensaiadas.")
-
-    col2.markdown("O primeiro deles, a fonte de radiação, se difere em ambos. Quando se utiliza raios X, a radiação é proveniente de um tubo de raios catódicos, enquanto que no de raios $\\gamma$ uma pastilha radioativa é responsável pelas emissões. A energia de radiação também se difere. No raio X a energia depende da corrente elétrica $i$ e na tensão $U$ aplicadas e dependem do material a ser ensaiado. Já com raios $\\gamma$, o principal fator associado à energia tem relação com a composição ou elemento constituinte da pastilha radioativa. Alguns elementos geram radiação de maior intensidade, com maior capacidade de penetrar materiais. A complexidade dos equipamentos depende do tipo de material ensaiado. No ensaio de raios X, quanto maior a espessura da amostra, mais robusta é a instalação e equipamentos envolvidos no ensaio.")
+    col2.markdown("###### Pacometria no ensaio de potencial de corrosão")
 
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
-    col2.markdown("Quando se utiliza raios $\\gamma$, o aparato¹ não se altera da mesma forma, já que depende do elemento constituindo da pastilha radioativa para fornecer maior capacidade de penetração. O ensaio de raios X requer o uso de energia elétrica, enquanto o de raios $\\gamma$ não requer. Vale ressaltar que no primeiro, ao cessar o fornecimento de energia elétrica a radiação para de ser emitida. Já no ensaio por raios $\\gamma$, a radiação permanece sendo constantemente emitida, por conta disso, requer isolamento adequado dentro da fonte de radiação, por meio de metais pesados como o chumbo. No que diz respeito à espessura das amostras ensaiadas, o ensaio por raios $\\gamma$ é mais adequado por não exigir mudanças consideráveis no aparato quando comparado ao de raios X.")
+    col2.write("""
+        A pacometria é crucial para **localizar a armadura** e definir o local exato para a abertura de **janelas de inspeção**.
+        
+        O ensaio de potencial de corrosão é semi-destrutivo, pois requer uma pequena quebra para fixar o eletrodo de trabalho (polo positivo, vermelho)². A pacometria assegura que a abertura seja mínima e direcionada, tornando o procedimento o menos invasivo possível.
+    """)
 
-    col3.info("¹O aparato do ensaio de raios $\\gamma$ normalmente consiste num equipamento que permite aos operadores, direcionarem, à distância, a pastilha radioativa até a extremidade de um tubo-guia com colimador para direcionar os raios para a amostra minimizando a exposição dos operadores. Este equipamento apresenta os seguintes elementos: Cabo de controle, podendo ser operado elétrica ou mecanicamente; fonte de radiação, responsável por comportar a pastilha radioativa, por isso requer bom isolamento; tubo-guia, para direcionar a pastilha e colimador. Além disso, o filme radiográfico contendo normalmente sais de prata em sua composição precisa ser disposto na extremidade oposta, ortogonal ao colimador, de modo que a amostra esteja entre ambos.")
+    col3.info("²Polo positivo, vermelho.")
 
-    col2.markdown("Portanto, tendo em vista as características de cada ensaio, o uso deve ser adequado de acordo com a situação de cada inspeção. Em locais mais isolados, onde não é possível ter acesso à energia elétrica, recomenda-se o ensaio de raios $\\gamma$. Porém, em ambos os casos deve-se atentar quanto as condições de execução do ensaio, cercando-se a área com espaçamento adequado visando minimizar os riscos tanto para operadores quanto pessoas não envolvidas na inspeção.")
+    col2.markdown("###### Pacometria no ensaio de resistividade elétrica")
 
-    col2.subheader("Ensaio de inspeção de imagens")
+    col2.write("No ensaio de resistividade elétrica, a pacometria é fundamental em duas situações:")
 
-    col2.write("O ensaio de inspeção de imagens representa uma maneira de, por meio de fotografias tiradas de diferentes locais das estruturas, avaliar possíveis defeitos no material. As imagens capturadas podem fornecer um panorama mais superficial do que ocorre no concreto, porém, devido à facilidade de execução normalmente é o primeiro método não destrutivo empregado para avaliações. Todavia, cabe à operação o entendimento de que nem todas as patologias do concreto são detectadas a olho nu, devendo ser utilizadas outras técnicas complementares para que se tenha melhor detalhamento do real estado da estrutura. Casos como presença de carbonatação por exemplo requerem a realização de ensaios específicos, já que o fenômeno não altera as características visuais do concreto, podendo passar despercebido nas inspeções. Além disso, descontinuidades subsuperficiais e internas são inviáveis de serem avaliadas por imagens da área externa ou superficial do concreto. Dessa forma, é importante lembrar que apesar do método de inspeção de imagens poder ser utilizado para inspeção do concreto, o diagnóstico relacionado ao estado da estrutura não pode ser resumido a este ensaio, sendo imprescindível a utilização de métodos mais tecnológicos além da percepção humana.")
+    col2.write("""
+        1. **Predisposição à Corrosão:** As regiões de armadura tendem a ser **evitadas**, pois o aço (baixa resistividade) influencia a medida superficial do concreto.
+        2. **Taxa de Corrosão:** As regiões de armadura tendem a ser **buscadas** para medições pontuais.
+        
+        Em ambos os casos, o mapeamento preciso das armaduras melhora a qualidade e a confiabilidade dos dados obtidos.
+    """)
 
-    col2.subheader("Ensaio de profundidade de carbonatação")
+    col2.markdown("###### Pacometria no ensaio de penetração de pinos")
+
+    col2.write("É imprescindível para **evitar o disparo de pinos em regiões com armadura**. A maior rigidez do aço, em comparação ao concreto, reduziria a profundidade de penetração do pino, o que resultaria na superestimação dos valores de resistência à compressão do concreto (menor profundidade $\\rightarrow$ maior resistência).")
+
+    col2.subheader("Ensaio de Penetração de Pinos")
+
+    col2.write("O ensaio de penetração de pinos, ao relacionar a profundidade de penetração com as propriedades de resistência e rigidez, pode ser utilizado como ensaio de inspeção. A inspeção, neste contexto, verifica se o concreto atende ou não aos parâmetros de resistência requeridos pelo projeto.")
+
+    col2.subheader("Ensaio de Raios X e $\\gamma$")
+
+    # REVISÃO: Uso de lista para as diferenças e destaque para a segurança
+    col2.write("""
+        Estes ensaios utilizam **radiação ionizante** que atravessa a amostra, sensibilizando um filme radiográfico .
+        
+        * **Regiões Escuras:** Maior incidência de radiação (menor absorção pelo material, como vazios ou defeitos).
+        * **Regiões Claras:** Maior absorção da radiação (material denso, como armaduras ou concreto sadio).
+        
+        **Atenção:** Devido aos riscos à saúde humana (mutações, câncer), é fundamental o cuidado ao manipular os equipamentos.
+    """)
+
+    col2.markdown("#### Diferenças entre Raios X e Raios $\\gamma$")
+    
+    col2.write("Os dois ensaios diferem em vários aspectos:")
+
+    col2.markdown("""
+        * **Fonte de Radiação:**
+            * **Raios X:** Proveniente de um tubo de raios catódicos.
+            * **Raios $\\gamma$:** Emitida por uma pastilha radioativa.
+        * **Energia de Radiação:**
+            * **Raios X:** Depende da corrente elétrica ($i$) e da tensão ($U$) aplicadas, e do material do alvo (tubo).
+            * **Raios $\\gamma$:** Associada à composição do elemento constituinte da pastilha, que define sua capacidade de penetração.
+        * **Complexidade e Logística:**
+            * **Raios X:** Exige energia elétrica. Quanto maior a espessura da amostra, mais robusta é a instalação. Ao cessar a energia, a radiação para.
+            * **Raios $\\gamma$:** Não exige energia elétrica. O aparato é mais constante em função da espessura, dependendo do elemento radioativo. A radiação é constante, exigindo isolamento com metais pesados (chumbo) na fonte.
+        * **Espessura da Amostra:** O ensaio por **Raios $\\gamma$** é geralmente mais adequado para amostras de maior espessura, por não exigir mudanças consideráveis no aparato.
+    """)
 
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
-    col2.markdown("O ensaio de profundidade de carbonatação é imprescindível de ser realizado em estruturas de concreto. Baseado no indicador de fenolftaleína, ele permite diferenciar partes da estrutura que estão com $\\text{pH}>9$ por meio da coloração rosada presente no local. Entretanto, no caso da carbonatação, devido a tendência de redução no valor do pH, regiões carbonatadas tendem a ficar incolores pelo indicador. O fenômeno químico tratado, se não acompanhado e corrigido de forma correta, pode ocasionar sérios riscos à integridade do concreto e das armaduras em seu interior. Ele é caracterizado por não ser visível a olho nu, necessitando do teste indicado anteriormente por meio do indicador de fenolftaleína. No concreto, a presença de carbonatação tende a aumentar a dureza do concreto devido à característica rochosa do material, de modo que sua resistência à compressão tende a aumentar. Todavia, no que diz respeito ao aço das armaduras, ele apresenta um risco à integridade já que colabora para a despassivação das armaduras, aumentando a susceptibilidade do material à corrosão.")
+    col3.info("¹O aparato do ensaio de raios $\\gamma$ normalmente consiste num equipamento que permite aos operadores direcionarem, à distância, a pastilha radioativa até a extremidade de um tubo-guia com colimador. Os elementos são: Cabo de controle; fonte de radiação (com bom isolamento); tubo-guia e colimador. O filme radiográfico é disposto na extremidade oposta, com a amostra entre o colimador e o filme.")
+
+    col2.markdown("#### Conclusão para Uso")
+
+    col2.markdown("O uso deve ser adequado à situação. Em **locais isolados ou sem acesso à energia elétrica**, recomenda-se o ensaio de Raios $\\gamma$. Em ambos os casos, a área deve ser isolada com espaçamento adequado para minimizar os riscos para operadores e o público.")
+
+    col2.subheader("Ensaio de Inspeção de Imagens")
+
+    col2.write("""
+        A inspeção por imagens é um método superficial, geralmente o primeiro a ser empregado, devido à sua facilidade. Consiste na avaliação de possíveis defeitos no material por meio de fotografias tiradas em diferentes locais .
+        
+        * **Limitação:** Nem todas as patologias são detectadas a olho nu.
+        * **Exemplos de Falhas Ocultas:** Carbonatação (não altera características visuais) e descontinuidades subsuperficiais/internas.
+        
+        Portanto, o diagnóstico não pode se resumir a este ensaio, sendo imprescindível a utilização de técnicas complementares e mais tecnológicas para detalhar o estado real da estrutura.
+    """)
+
+    col2.subheader("Ensaio de Profundidade de Carbonatação")
+
+    col1, col2, col3 = st.columns([.25, 3, 1.5])
+
+    col2.markdown("""
+        Este ensaio é crucial em estruturas de concreto . É baseado no indicador de **fenolftaleína**:
+        
+        * **Concreto Alcalino ($\\text{pH}>9$):** Coloração **rosada**.
+        * **Concreto Carbonatado ($\\text{pH}<9$):** Regiões ficam **incolores**.
+        
+        O fenômeno da carbonatação, apesar de aumentar a dureza e a resistência à compressão do concreto (devido à característica rochosa do material), é extremamente prejudicial à armadura, pois **causa a despassivação do aço**, aumentando sua susceptibilidade à corrosão.
+    """)
 
     col3.image("https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Reinforcement_corrosion.JPG/960px-Reinforcement_corrosion.JPG", caption="Corrosion of reinforcement in concrete, dgania b, israel")
 
@@ -160,27 +307,29 @@ def inspecao_concreto():
         width=300
     )
 
-    col2.write("O processo de despassivação ocorre normalmente quando a frente de carbonatação está muito avançada, a ponto de ultrapassar a profundidade das armaduras. Para que a carbonatação ocorra, diferentes elos da cadeia de riscos à estrutura precisam ser ligados. A conexão dos elos depende desde as condições de dimensionamento quanto a utilização de materiais no projeto. Também é cabível citar as condições de confecção da estrutura e suas partes, tendo em vista a execução inadequada desses processos pode aumentar a quantidade de fragilidades na estrutura. A fragilidade é uma função que também depende do ambiente, ou seja, alguns ambientes podem ser mais agressivos ao concreto e degradá-lo com maior velocidade.")
+    col2.write("O processo de despassivação ocorre quando a frente de carbonatação atinge ou ultrapassa a profundidade da armadura (cobrimento). O avanço da carbonatação depende de diversos fatores: o dimensionamento, a qualidade dos materiais, as condições de confecção e as características do ambiente (agressividade).")
 
-    col2.markdown("Para que a carbonatação ocorra, é necessário que o concreto apresente fissuras que viabilizem a entrada de água e gás carbônico em seu interior. O gás carbônico ($\\text{CO}_{2}$) do ar é capaz de reagir com a água no interior das fissuras e produzir o ácido carbônico ($\\text{H}_{2}\\text{CO}_{3}$), conforme a equação abaixo")
+    col2.markdown("#### Reações Químicas da Carbonatação")
+
+    col2.markdown("Para que a carbonatação ocorra, é necessária a entrada de água e gás carbônico ($\\text{CO}_{2}$) em fissuras. O $\\text{CO}_{2}$ reage com a água, produzindo ácido carbônico:")
 
     col2.latex(
         r"\text{H}_{2}\text{O} + \text{CO}_{2} \rightarrow \underset{\text{(Ácido carbônico)}}{\text{H}_{2}\text{CO}_{3}}"
     )
 
-    col2.markdown("Em seguida, o ácido carbônico presente no interior da fissura, reage com o hidróxido de cálcio ($\\text{Ca(OH)}_{2}$ do concreto endurecido, formando o carbonato de cálcio ($\\text{CaCO}_{3}$), conforme a equação abaixo")
+    col2.markdown("O ácido carbônico reage, então, com o hidróxido de cálcio ($\\text{Ca(OH)}_{2}$) do concreto endurecido, formando o carbonato de cálcio ($\\text{CaCO}_{3}$):")
 
     col2.latex(r"\text{H}_2\text{CO}_3 + \text{Ca(OH)}_2 \rightarrow \text{CaCO}_3 + \text{H}_2\text{O}")
 
-    col2.write("Dessa forma, conforme observado nas duas etapas é possível afirmar que além da produção de carbonato de cálcio ocorre uma tendência de diminuição do pH do concreto. O concreto normalmente apresenta pH alcalino, em torno de 13. Entretanto, a produção de carbonato de cálcio tende a modificar o pH de alcalino para neutro na região.")
+    col2.write("Este processo resulta na **diminuição do pH** do concreto (de $\sim 13$ para neutro) na região afetada, o que leva à despassivação e posterior corrosão das armaduras.")
 
-    col2.write("Com o avanço deste processo, a redução de pH na parte em concreto ocasiona numa maior susceptibilidade das armaduras à despassivação e, posteriormente, à corrosão.")
+    col2.markdown("#### Reações Químicas da Corrosão por Carbonatação")
 
-    col2.markdown("O princípio de corrosão considerando um caso em que a frente de carbonatação apresenta avanço acentuado, causando despassivação, depende do ferro presente no aço das armaduras. O ferro em sua forma neutra, ao doar 2 elétrons, é capaz de produzir o íon ferro ($\\text{Fe}^{2+}$), sua forma carregada")
+    col2.markdown("Após a despassivação, o ferro ($\\text{Fe}$) do aço da armadura perde elétrons, formando o íon ferro ($\\text{Fe}^{2+}$):")
 
     col2.latex(r"\text{Fe} \rightarrow \text{Fe}^{2+} + 2\,\text{e}^{-}")
 
-    col2.write("No caso em que as armaduras entram em contato com o oxigênio do ar atmosférico e da água seja pela elevada umidade local ou devido às precipitações, na presença dos elétrons livres presentes na armadura, o íon hidroxila é produzido conforme a equação abaixo")
+    col2.write("Na presença de água e oxigênio (umidade atmosférica), o íon hidroxila ($\\text{OH}^{-}$) é produzido:")
 
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
@@ -191,41 +340,60 @@ def inspecao_concreto():
 
     col2.latex(r"\frac{1}{2}\text{O}_2 + \text{H}_2\text{O} + 2\,\text{e}^{-} \rightarrow 2\,\text{OH}^{-}")
 
-    col2.write("Na presença de água, a hidroxila produzida apresenta maior mobilidade. Na presença do íon ferro produzido na penúltima equação, forma-se o hidróxido de ferro, caracterizado pela camada de ferrugem observada no aço")
+    col2.write("Finalmente, na presença da água (que aumenta a mobilidade da hidroxila), o íon ferro e a hidroxila reagem, formando o hidróxido de ferro (ferrugem):")
 
     col2.latex(r"\text{Fe}^{2+} + 2\,\text{OH}^{-} \rightarrow \underset{\text{Ferrugem}}{\text{Fe(OH)}_2}")
 
-    col2.markdown("A corrosão também pode ocorrer por ação do íon cloreto ($\\text{Cl}^{-}$). Ao atuar no concreto, pode produzir, na presença de água, ácido clorídrico, reduzindo o pH do material, conforme a equação abaixo")
+    col2.markdown("#### Corrosão por Íon Cloreto ($\\text{Cl}^{-}$)")
+
+    col2.markdown("A corrosão também pode ser iniciada pela ação do íon cloreto. O cloreto reage com a água, produzindo ácido clorídrico, que também reduz o pH:")
 
     col2.latex(r"\text{H}_2\text{O} + \text{Cl}^{-} \rightarrow \text{HCl} + \text{O}_2")
 
-    col2.write("Em contrapartida, no aço presente na armadura as etapas de corrosão consistem na produção de cloreto férrico ($\\text{FeCl}_{2}$) a partir da reação entre o íon cloreto e o íon ferro conforme mostrado abaixo")
+    col2.write("Na armadura, o íon cloreto reage com o íon ferro, formando cloreto férrico ($\\text{FeCl}_{2}$):")
 
     col2.latex(r"\text{Fe}^{2+} + 2\,\text{Cl}^{-} \rightarrow \text{FeCl}_2")
 
-    col2.write("e, na presença do íon hidroxila, ocorre a seguinte reação")
+    col2.write("Este, na presença do íon hidroxila, reage formando o hidróxido de ferro (ferrugem):")
 
     col2.latex(r"\text{FeCl}_2 + \text{OH}^{-} \rightarrow \text{Fe(OH)}_2 + 2\,\text{Cl}^{-}")
 
-    col2.subheader("Ensaio de resistividade elétrica")
+    col2.subheader("Ensaio de Resistividade Elétrica")
 
-    col2.markdown("Este ensaio visa avaliar a predisposição que as armaduras possuem à corrosão com base em medidas de resistividade feitas na superfície do concreto. A resistividade $\\rho$, é uma grandeza física que quantifica a dificuldade que um determinado material apresenta em conduzir corrente elétrica e pode ser expressa conforme a equação")
+    col2.markdown("""
+        Este ensaio avalia a **predisposição das armaduras à corrosão** com base na medição da resistividade ($\rho$) na superfície do concreto.
+        
+        A resistividade é uma grandeza física que quantifica a dificuldade do material em conduzir corrente elétrica, expressa geralmente em $\\text{k}\\Omega\\,\\text{cm}$ para concreto.
+    """)
 
     col2.latex(r"\rho=\dfrac{RA}{L}")
 
-    col2.markdown("onde $R$ é a resistência elétrica, medida em $\\Omega$, $A$ é a área da seção transversal do material condutor, e $L$ o comprimento do condutor. Para aferições realizadas no concreto, as medidas são normalmente expressas em $\\text{k}\\Omega\\,\\text{cm}$. Valores mais baixos de resistividade representam um risco à qualidade da estrutura, podendo ocasionar numa menor longevidade e durabilidade do material.")
-
-    col2.write("Deve-se atentar ao realizar o ensaio de resistividade elétrica quanto a idade da estrutura ensaiada. Estruturas recém construídas tendem a apresentar valores mais baixos de resistividade, tendo em vista o maior teor de água em seu interior. Nesse caso, adaptações devem ser realizadas de modo a considerar a idade do concreto. Em estruturas mais antigas, as medidas realizadas tendem a ser mais confiáveis e refletem com maior fidelidade o estado do concreto. Nesse contexto, valores mais altos de resistividade são preferíveis aos mais baixos.")
-
-    col2.write("Outro aspecto importante deste ensaio relaciona-se com o preparo da área de ensaio. Os profissionais que o realizam devem se certificar da: correta limpeza e escarificação da superfície do concreto; evitar áreas com presença de armadura, tendo em vista a influência do aço que reduz a resistividade; áreas com carbonatação, já que esta eleva os valores de resistividade e leva os operadores a interpretações incorretas em relação a durabilidade das armaduras; locais com excesso de umidade e superfícies irregulares, com presença de emboço; entre outros fatores. Dessa forma, ensaios de profundidade de carbonatação e de detecção magnética das armaduras são fundamentais como requisitos pré-ensaio de resistividade.")
+    col2.markdown("""
+        * $R$: resistência elétrica ($\Omega$)
+        * $A$: área da seção transversal do material condutor
+        * $L$: comprimento do condutor
+        
+        **Regra Geral:** Valores mais baixos de resistividade indicam **maior risco de corrosão**, ou seja, menor longevidade e durabilidade.
+        
+        #### Cuidados no Ensaio
+        
+        1. **Idade da Estrutura:** Estruturas recém-construídas apresentam resistividade mais baixa (maior teor de água), exigindo adaptações na interpretação. Estruturas antigas fornecem medidas mais confiáveis.
+        2. **Preparo da Área:** É fundamental certificar-se da limpeza e uniformidade da superfície.
+        3. **Fatores a Evitar:**
+            * Áreas com presença de armadura (aço reduz a resistividade).
+            * Áreas com carbonatação (carbonatação eleva a resistividade e pode levar a interpretações incorretas).
+            * Locais com excesso de umidade ou superfícies irregulares.
+        
+        **Requisito Prévio:** Ensaios de **profundidade de carbonatação** e de **pacometria** (detecção magnética das armaduras) são requisitos fundamentais antes do ensaio de resistividade.
+    """)
 
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
-    col2.write("Tendo em vista a importância da correta interpretação dos dados de ensaio, pesquisadores elaboraram esta tabela mostrando como a avaliação da predisposição das armaduras à corrosão pode ser interpretada com base nos valores obtidos em diferentes condições: Estimativa da probabilidade de corrosão¹ e indicação da taxa de corrosão.²")
+    col2.write("Pesquisadores elaboraram tabelas para facilitar a interpretação da resistividade em relação ao risco e à taxa de corrosão, em diferentes condições de medição:")
 
-    col3.info("¹A aferição deve ser feita na superfície do concreto evitando áreas com presença de armadura.")
+    col3.info("¹Estimativa de Probabilidade: A aferição deve ser feita na superfície do concreto **evitando áreas com armadura**.")
 
-    col3.info("²A aferição deve ser feita na superfície do concreto em áreas com presença de armadura, análogo ao método de potencial de corrosão.")
+    col3.info("²Indicação de Taxa: A aferição deve ser feita na superfície do concreto **em áreas com presença de armadura**.")
 
     data = [
         {"$\\rho (\\text{k}\\Omega\\,\\text{cm})$": "$\\rho\\geq 100$",      "Risco de corrosão": "🟢 Insignificante"},
@@ -249,9 +417,14 @@ def inspecao_concreto():
 
     col2.caption("Indicação da taxa de corrosão.")
 
-    col2.subheader("Ensaio de potencial de corrosão")
+    col2.subheader("Ensaio de Potencial de Corrosão")
 
-    col2.write("O ensaio de potencial de corrosão tem o objetivo de estimar a probabilidade de corrosão nas armaduras com base na diferença de potencial medida entre os polos dos eletrodos de trabalho e de referência. A tabela abaixo mostra as probabilidades de corrosão com base na tensão medida conforme a ASTM 876-C:2022")
+    # REVISÃO: Texto estruturado em lista para os passos e componentes do eletrodo
+    col2.write("O objetivo é estimar a **probabilidade de corrosão** nas armaduras com base na diferença de potencial (tensão) medida entre o eletrodo de trabalho (fixado na armadura) e o eletrodo de referência.")
+
+    col2.table(data)
+    
+    col2.write("A tabela abaixo mostra as probabilidades de corrosão conforme a **ASTM 876-C:2022**:")
 
     data = [
         {"U (mV)": "$U > -200$",        "Probabilidade (%)": "🟢 5"},
@@ -261,22 +434,52 @@ def inspecao_concreto():
 
     col2.table(data)
 
-    col2.write("Para realizar o ensaio, o operador precisa inicialmente definir o lote ou área de inspeção. Em seguida, com um martelo específico, realizar o ensaio de percussão visando encontrar regiões com som cavo. Após isso, o ensaio de pacometria é fundamental para detecção das armaduras conforme é descrito numa seção deste documento. A partir do momento em que a área de ensaio é definida, deve ser realizada a escarificação do local garantindo uniformidade e limpeza do concreto para que os valores de tensão sejam menos influenciados. Em seguida, o operador deve abrir uma janela de inspeção visando acessar parte das armaduras. Nesta etapa, é interessante a realização do ensaio de carbonatação ao longo da janela aberta, já que o ensaio é capaz de, com base na profundidade de carbonatação aferida pelo indicador de fenolftaleína, mostrar se a armadura já passou por processo de despassivação. Após esta etapa, deve aplicar uma solução de tensoativo (detergente) e fixar o eletrodo de trabalho (Vermelho, +) na armadura exposta na janela de inspeção. Com o outro polo -- eletrodo de referência (Porta COM, preto, -) -- realizar as medidas em vários pontos da área de inspeção.")
+    col2.markdown("#### Passos para a Execução do Ensaio ")
 
-    col2.markdown("O eletrodo de referência, normalmente composto por $\\text{Cu}/\\text{CuSO}_{4}$, pode ser confeccionado com os seguintes itens: Tubo roscado nas extremidades; tampa traseira contendo encaixe para o *plug* da porta COM, o-ring e haste de cobre; tampa dianteira contendo o-ring, disco de madeira e esponja; a solução no interior é uma combinação de água e sulfato de cobre até que haja formação de precipitado na solução (ponto de supersaturação).")
+    col2.write("""
+        1. **Definição da Área:** Definir o lote ou área de inspeção.
+        2. **Percussão:** Realizar o ensaio de percussão para encontrar regiões com som cavo.
+        3. **Pacometria:** Utilizar a pacometria para a detecção e mapeamento das armaduras.
+        4. **Preparo:** Escarificação do local para garantir uniformidade e limpeza.
+        5. **Janela de Inspeção:** Abrir uma janela de inspeção para acessar e expor parte da armadura.
+        6. **Carbonatação:** É recomendado realizar o ensaio de carbonatação na janela aberta para verificar a despassivação da armadura.
+        7. **Medição:** Aplicar solução tensoativa (detergente) e fixar o **eletrodo de trabalho** (Vermelho, +) na armadura exposta. Com o **eletrodo de referência** (Porta COM, preto, -) realizar as medidas em vários pontos da área.
+    """)
 
-    col2.write("O tratamento de dados deste ensaio recomendado pela ASTM requer a construção de curvas equipotenciais visando detectar as áreas com maior incidência de corrosão nas armaduras. As medidas para corrigir o processo de corrosão envolvem a utilização de inibidores seguida de inspeções periódicas pós-aplicação para acompanhamento do local.")
+    col2.markdown("#### Eletrodo de Referência ($\\text{Cu}/\\text{CuSO}_{4}$)")
 
-    col2.subheader("Radar de penetração de solo (GPR)")
+    col2.markdown("""
+        O eletrodo de referência de Sulfato de Cobre/Cobre é composto por:
+        * Tubo roscado nas extremidades.
+        * Tampa traseira (encaixe *plug*, o-ring, haste de cobre).
+        * Tampa dianteira (o-ring, disco de madeira, esponja).
+        * Solução interna de água e sulfato de cobre (ponto de supersaturação).
+    """)
 
-    col2.write("No contexto de ensaios envolvendo estruturas de concreto, o GPR se mostra útil para mapeamento das armaduras da estrutura, podendo fornecer modelos 3D de área mapeadas com precisão e permitindo aos profissionais envolvidos ficarem mais a par das condições internas da estrutura, seja em casos em que as informações relacionadas à estrutura são escassas ou para auxiliar em outros tipos de ensaios onde é de interesse da operação saber o posicionamento exato das armaduras no interior do concreto.")
+    col2.write("O tratamento de dados recomendado pela ASTM envolve a construção de **curvas equipotenciais** para mapear as áreas de maior corrosão. A correção do processo de corrosão geralmente envolve o uso de inibidores seguido de inspeções periódicas de acompanhamento.")
+
+    col2.subheader("Radar de Penetração de Solo (GPR)")
+
+    col2.write("""
+        Em estruturas de concreto, o GPR (Radar de Penetração de Solo) é primariamente útil para o **mapeamento das armaduras** .
+        
+        * **Modelagem 3D:** É capaz de fornecer modelos 3D precisos das áreas mapeadas.
+        * **Aplicação:** É essencial quando as informações de projeto são escassas, e também auxilia em outros ensaios que exigem o posicionamento exato das armaduras internas (como pacometria, ultrassom, etc.).
+    """)
 
     col2.subheader("Termografia")
 
-    col2.write("No concreto, o ensaio de termografia pode ser utilizado para detectar falhas superficiais ou subsuperficiais cujos defeitos reflitam na radiação captada na superfície do concreto. É comum sua utilização para detectar regiões com desplacamento do concreto, fissuras e regiões com umidade. Em casos específicos é possível detectar a presença das armaduras. Análogo ao que ocorre em estruturas de madeira, no concreto, falhas que promovam a existência de vazios ou umidade na estrutura modificam as propriedades térmicas de condução do material e, consequentemente, regiões sãs e com defeitos aquecem e esfriam em tempos distintos, apresentando gradientes de temperatura que permitem detectar as falhas com melhor direcionamento. Todavia, é um método que requer o uso de outros métodos não destrutivos permitindo que a inspeção seja detalhada o suficiente para estimar os danos, principalmente em regiões profundas e mais internas da estrutura de concreto.")
+    col2.write("""
+        A Termografia no concreto é usada para detectar **falhas superficiais ou subsuperficiais** que causam diferenças na radiação térmica emitida pela superfície .
+        
+        * **Detecção:** É comum ser utilizada para detectar desplacamento do concreto, fissuras, regiões com umidade ou vazios (ar) na estrutura. Em casos específicos, pode detectar a presença de armaduras.
+        * **Princípio:** Falhas (vazios, umidade) alteram as propriedades de condução térmica do material. Regiões sãs e com defeitos aquecem e esfriam em tempos distintos, apresentando gradientes de temperatura que são detectados pela câmera.
+        
+        **Recomendação:** É um método de direcionamento. Requer o uso de outros ENDs para detalhar e estimar os danos, especialmente em regiões mais profundas e internas da estrutura.
+    """)
 
     col2.info("""
-        **Referências**
+        **Referências Bibliográficas**
               
         * **FALCÃO BAUER**, **L. A.** Materiais de Construção. 6. ed. Rio de Janeiro: LTC – Livros Técnicos e Científicos, 2019.
               

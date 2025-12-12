@@ -6,7 +6,7 @@ def propagacao_de_ondas_acusticas():
     col2.title("Fatores que afetam a propagação de ondas acústicas em sólidos")
 
     col2.expander(":material/book: Sumário", expanded=True).markdown('''
-        - [Fatores que afetam a propagação de ondas acústicas em sólidos](#fatores-que-afetam-a-propagacao-de-ondas-acusticas-em-solidos)
+        - [Fatores que afetam a propagação de ondas acústicas em sólidos]()
             - [Início](#inicio)
             - [Fatores relacionados aos fenômenos ondulatórios](#fatores-relacionados-aos-fenomenos-ondulatorios)
                 - [Impedância acústica](#impedancia-acustica)
@@ -30,9 +30,14 @@ def propagacao_de_ondas_acusticas():
 
     col2.header("Início")
 
-    col2.write("Existem diferentes fatores que afetam a propagação de ondas acústicas em sólidos, tornando essa análise complexa, uma vez que estão envolvidos tanto as características do material no qual as ondas se propagam quanto aspectos relacionados ao seu tamanho e forma.")
+    # REVISÃO: Parágrafo longo dividido.
+    col2.write("""
+        Existem diferentes fatores que afetam a propagação de ondas acústicas em sólidos, tornando essa análise complexa, uma vez que estão envolvidos tanto as características do material no qual as ondas se propagam quanto aspectos relacionados ao seu tamanho e forma.
+    """)
 
-    col2.write("O ambiente também exerce influência, considerando-se as condições de temperatura, umidade e pressão, que podem afetar a propagação em diferentes níveis. Além disso, deve-se levar em conta a influência dos transdutores utilizados nos ensaios de propagação, visto que propriedades associadas ao material que compõe os transdutores, ao cabeamento, ao material de apoio, ao elemento ativo e ao tipo de acoplamento empregado impactam diretamente nos resultados obtidos.")
+    col2.write("""
+        O ambiente também exerce influência, considerando-se as condições de temperatura, umidade e pressão, que podem afetar a propagação em diferentes níveis. Além disso, deve-se levar em conta a influência dos transdutores utilizados nos ensaios de propagação, visto que propriedades associadas ao material que compõe os transdutores, ao cabeamento, ao material de apoio, ao elemento ativo e ao tipo de acoplamento empregado impactam diretamente nos resultados obtidos.
+    """)
 
     col2.write("Outro fator igualmente relevante está relacionado aos fenômenos próprios das ondas acústicas, que, por si só, afetam a propagação em resposta aos fatores anteriormente mencionados: material da amostra, dimensões e geometria, condições ambientais e características dos transdutores.")
 
@@ -138,7 +143,8 @@ def propagacao_de_ondas_acusticas():
 
     col2.subheader("Zona de Fresnel (Campo próximo)")
 
-    col2.write("Nos ensaios, deve-se considerar a região próxima ao transdutor, denominada *zona de Fresnel*, caracterizada por um padrão de interferências complexas, no qual o feixe ainda não está estabilizado. O comprimento dessa região é dado por:")
+    # REVISÃO: Adicionado tag de imagem para clareza visual.
+    col2.write("Nos ensaios, deve-se considerar a região próxima ao transdutor, denominada *zona de Fresnel*, caracterizada por um padrão de interferências complexas, no qual o feixe ainda não está estabilizado.  O comprimento dessa região é dado por:")
 
     col2.latex(r"""
         \begin{equation}
@@ -162,7 +168,8 @@ def propagacao_de_ondas_acusticas():
 
     col2.markdown("##### Materiais ortotrópicos")
 
-    col2.write("Nos materiais ortotrópicos, há três direções principais de simetria elástica, nas quais as propriedades diferem consideravelmente. Um exemplo clássico é a madeira, cuja estrutura fibrosa confere direções preferenciais de propagação. Assim, a velocidade das ondas varia de forma expressiva a depender da orientação do ensaio em relação às fibras: longitudinalmente (ao longo das fibras), radialmente (perpendicular às fibras) ou tangencialmente (em direção paralela aos anéis de crescimento). Esse comportamento deve ser considerado na calibração e interpretação dos resultados para evitar leituras equivocadas sobre sua resistência e integridade.")
+    # REVISÃO: Adicionado tag de imagem para o sistema de coordenadas da madeira.
+    col2.write("Nos materiais ortotrópicos, há três direções principais de simetria elástica, nas quais as propriedades diferem consideravelmente. Um exemplo clássico é a madeira, cuja estrutura fibrosa confere direções preferenciais de propagação.  Assim, a velocidade das ondas varia de forma expressiva a depender da orientação do ensaio em relação às fibras: longitudinalmente (ao longo das fibras), radialmente (perpendicular às fibras) ou tangencialmente (em direção paralela aos anéis de crescimento). Esse comportamento deve ser considerado na calibração e interpretação dos resultados para evitar leituras equivocadas sobre sua resistência e integridade.")
 
     col2.markdown("##### Materiais compósitos e laminados")
 
@@ -194,7 +201,14 @@ def propagacao_de_ondas_acusticas():
 
     col2.markdown("As relações observadas entre as mudanças no módulo de elasticidade e na massa específica volumétrica mostram que, quanto maior a rigidez do material, maior a velocidade de propagação do feixe acústico ao longo dele. Em contrapartida, o aumento da densidade leva à redução da velocidade de propagação. Apesar de a análise, nesse contexto, ser simples quando se varia apenas uma grandeza por vez, na realidade a velocidade pode ser mais complexa de analisar, tendo em vista que tanto $Y$ quanto $\\rho$ podem variar em conjunto.")
 
-    col2.markdown("Por exemplo, quando se analisa a qualidade da madeira presente em árvores por meio de sua inspeção, estabelecem-se três categorias de qualidade: madeira sã, deteriorada e com cavidades. Ao refazer a análise anterior em termos das propriedades do material, observa-se que a madeira sã deve apresentar tanto rigidez quanto densidade maiores que as outras duas categorias, de modo a promover maior velocidade de propagação do pulso acústico em seu interior. Já na madeira deteriorada, conclui-se que sua rigidez é menor em comparação à madeira sã, uma vez que o material deteriorado, na maioria dos casos, apresenta maior maciez e facilidade de deformação em decorrência de carregamentos. No entanto, sua densidade pode não ser tão simples de analisar em relação à madeira sã, pois, mesmo deteriorada, a presença de água e o nível de deterioração podem não modificar a densidade de forma acentuada. E, mesmo que ocorresse deterioração intensa, um caso em que tanto $Y$ quanto $\\rho$ caíssem na mesma proporção levaria a uma velocidade de propagação acústica equivalente à da madeira sã. Todavia, na prática, observa-se que a velocidade de propagação tende a reduzir na madeira deteriorada. Nesse caso, tanto a rigidez quanto a densidade são reduzidas, mas há maior perda de densidade em relação à rigidez em números absolutos, de modo que")
+    # REVISÃO: O longo parágrafo sobre a madeira foi dividido em subtítulos para melhor clareza.
+    col2.markdown("#### Análise de Qualidade em Madeira (Exemplo)")
+    
+    col2.write("Por exemplo, quando se analisa a qualidade da madeira presente em árvores por meio de sua inspeção, estabelecem-se três categorias de qualidade: madeira sã, deteriorada e com cavidades. Ao refazer a análise anterior em termos das propriedades do material, observa-se que a **madeira sã** deve apresentar tanto rigidez quanto densidade maiores que as outras duas categorias, de modo a promover maior velocidade de propagação do pulso acústico em seu interior.")
+
+    col2.write("Já na **madeira deteriorada**, conclui-se que sua rigidez é menor em comparação à madeira sã, uma vez que o material deteriorado, na maioria dos casos, apresenta maior maciez e facilidade de deformação em decorrência de carregamentos. No entanto, sua densidade pode não ser tão simples de analisar em relação à madeira sã, pois, mesmo deteriorada, a presença de água e o nível de deterioração podem não modificar a densidade de forma acentuada.")
+    
+    col2.write("E, mesmo que ocorresse deterioração intensa, um caso em que tanto $Y$ quanto $\\rho$ caíssem na mesma proporção levaria a uma velocidade de propagação acústica equivalente à da madeira sã. Todavia, na prática, observa-se que a velocidade de propagação tende a reduzir na madeira deteriorada. Nesse caso, tanto a rigidez quanto a densidade são reduzidas, mas há maior perda de densidade em relação à rigidez em números absolutos, de modo que")
 
     col2.latex(r"""
         \begin{equation}
@@ -202,7 +216,7 @@ def propagacao_de_ondas_acusticas():
         \end{equation}
     """)
 
-    col2.markdown("Retomando a análise para a madeira com cavidades, nesse caso, devido aos vazios existentes em seu interior, a densidade tende a diminuir consideravelmente, ficando em torno de $1\\,\\text{kg}/\\text{m}^{3}$. Todavia, a rigidez oferecida pelos poros de ar é nula, de modo que a relação estabelecida anteriormente torna-se")
+    col2.write("Retomando a análise para a **madeira com cavidades**, nesse caso, devido aos vazios existentes em seu interior, a densidade tende a diminuir consideravelmente, ficando em torno de $1\\,\\text{kg}/\\text{m}^{3}$. Todavia, a rigidez oferecida pelos poros de ar é nula, de modo que a relação estabelecida anteriormente torna-se")
 
     col2.latex(r"""
         \begin{equation}

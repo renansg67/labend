@@ -32,14 +32,22 @@ def matriz_de_rigidez_page():
 
     col2.header("Início")
 
-    col2.write("As bases teóricas envolvidas na obtenção da matriz de rigidez depende do tipo de material analisado, tendo em vista que ele pode apresentas comportamento elástico distinto em diferentes direções. O capítulo relacionado à atenuação de ondas acústicas em sólidos discute com maior ênfase os diferentes fatores que podem afetar a propagação de ondas acústicas e modificar a sua velocidade ao passar pelo material. Dessa forma, torna-se fundamental entender as características do tipo de material ensaiado visando adequar o tamanho, a forma e o tipo de transdutores utilizados. Diversos estudos foram realizados para avaliação do método de propagação de ondas na avaliação das propriedades de rigidez de um material. É sabido que existe uma correlação entre os coeficientes de rigidez em determinadas direções e as propriedades de resistência e rigidez dos materiais. Prova disso, são os ensaios realizados em amostras de madeira em forma de barra, onde são propagados pulsos ultrassônicos na direção longitudinal e, com o valor da densidade $\\rho$ calcula-se o coeficiente de rigidez definido por")
+    # REVISÃO: O primeiro parágrafo longo foi dividido em dois para facilitar a leitura.
+    col2.write("""
+    As bases teóricas envolvidas na obtenção da matriz de rigidez dependem do tipo de material analisado, tendo em vista que ele pode apresentar comportamento elástico distinto em diferentes direções. O capítulo relacionado à atenuação de ondas acústicas em sólidos discute com maior ênfase os diferentes fatores que podem afetar a propagação de ondas acústicas e modificar a sua velocidade ao passar pelo material. Dessa forma, torna-se fundamental entender as características do tipo de material ensaiado visando adequar o tamanho, a forma e o tipo de transdutores utilizados.
+    """)
+
+    col2.write("Diversos estudos foram realizados para avaliação do método de propagação de ondas na avaliação das propriedades de rigidez de um material. É sabido que existe uma correlação entre os coeficientes de rigidez em determinadas direções e as propriedades de resistência e rigidez dos materiais. Prova disso, são os ensaios realizados em espécimes de madeira, onde são propagados pulsos ultrassônicos na direção longitudinal e, com o valor da densidade $\\rho$ calcula-se o coeficiente de rigidez definido por")
 
     col2.latex(r"C_{LL}=\rho V_{LL}^{2}")
 
     col2.write("Todavia esse método é restrito somente a algumas condições tendo em vista que o comportamento elástico altamente anisotrópico da madeira dificulta a relação do coeficiente de rigidez em outras direções.")
 
-    col2.write("Sabe-se que a rigidez é uma propriedade relacionada à dificuldade de um corpo deformar quando submetido a um carregamento, seja de compressão, tração, cisalhamento ou flexão. A lei de Hooke generalizada, define que um estado tridimensional de tensões em formato cúbico de material isotrópico, quando submetido a esforços de tensão normal e cisalhamento em todas as faces, tem as seguintes deformações específicas em diferentes direções e planos")
+    # REVISÃO: O último parágrafo foi dividido em dois para melhor separação visual do conceito.
+    col2.write("Sabe-se que a rigidez é uma propriedade relacionada à dificuldade de um corpo deformar quando submetido a um carregamento, seja de compressão, tração, cisalhamento ou flexão.")
 
+    col2.write("A lei de Hooke generalizada, define que um estado tridimensional de tensões em formato cúbico de material isotrópico, quando submetido a esforços de tensão normal e cisalhamento em todas as faces, tem as seguintes deformações específicas em diferentes direções e planos")
+    
     col2.latex(r'''
         \begin{array}{rcl}
             \epsilon_{x}&=&\dfrac{1}{E}[\sigma_{x}-\nu(\sigma_{y}+\sigma_{z})]\\

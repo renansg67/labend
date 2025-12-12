@@ -3,42 +3,66 @@ import streamlit as st
 def materiais_nao_metalicos_page():
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
-    col2.title("Ensaios não destrutivos para a caracterização de materiais de construção não metálicos")
+    # REVISÃO: Título mais conciso e profissional
+    col2.title("Ensaios Não Destrutivos (END) em Materiais de Construção Não Metálicos")
 
     col3.image("https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Reciprocal_roof_structure%2C_the_Octagonal_Shelter%2C_Mags_Wood_in_Evanton_Community_Wood_%28geograph_6866216%29.jpg/960px-Reciprocal_roof_structure%2C_the_Octagonal_Shelter%2C_Mags_Wood_in_Evanton_Community_Wood_%28geograph_6866216%29.jpg", caption="Estrutura de Cobertura Recíproca ('Reciprocal Roof'), o Abrigo Octogonal em Mags Wood. **Crédito e Licença:** Julian Paren, via geograph.org.uk (CC BY-SA 2.0).")
 
     col2.expander(":material/book: Sumário", expanded=True).markdown('''
         - [Início](#inicio)
         - [Concreto](#concreto)
-            - [Ensaio para medição da dureza superficial](#ensaio-para-medicao-da-dureza-superficial)
-            - [Ensaio de propagação de ondas de tensão](#ensaio-de-propagacao-de-ondas-de-tensao)
-                - [Método da frequência de ressonância](#metodo-da-frequencia-de-ressonancia)
-                - [Método da propagação de pulso ultrassônico](#metodo-da-propagacao-de-pulso-ultrassonico)
-            - [Ensaio de penetração de pinos](#ensaio-de-penetracao-de-pinos)
+            - [Ensaio de Dureza Superficial (Esclerometria)](#ensaio-de-dureza-superficial-esclerometria)
+            - [Ensaio de Propagação de Ondas de Tensão](#ensaio-de-propagacao-de-ondas-de-tensao)
+                - [Método da Frequência de Ressonância](#metodo-da-frequencia-de-ressonancia)
+                - [Método da Propagação de Pulso Ultrassônico](#metodo-da-propagacao-de-pulso-ultrassonico)
+            - [Ensaio de Penetração de Pinos](#ensaio-de-penetracao-de-pinos)
         - [Madeira](#madeira)
-            - [Métodos utilizando a frequência de ressonância](#metodos-utilizando-a-frequencia-de-ressonancia)
-                - [Método de vibração transversal](#metodo-de-vibracao-transversal)
-                - [Método dos modos de vibração](#metodo-dos-modos-de-vibracao)
-            - [Ensaio de flexão estática](#ensaio-de-flexao-estatica)
-            - [Método da propagação de ondas de tensão](#metodo-da-propagacao-de-ondas-de-tensao)
-                - [Barra viscoelástica submetida a um impacto](#barra-viscoelastica-submetida-a-um-impacto)
-                - [Cronometragem do tempo de propagação da onda de tensão](#cronometragem-do-tempo-de-propagacao-da-onda-de-tensao)
-                - [Método do pulso-eco](#metodo-do-pulso-eco)
-                - [Pitch and catch](#pitch-and-catch)
-                - [Posicionamento dos acelerômetros](#posicionamento-dos-acelerometros)
+            - [Métodos de Frequência de Ressonância](#metodos-utilizando-a-frequencia-de-ressonancia)
+                - [Método de Vibração Transversal](#metodo-de-vibracao-transversal)
+                - [Método dos Modos de Vibração](#metodo-dos-modos-de-vibracao)
+            - [Ensaio de Flexão Estática](#ensaio-de-flexao-estatica)
+            - [Método da Propagação de Ondas de Tensão](#metodo-da-propagacao-de-ondas-de-tensao)
+                - [Barra Viscoelástica Submetida a um Impacto](#barra-viscoelastica-submetida-a-um-impacto)
+                - [Cronometragem do Tempo de Propagação (ToF)](#cronometragem-do-tempo-de-propagacao-da-onda-de-tensao)
+                - [Método do Pulso-Eco](#metodo-do-pulso-eco)
+                - [Pitch and Catch](#pitch-and-catch)
     ''')
-                                                        
+                                
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
     col2.header("Início")
     
     col3.image("https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/HD.6D.698_%2812365544204%29.jpg/960px-HD.6D.698_%2812365544204%29.jpg", caption="Um dispositivo de monitoramento revolucionário, capaz de detectar instantaneamente falhas em soldas, foi desenvolvido no Laboratório do Noroeste do Pacífico como parte do programa de pesquisa e desenvolvimento em ensaios não destrutivos da AEC. (c. 1970)")
 
-    col2.write("Quando se fala de materiais de construção não metálicos, pode-se fazer referência tanto às estruturas de concreto quanto às de madeira, que são amplamente utilizadas. O objetivo da utilização de ensaios não destrutivos para a caracterização desses materiais, como tem se apresentado nas últimas décadas com o avanço do conhecimento e das técnicas da área, é complementar e facilitar as análises, além de permitir maior escalabilidade quanto às condições de resistência e rigidez do material ensaiado. Além disso, esse método visa complementar a caracterização realizada por meio de ensaios destrutivos, podendo encurtar o caminho até a caracterização destrutiva, desde que as propriedades da peça ensaiada sejam conhecidas e existam estudos anteriores detalhados o suficiente para validar o ensaio não destrutivo aplicado com boa margem de confiança. Dependendo do tipo de estudo, é possível até dispensar métodos destrutivos, que exigem mais tempo para execução.")
+    # REVISÃO: Parágrafo 1 - Simplificação e melhoria da fluidez
+    col2.write("""
+        Os materiais de construção não metálicos, como o concreto e a madeira, são amplamente utilizados em estruturas. Nas últimas décadas, com o avanço das técnicas e do conhecimento na área, os Ensaios Não Destrutivos (END) têm sido empregados para complementar e facilitar a caracterização desses materiais.
+        
+        A utilização de ENDs permite maior escalabilidade na avaliação das condições de resistência e rigidez do material ensaiado. Além de complementar os ensaios destrutivos, os ENDs podem, em muitos casos, encurtar o caminho até a caracterização final e, em estudos com correlações bem estabelecidas, até dispensar métodos destrutivos que demandam mais tempo de execução.
+    """)
 
-    col2.write("O concreto, apesar de possuir em seu interior material metálico proveniente das armaduras utilizadas para resistir aos esforços de tração, é avaliado por meio de ensaios específicos voltados às características do próprio concreto, sem considerar o efeito dessas armaduras. Isso permite avaliar a influência dos diversos elementos de sua composição, como cimento, agregados miúdos e graúdos, e o aglomerante (normalmente o cimento), possibilitando sua caracterização a partir de ensaios semidestrutivos e não destrutivos, utilizados para validar os processos de fabricação. Na primeira categoria enquadra-se o ensaio de penetração de pinos, enquanto a segunda contempla métodos como a esclerometria e a propagação de ondas de tensão, incluindo os procedimentos vibracionais e ultrassônicos. Para todos esses ensaios aplicados ao concreto, é sempre importante avaliar os fatores que podem influenciá-los. O material, quando exposto a intempéries em condições inadequadas, pode passar por processos de degradação. Neste capítulo serão abordados os principais fenômenos que podem ocorrer, bem como a importância de uma avaliação prévia das condições de ensaio, de modo a obter dados coerentes quanto às propriedades de resistência à compressão e de rigidez do material. Com base nessas análises e nas devidas considerações, é possível aprimorar tanto os ensaios realizados em laboratório com corpos de prova quanto aqueles conduzidos em estruturas reais. As principais normas brasileiras utilizadas nesta parte são: ABNT NBR 7584:2012, que trata do ensaio de medição da dureza superficial para o concreto endurecido, e ABNT NBR 8802:2019, referente ao ensaio de ultrassom.")
+    # REVISÃO: Parágrafo 2 - Concreto - Simplificação e uso de listas
+    col2.write("""
+        Embora o concreto contenha armaduras metálicas para resistir aos esforços de tração, ele é avaliado por meio de ensaios específicos focados nas características da própria matriz de concreto.
+        
+        Isso possibilita a avaliação da influência de seus diversos componentes (cimento, agregados miúdos e graúdos) e permite a caracterização por meio de:
 
-    col2.write("Comparada ao concreto, diversos métodos de ensaio análogos são utilizados para a madeira, com as devidas adaptações. Por se tratar de um material ortotrópico, ou seja, com propriedades elásticas distintas em três planos ortogonais de isotropia, a maior dificuldade está relacionada à elevada heterogeneidade apresentada pela madeira, que, ao compor estruturas vivas como as árvores, possui diversas particularidades que exigem atenção em sua caracterização. A utilização de ensaios não destrutivos, como o de propagação de ondas de tensão, tem ganhado cada vez mais espaço devido à correlação existente com as propriedades de resistência e rigidez. Além desse método, o ensaio de flexão estática normatizado pela ABNT NBR 7190:2022 estabelece o procedimento adequado para caracterizar a propriedade de rigidez, fornecendo aos profissionais da área a possibilidade de incorporar métodos vibracionais baseados no cálculo do módulo de elasticidade a partir da frequência fundamental de ressonância obtida por meio da análise de Fourier. Nesta parte serão detalhados os métodos de vibração transversal, em que uma barra biapoiada é posta em oscilação após sofrer uma deflexão inicial, e o dos modos de vibração, que permitem calcular propriedades como os módulos de elasticidade longitudinal e transversal a partir dos modos flexionais e torsionais.")
+        * **Ensaios Semidestrutivos:** como o ensaio de penetração de pinos.
+        * **Ensaios Não Destrutivos:** como a esclerometria (dureza superficial) e a propagação de ondas de tensão (procedimentos vibracionais e ultrassônicos).
+
+        Para a aplicação correta desses ensaios, é fundamental uma avaliação prévia dos fatores que podem influenciá-los, como degradação por intempéries. Este capítulo abordará esses fenômenos e a importância de condições de ensaio adequadas para obtenção de dados coerentes de resistência à compressão e rigidez. Tais análises aprimoram tanto os ensaios de laboratório (corpos de prova) quanto os conduzidos em estruturas reais.
+
+        As principais normas brasileiras utilizadas são: **ABNT NBR 7584:2012** (medição da dureza superficial para o concreto endurecido) e **ABNT NBR 8802:2019** (ensaio de ultrassom).
+    """)
+
+    # REVISÃO: Parágrafo 3 - Madeira - Simplificação e melhoria da fluidez
+    col2.write("""
+        Para a madeira, diversos métodos de ensaio análogos aos do concreto são utilizados com as devidas adaptações. Por ser um material **ortotrópico** — apresentando propriedades elásticas distintas em três planos ortogonais de isotropia — a maior dificuldade reside em sua elevada heterogeneidade.
+        
+        A aplicação de ENDs, como a propagação de ondas de tensão, tem crescido devido à correlação com as propriedades de resistência e rigidez. O ensaio de flexão estática, normatizado pela **ABNT NBR 7190:2022**, é essencial para caracterizar a propriedade de rigidez. Essa norma, por sua vez, valida a incorporação de métodos vibracionais que calculam o módulo de elasticidade a partir da frequência fundamental de ressonância, obtida por análise de Fourier.
+
+        Nesta parte, serão detalhados o método de **vibração transversal** (barra biapoiada) e o dos **modos de vibração** (cálculo de módulos de elasticidade longitudinal e transversal a partir de modos flexionais e torsionais).
+    """)
 
     col2.header("Concreto")
 
@@ -51,14 +75,23 @@ def materiais_nao_metalicos_page():
               
         Canal: Instituto de Engenharia
               
-        [Link para YouTube]("https://www.youtube.com/watch?v=eFt-84qv7TU")
+        [Link para YouTube](https://www.youtube.com/watch?v=eFt-84qv7TU)
     """)
 
-    # col2.write("Conforme o livro *Materiais de Construção Civil* de Falcão Bauer, temos os seguintes ensaios")
+    # REVISÃO: Subheader com o termo técnico "Esclerometria"
+    col2.subheader("Ensaio de Dureza Superficial (Esclerometria)")
 
-    col2.subheader("Ensaio para medição da dureza superficial")
-
-    col2.write("Este ensaio visa aferir, a partir do impacto, a dureza superficial do concreto, avaliada nos primeiros 2 cm superficiais. Com base na reflexão do êmbulo um valor adimensional é lido pelo equipamento para cada impacto. Devido à alta repetibilidade de impactos que pode ocorrer neste ensaio, torna-se fundamental seguir a sequência de passos conforme a ABNT NBR 7584:2012 para a calibração adequada do esclerômetro. Para isso, deve ser feito uso de uma bigorna específica para a calibração. Conforme especifica a norma, no mínimo 10 impactos devem ser realizados na bigorna de modo que o índice esclerométrico obtido seja igual a 80. De posse dos índices obtidos, calcula-se o fator de correção do índice esclerométrico médio efetivo associado a uma área de ensaio por meio da equação")
+    # REVISÃO: Quebra de parágrafo 2 em lista para melhor visualização da etapa normativa
+    col2.write("""
+        Este ensaio (Esclerometria) mede, através do impacto, a dureza superficial do concreto, avaliada nos primeiros 2 cm da superfície. A leitura é um valor adimensional baseado na reflexão do êmbulo.
+        
+        Devido à repetibilidade exigida, é crucial seguir rigorosamente a **ABNT NBR 7584:2012** para a calibração e execução:
+        
+        **1. Calibração:**
+        * Utilizar uma bigorna específica.
+        * Realizar no mínimo 10 impactos para obter um índice esclerométrico igual a 80.
+        * O **fator de correção ($k$)** do esclerômetro é calculado a partir dos índices obtidos e do índice nominal ($I_{E_{\text{nom}}}$), fornecido pelo fabricante:
+    """)
 
     col2.latex(r'''
         \begin{equation}
@@ -66,7 +99,17 @@ def materiais_nao_metalicos_page():
         \end{equation}
     ''')
 
-    col2.write("O índice esclerométrico nominal depende do esclerômetro utilizado e deve ser fornecido pelo fabricante do equipamento. O próximo passo é definir a área de ensaio que pode variar de 9 cm² a 20 cm². Nela, pelo menos 16 impactos devem ser realizados, com pontos de impacto distintos e distando pelo menos 3 cm entre si. Com o conjunto de dados em mãos, deve-se calcular o valor do índice esclerométrico médio da área. Feito isso, deve-se descartar índices que destoem em mais de 10% da média calculada. Pelo menos 5 valores devem restar, caso contrário, a área de ensaio deve ser descartada. Com os índices esclerométricos restantes, uma nova média deve ser calculada e nenhum de seus valores deve destoar em mais de 10%. Este valor representa o índice esclerométrico médio, que precisa ser ajustado com base no coeficiente de correção do esclerômetro obtido para cálculo do índice esclerométrico médio efetivo citado anteriormente, pela equação")
+    col2.write("""
+        **2. Ensaio na Área de Interesse:**
+        * Definir uma área de ensaio (entre 9 cm² e 20 cm²).
+        * Realizar pelo menos 16 impactos, com pontos distintos e distando, no mínimo, 3 cm entre si.
+        * Calcular o índice esclerométrico médio da área.
+        * **Descarte:** Eliminar índices que distoem em mais de 10% da média calculada. Pelo menos 5 valores devem ser mantidos para a área ser considerada válida.
+        * Calcular a nova média (Índice Esclerométrico Médio, $I_E$).
+        
+        **3. Ajuste Final:**
+        * O valor final (Índice Esclerométrico Médio Efetivo, $I_{E_\\alpha}$) é ajustado pelo coeficiente de correção ($k$):
+    """)
 
     col2.latex(r'''
         \begin{equation}
@@ -74,15 +117,37 @@ def materiais_nao_metalicos_page():
         \end{equation}
     ''')
 
-    col2.write("É imprescindível que o profissional responsável pelo ensaio tenha em mente a importância de limpar a área de ensaio por meio de polimento utilizando disco ou prisma de carborundum se a limpeza for manual. Utilizar máquina politriz dotada de acessórios para desgaste e polimento da superfície de concreto pode agilizar o procedimento. Superfícies úmidas e carbonatadas devem ser evitadas, tendo em vista que a umidade pode subestimar o índice esclerométrico obtido, enquanto que a carbonatação pode superestimar o valor de índice em decorrência do aumento de dureza da superfície. Ao definir a área de ensaio recomenda-se que a superfície seja vertical e que o esclerômetro seja posicionado corretamente, ortogonal à superfície de impacto. Em áreas com elementos de dimensões menores que 100 mm na direção de impacto (menor espessura), visando evitar fenômenos de ressonância, vibração e dissipação de energia no resultado obtido, deve-se evitar o local. Caso não seja encontrada uma melhor alternativa, deve-se utilizar um apoio na face oposto visando aumentar a rigidez do elemento. Quanto maior a heterogeneidade maior deve ser a quantidade de áreas de ensaio. De cada área de ensaio obtém-se somente um índice esclerométrico médio efetivo.")
+    # REVISÃO: Parágrafo 3 em lista para fatores de influência
+    col2.write("""
+        **Recomendações e Fatores de Influência:**
+
+        * **Preparação da Superfície:** A área deve ser limpa por polimento (disco ou prisma de carborundum, ou máquina politriz).
+        * **Umidade:** Superfícies úmidas devem ser evitadas, pois a umidade tende a **subestimar** o índice.
+        * **Carbonatação:** Concreto carbonatado deve ser evitado, pois a carbonatação tende a **superestimar** o valor, devido ao aumento da dureza superficial.
+        * **Posicionamento:** A superfície de ensaio deve ser preferencialmente vertical, e o esclerômetro deve ser posicionado ortogonalmente à superfície.
+        * **Elementos Estruturais:** Evitar áreas com dimensões menores que 100 mm na direção de impacto, ou usar um apoio na face oposta para aumentar a rigidez do elemento, prevenindo ressonância, vibração e dissipação de energia.
+        * **Heterogeneidade:** Quanto maior a heterogeneidade, maior deve ser a quantidade de áreas de ensaio. Cada área de ensaio fornece apenas um índice esclerométrico médio efetivo.
+    """)
 
     col2.subheader("Ensaio de propagação de ondas de tensão")
 
-    col2.write("Neste tipo de ensaio, a análise se inicia a partir da interpretação do sinal decorrente de ondas mecânicas (acústicas) produzidas no meio, que podem apresentar diferentes frequências de propagação, a depender da forma como o corpo de prova ou a estrutura são excitados. Ondas acústicas audíveis possuem menor frequência em relação às ondas ultrassônicas. As primeiras podem ser produzidas por um impacto na superfície do corpo de prova, enquanto as segundas, por meio do uso de transdutores operando em frequências acima de 20 kHz.")
+    col2.write("""
+        A análise neste ensaio baseia-se na interpretação do sinal de ondas mecânicas (acústicas) produzidas no meio. A frequência de propagação varia conforme a excitação do corpo de prova ou estrutura:
+        
+        * **Ondas Acústicas (Audíveis):** Baixa frequência, produzidas tipicamente por um impacto na superfície.
+        * **Ondas Ultrassônicas:** Frequência acima de 20 kHz, produzidas por transdutores especializados.
 
-    col2.write("Os métodos tratados a seguir envolvem a propagação de ondas de tensão para obtenção da frequência de ressonância ou a propagação de ondas ultrassônicas visando à determinação da velocidade e, consequentemente, do módulo de elasticidade na direção de ensaio. É válido ressaltar que ambos os métodos são dinâmicos, ou seja, o material é submetido à propagação de ondas de tensão que podem ser de curta ou longa duração. No método da frequência de ressonância, o ensaio pode ser realizado em regime transiente, quando há mudança abrupta em seu estado, ou em regime estacionário, quando o material recebe estímulos vibracionais de maior duração. Já no segundo método (propagação de ondas ultrassônicas), por meio de diferentes arranjos de transdutores, determina-se o intervalo entre a emissão e a recepção do sinal acústico e calcula-se a velocidade.")
+        Os métodos subsequentes são dinâmicos e envolvem a propagação de ondas de tensão, que podem ser de curta ou longa duração.
+        
+        * **Método da Frequência de Ressonância:** Pode ser realizado em regime **transiente** (mudança abrupta, impacto) ou **estacionário** (estímulos vibracionais de maior duração).
+        * **Propagação de Ondas Ultrassônicas:** Utiliza diferentes arranjos de transdutores para determinar o intervalo entre a emissão e a recepção do sinal acústico, permitindo o cálculo da velocidade de propagação e, consequentemente, do módulo de elasticidade na direção de ensaio.
+    """)
 
-    col2.write("Diferentes tipos de ondas podem ser utilizados na propagação do feixe acústico no material estudado. As principais empregadas no ensaio são as ondas longitudinais, também chamadas de ondas de pressão ou de compressão, e as ondas transversais, também conhecidas como ondas de cisalhamento. Dependendo do tipo de transdutor utilizado, o tipo de onda transmitida pode variar. Ao utilizar transdutores de ondas longitudinais, a velocidade de propagação obtida pode ser relacionada com a equação")
+    col2.write("""
+        As principais ondas empregadas são: **ondas longitudinais** (pressão ou compressão) e **ondas transversais** (cisalhamento). A escolha do transdutor define o tipo de onda transmitida.
+
+        A velocidade de propagação para ondas longitudinais ($V_{L}$) é dada por:
+    """)
 
     col2.latex(r'''
         \begin{equation}
@@ -90,7 +155,7 @@ def materiais_nao_metalicos_page():
         \end{equation}
     ''')
 
-    col2.write("em que μ e λ são conhecidos como parâmetros de Lamé, que relacionam as propriedades elásticas de um material e permitem simplificar a equação, podendo ainda ser expressos em função de propriedades como o módulo de elasticidade longitudinal, o módulo de elasticidade transversal e o coeficiente de Poisson, conforme mostrado a seguir:")
+    col2.write("em que $\mu$ e $\lambda$ são os parâmetros de Lamé, que relacionam as propriedades elásticas de um material e podem ser expressos em função do módulo de elasticidade longitudinal ($E$), do módulo de elasticidade transversal ($G$), e do coeficiente de Poisson ($\nu$):")
 
     col2.latex(r'''
         \begin{matrix}
@@ -98,7 +163,7 @@ def materiais_nao_metalicos_page():
         \end{matrix}
     ''')
 
-    col2.write("Para ondas transversais, a equação é simplificada, não dependendo de λ")
+    col2.write("Para ondas transversais, a equação é simplificada, não dependendo de $\lambda$:")
 
     col2.latex(r'''
         \begin{equation}
@@ -106,7 +171,7 @@ def materiais_nao_metalicos_page():
         \end{equation}
     ''')
 
-    col2.write("Além dessas relações, outra fundamental diz respeito ao módulo volumétrico $\\kappa$, obtido quando o elemento de tensão cúbico é submetido a uma pressão em todas as suas faces simultaneamente:")
+    col2.write("Outras relações fundamentais, como o módulo volumétrico ($\kappa$), obtido sob pressão simultânea em todas as faces, são apresentadas:")
 
     col2.latex(r'''
         \begin{equation}
@@ -114,7 +179,7 @@ def materiais_nao_metalicos_page():
         \end{equation}
     ''')
 
-    col2.write("O módulo de elasticidade também pode ser reescrito em função de $\\mu$ e $\\lambda$, conforme a equação:")
+    col2.write("O módulo de elasticidade ($E$) e o coeficiente de Poisson ($\nu$) também podem ser reescritos em função de $\mu$ e $\lambda$:")
 
     col2.latex(r'''
         \begin{equation}
@@ -122,7 +187,7 @@ def materiais_nao_metalicos_page():
         \end{equation}
     ''')
 
-    col2.write("enquanto o coeficiente de Poisson pode ser expresso por:")
+    col2.write("e")
 
     col2.latex(r'''
         \begin{equation}
@@ -130,11 +195,11 @@ def materiais_nao_metalicos_page():
         \end{equation}
     ''')
 
-    col2.write("Ao expressar a lei de Hooke em função dos parâmetros de Lamé:")
+    col2.write("Ao expressar a lei de Hooke em função dos parâmetros de Lamé, considerando as tensões principais ($\sigma$) e as deformações principais ($u$):")
 
     col2.latex(r'''
         \begin{equation}
-            \begin{array}{rcl}   
+            \begin{array}{rcl}   
                 \sigma_{xx}&=&(2\mu+\lambda)u_{xx}+\lambda(u_{yy}+u_{zz})\\
                 \sigma_{yy}&=&(2\mu+\lambda)u_{yy}+\lambda(u_{xx}+u_{zz})\\
                 \sigma_{zz}&=&(2\mu+\lambda)u_{zz}+\lambda(u_{xx}+u_{yy})
@@ -142,7 +207,7 @@ def materiais_nao_metalicos_page():
         \end{equation}
     ''')
 
-    col2.write("considerando as seguintes condições de carregamento:")
+    col2.write("e as seguintes condições de carregamento:")
 
     col2.latex(r'''
         \begin{equation}
@@ -156,15 +221,18 @@ def materiais_nao_metalicos_page():
         \end{equation}
     ''')
 
-    col2.markdown("chega-se às equações que relacionam $\\lambda=f(E,\\nu)$, $\\nu=f(\\mu,\\lambda)$ e $E=f(\\mu,\\lambda)$")
+    # REVISÃO: Conclusão do bloco matemático mais clara
+    col2.markdown("a partir das quais se derivam as equações que relacionam $\\lambda=f(E,\\nu)$, $\\nu=f(\\mu,\\lambda)$ e $E=f(\\mu,\\lambda)$.")
 
     col2.markdown("##### Método da frequência de ressonância")
 
-    col2.write("No concreto, este ensaio, como mencionado anteriormente, visa obter as propriedades de rigidez do material. Por meio dele, o corpo de prova é colocado sobre um sistema vibratório que pode estar apoiado em diferentes pontos do próprio corpo de prova. A partir disso, o objeto recebe um impacto externo e o sistema de medição do equipamento, conectado a um computador, realiza a análise de sinais com base no intervalo de frequências abrangido pela propagação e retorna o módulo de elasticidade dinâmico do corpo de prova.")
+    col2.write("""
+        No concreto, este ensaio visa determinar as propriedades de rigidez do material. O corpo de prova é posicionado em um sistema vibratório, recebe um impacto externo, e o sistema de medição realiza a análise de sinais com base no intervalo de frequências. O resultado é o **módulo de elasticidade dinâmico** do corpo de prova.
 
-    col2.markdown("Com esse valor, utiliza-se a ABNT NBR 8522-2:2021, que fornece as diretrizes necessárias para o cálculo do módulo de elasticidade estático $E_{\\text{est}}$. Outros métodos, menos automatizados, para a obtenção do módulo de elasticidade estático, baseiam-se em relações empíricas estabelecidas por estudos da área. Nesses métodos, os parâmetros considerados levam em conta características como: massa do corpo de prova; o formato, normalmente confeccionado seguindo o padrão prismático, com seção circular ou retangular; e a própria frequência de ressonância.")
+        A **ABNT NBR 8522-2:2021** fornece as diretrizes para a conversão desse valor no **módulo de elasticidade estático ($E_{\\text{est}}$)**. Métodos empíricos alternativos consideram: massa do corpo de prova ($M$), formato (prismático, circular ou retangular) e a frequência de ressonância ($n$).
+    """)
 
-    col2.write("Uma equação que relaciona todos esses elementos é mostrada a seguir:")
+    col2.write("Uma equação que relaciona esses elementos é:")
 
     col2.latex(r'''
         \begin{equation}
@@ -172,15 +240,20 @@ def materiais_nao_metalicos_page():
         \end{equation}
     ''')
 
-    col2.markdown("em que $C$ é o fator de forma, associado ao tipo de prisma conforme detalhado anteriormente, $M$ é a massa do corpo de prova e $n$ é a frequência de ressonância fundamental.")
+    col2.markdown("em que $C$ é o fator de forma, $M$ é a massa do corpo de prova e $n$ é a frequência de ressonância fundamental.")
 
-    col2.write("Um corpo de prova possui várias frequências de vibração, ou seja, frequências que produzem vibrações de maior amplitude. A fundamental é caracterizada por ser a primeira frequência que gera uma amplitude de vibração destoante das anteriores, também chamada de frequência de ressonância do primeiro harmônico.Um corpo de prova possui várias frequências de vibração, ou seja, frequências que produzem vibrações de maior amplitude. A fundamental é caracterizada por ser a primeira frequência que gera uma amplitude de vibração destoante das anteriores, também chamada de frequência de ressonância do primeiro harmônico.")
+    # REVISÃO: Correção da repetição do parágrafo
+    col2.write("""
+        Um corpo de prova possui várias frequências de vibração que produzem amplitudes elevadas. A **frequência fundamental de ressonância** é caracterizada por ser a primeira frequência (primeiro harmônico) que gera uma amplitude de vibração significativamente maior que as anteriores.
+    """)
 
     col2.markdown("##### Método da propagação de pulso ultrassônico")
 
+    col2.write("O Módulo de Elasticidade Dinâmico ($E_{\\text{din}}$) e a velocidade de propagação do pulso ultrassônico ($V$) são relacionados por:")
+
     col2.latex(r'''
         \begin{equation}
-                E_{\text{din}}=f(\rho,\nu,V)
+            E_{\text{din}}=f(\rho,\nu,V)
         \end{equation}
     ''')
 
@@ -194,7 +267,7 @@ def materiais_nao_metalicos_page():
 
     col2.write("Módulo de elasticidade estático¹")
 
-    col3.info("¹Tanto o módulo de elasticidade estático quanto a resistência à compressão podem ser obtidos de maneira experimental por meio do ensaio de propagação de ondas desde que o concreto ensaiado possua similaridade aqueles em que já foram obtidas as funções dependentes da velocidade do pulso ultrassônico")
+    col3.info("¹Tanto o módulo de elasticidade estático quanto a resistência à compressão podem ser obtidos de maneira experimental por meio do ensaio de propagação de ondas, desde que o concreto ensaiado possua similaridade com aqueles em que já foram estabelecidas funções de correlação dependentes da velocidade do pulso ultrassônico.")
 
     col2.latex(r'''
         \begin{equation}
@@ -214,21 +287,42 @@ def materiais_nao_metalicos_page():
 
     col2.write("Fatores que afetam a velocidade de propagação do pulso ultrassônico no concreto²")
 
-    col3.info("²Idade do concreto; massa específica do concreto; massa específica, tipo e características dos agregados; temperatura e umidade; efeito da armadura (teórico); efeito da armadura em estruturas reais; tipo de cimento; tipo de cura; tipo de adensamento; direção de ensaio")
+    # REVISÃO: Formato de lista no st.info para melhor leitura
+    col3.info("""
+        **²Fatores de Influência:**
+        * Idade do concreto
+        * Massa específica do concreto
+        * Massa específica, tipo e características dos agregados
+        * Temperatura e umidade
+        * Efeito da armadura (teórico e em estruturas reais)
+        * Tipo de cimento
+        * Tipo de cura
+        * Tipo de adensamento
+        * Direção de ensaio
+    """)
 
     col2.subheader("**Ensaio de penetração de pinos**")
 
-    col2.write("Ensaio caracterizado por ser semidestrutivo, no qual se realiza o disparo de um pino com auxílio de um dispositivo carregado com pólvora. O disparo direciona o pino para dentro do corpo de prova ou da estrutura estudada e, com base na profundidade de penetração, estima-se a resistência do concreto à compressão.")
+    col2.write("""
+        Ensaio **semidestrutivo** que utiliza um dispositivo carregado com pólvora para disparar um pino contra o corpo de prova ou estrutura. A resistência do concreto à compressão é estimada com base na profundidade de penetração do pino.
 
-    col2.write("As correlações extraídas nesse ensaio associam a profundidade de penetração à resistência à compressão. Devido a isso, torna-se fundamental conhecer previamente as propriedades do concreto ensaiado em laboratório, a fim de estabelecer correlações de resistência em estruturas reais.")
+        As correlações associam diretamente a profundidade de penetração à resistência à compressão. Por isso, é fundamental um conhecimento prévio das propriedades do concreto (em laboratório) para estabelecer correlações de resistência confiáveis em estruturas reais.
 
-    col2.write("Devem-se também considerar as condições do ensaio e realizar um estudo preliminar para evitar áreas com alta concentração de armaduras, regiões com concreto carbonatado, presença de umidade no material e outros fatores que possam influenciar os resultados.")
+        **Precauções:** Devem ser consideradas as condições do ensaio e um estudo preliminar deve ser realizado para evitar:
+        
+        * Áreas com alta concentração de armaduras.
+        * Regiões com concreto carbonatado ou com presença de umidade.
 
-    col2.write("Além disso, o ensaio deve contemplar concretos endurecidos de maior resistência, de modo que o pino não ultrapasse o limite de penetração estabelecido em norma.")
+        O ensaio é mais indicado para concretos endurecidos de **maior resistência**, assegurando que o pino não exceda o limite de penetração estabelecido pela norma.
+    """)
 
     col2.header("Madeira")
 
-    col2.write("A caracterização de peças em madeira segue o que está estabelecido na ABNT NBR 7190:2022. A norma estabelece que a caracterização das propriedades de resistência e rigidez da madeira devem ser obtidas na condição-padrão, quando a umidade das peças encontra-se em 12%. A umidade em base seca é dada por")
+    col2.write("""
+        A caracterização de peças em madeira segue a **ABNT NBR 7190:2022**. A norma exige que as propriedades de resistência e rigidez sejam obtidas na **condição-padrão**, com a umidade das peças em **12%**.
+
+        A umidade em base seca ($U_{\text{BS}}$) é calculada por:
+    """)
 
     col2.latex(r'''
         \begin{equation}
@@ -237,9 +331,8 @@ def materiais_nao_metalicos_page():
     ''')
 
     col2.markdown(
-        "Além da umidade, deve-se levar em conta os diferentes tipos de densidade que podem ser medidos com amostras de madeira: "
-        "Densidade básica ($\\rho_{\\text{b\\'{a}sica}}$) e densidade aparente ($\\rho_{\\text{aparente}}$). "
-        "Essas grandezas são dadas por:"
+        "Além da umidade, consideram-se os diferentes tipos de densidade medidos em amostras de madeira: Densidade básica ($\rho_{\\text{b\\'{a}sica}}$) e densidade aparente ($\rho_{\\text{aparente}}$). "
+        "Essas grandezas são definidas por:"
     )
 
     col2.latex(r'''
@@ -250,7 +343,7 @@ def materiais_nao_metalicos_page():
         \end{equation}
     ''')
 
-    col2.write("As propriedades de resistência e rigidez podem ser corrigidas conforme as equações abaixo")
+    col2.write("As propriedades de resistência ($f$) e rigidez ($E$) podem ser corrigidas para a umidade-padrão de 12% conforme as seguintes equações, onde $U$ é a umidade atual:")
 
     col2.latex(r'''
         \begin{equation}
@@ -261,13 +354,13 @@ def materiais_nao_metalicos_page():
         \end{equation}
     ''')
 
-    col2.write("Com isso em mente, a caracterização das propriedades de resistência e rigidez pode ser feita utilizando-se diferentes métodos, como: vibração transversal, modos de vibração, flexão estática e de propagação de ondas de tensão.")
+    col2.write("Com essas considerações, a caracterização pode ser realizada utilizando métodos como: vibração transversal, modos de vibração, flexão estática e propagação de ondas de tensão.")
 
     col2.subheader("**Métodos utilizando a frequência de ressonância**")
 
     col2.markdown("##### Método de vibração transversal")
 
-    col2.write("O método de vibração transversal consiste em submeter uma barra de madeira biapoiada nas extremidades a uma deflexão inicial e, em seguida, liberá-la para oscilar verticalmente. A partir dos sistema de medição utilizado, determina-se a frequência de ressonância fundamental e calcula-se o módulo de elasticidade (MOE) por meio da equação")
+    col2.write("O método consiste em submeter uma barra de madeira biapoiada a uma deflexão inicial e liberá-la para oscilar verticalmente. O sistema de medição determina a frequência de ressonância fundamental ($f$), permitindo o cálculo do Módulo de Elasticidade (MOE) por meio da equação:")
 
     col2.latex(r'''
         \begin{equation}
@@ -277,11 +370,19 @@ def materiais_nao_metalicos_page():
 
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
-    col2.write("a partir do aparato experimental abaixo")
+    col2.write("a partir do aparato experimental abaixo:")
 
     col2.markdown("##### Método dos modos de vibração")
 
-    col2.write("O método relacionado aos modos de vibração consiste na análise de Fourier do gráfico de amplitude do sinal num intervalo de frequências. Existem três modos de vibração que normalmente são utilizados e dividem-se em: longitudinal, flexural e torsional. O ensaio envolvendo este método consiste em impactar uma barra de madeira em um das extremidades e, a partir de microfones condensadores localizados na extremidade oposto e com um circuito medidor adequado, obtêm-se o gráfico de ação combinada de deslocamentos flexurais e torsionais. Após a decomposição dos gráficos para cada modo específico de vibração, determinam-se as frequências de ressonância da amostra ensaiada. Com esta grandeza em mãos, torna-se possível calcular o módulo de elasticidade e de cisalhamento, ou módulo de elasticidade transversal, conforme as equações abaixo por meio do modo de vibração longitudinal")
+    col2.write("""
+        Este método envolve a análise de Fourier do gráfico de amplitude do sinal em um intervalo de frequências. Existem três modos de vibração utilizados para caracterização: **longitudinal, flexural e torsional**.
+        
+        O ensaio impacta uma das extremidades da barra de madeira, e microfones condensadores na extremidade oposta, associados a um circuito medidor, capturam o gráfico da ação combinada de deslocamentos. Após a decomposição dos gráficos para cada modo de vibração, são determinadas as frequências de ressonância da amostra.
+
+        Com essa grandeza, é possível calcular o módulo de elasticidade ($E$) e o módulo de cisalhamento ou elasticidade transversal ($G$):
+    """)
+
+    col2.write("Modo de Vibração Longitudinal:")
 
     col2.latex(r'''
         \begin{equation}
@@ -289,7 +390,7 @@ def materiais_nao_metalicos_page():
         \end{equation}
     ''')
 
-    col2.write("modo flexional")
+    col2.write("Modo Flexional:")
 
     col2.latex(r'''
         \begin{equation}
@@ -297,7 +398,7 @@ def materiais_nao_metalicos_page():
         \end{equation}
     ''')
 
-    col2.write("ou modo torsional")
+    col2.write("Modo Torsional:")
 
     col2.latex(r'''
         \begin{equation}
@@ -307,7 +408,9 @@ def materiais_nao_metalicos_page():
 
     col2.subheader("**Ensaio de flexão estática**")
 
-    col2.write("Quando falamos do método de flexão estática, podemos usar tanto o ensaio de 3 pontos quanto o de 4 pontos para a determinação do módulo de elasticidade, porém, com a reformulação da ABNT NBR 7190, para lotes de florestas plantadas não homogêneos, é possível utilizar a parte 4 da norma para determinação do módulo de elasticidade na flexão estática a partir da equação")
+    col2.write("""
+        Para a determinação do módulo de elasticidade, pode-se empregar o ensaio de 3 pontos ou o de 4 pontos. A **ABNT NBR 7190 (Parte 4)** permite a determinação do módulo de elasticidade na flexão estática para lotes de florestas plantadas não homogêneos, utilizando a equação:
+    """)
 
     col2.latex(r'''
         \begin{equation}
@@ -315,7 +418,7 @@ def materiais_nao_metalicos_page():
         \end{equation}
     ''')
 
-    col2.write("obtida por meio da combinação das equações de deflexão no meio do vão livre a partir da equação de Euler e do momento de inércia da seção retangular em torno do eixo de menor inércia da barra")
+    col2.write("Essa equação é obtida pela combinação da equação de Euler para a deflexão no meio do vão livre e do momento de inércia da seção retangular:")
 
     col2.latex(r'''
         \begin{equation}
@@ -325,7 +428,7 @@ def materiais_nao_metalicos_page():
         \end{equation}
     ''')
 
-    col2.write("seguindo o aparato experimental mostrado")
+    col2.write("seguindo o aparato experimental mostrado:")
 
     
     col2.container(horizontal_alignment="center").image(
@@ -334,11 +437,17 @@ def materiais_nao_metalicos_page():
         width=650
     )
 
-    col2.markdown("A premissa do ensaio é ser não destrutivo, por conta disso, a carga $\\Delta F$ aplicada é de $10\\%$ a $40\\%$ da máxima para ruptura da peça, e precisa ser estimada antes da realização do ensaio de flexão estática. Com a deflexão máxima $\\Delta e$ obtida por sensores de deslocamento, calcula-se o módulo de elasticidade $E_{0}$.")
+    col2.markdown("""
+        Para que o ensaio seja considerado **não destrutivo** (ou minimamente destrutivo), a carga $\Delta F$ aplicada deve ser limitada a **$10\\%$ a $40\\%$ da carga máxima de ruptura** da peça, a qual precisa ser estimada previamente. O módulo de elasticidade $E_{0}$ é então calculado a partir da deflexão máxima $\Delta e$, obtida por sensores de deslocamento.
+    """)
 
     col2.subheader("Método da propagação de ondas de tensão")
 
-    col2.markdown("Por fim, o método de propagação de ondas de tensão, envolve a propagação de ondas ultrassônicas por meio do impacto -- regime transiente -- ou por meio de transdutores que emitem feixes ultrassônicos com frequências acima da audível por humanos,  caracterizando o regime estacionário. Ambos os métodos podem ser utilizados em diferentes contextos de ensaios, como: Cronometragem do tempo de viagem do pulso acústico, pulso-eco e pitch and catch.")
+    col2.markdown("""
+        O método de propagação de ondas de tensão envolve a transmissão de ondas ultrassônicas, seja por **impacto** (regime transiente) ou por **transdutores** que emitem feixes com frequências acima da audível (regime estacionário).
+
+        Ambos os regimes são utilizados em diferentes contextos de ensaio: Cronometragem do Tempo de Propagação (ToF), Pulso-Eco e Pitch and Catch.
+    """)
 
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
@@ -350,9 +459,13 @@ def materiais_nao_metalicos_page():
 
     col2.markdown("##### Barra viscoelástica submetida a um impacto")
 
-    col2.write("Para introduzir esses métodos, considere uma barra viscoelástica submetida a um impacto em uma das extremidades. Análogo ao que foi feito anteriormente para obtenção dos diferentes modos de vibração, a amostra é excitada repentinamente, num impacto de curta duração, produzindo, na extremidade impactada, uma onda de compressão/pressão que atravessa o material longitudinalmente até atingir a face da extremidade oposta, marcando o limite da interface madeira-ar. Devido à grande diferença de impedância acústica entre os dois meios, e considerando que o feixe acústico incide ortogonal à interface, a quase totalidade do feixe é refletida. Porém, a onda de compressão torna-se uma onda de tração, com a direção de vibração horizontal das partículas permanecendo inalterada, tendo em mente que a onda é longitudinal.")
+    col2.write("""
+        Para introduzir os métodos a seguir, considere uma barra viscoelástica submetida a um impacto (curta duração) em uma das extremidades. Uma onda de compressão é produzida e atravessa o material longitudinalmente até a interface madeira-ar na extremidade oposta.
+        
+        Devido à grande diferença de impedância acústica, a quase totalidade do feixe é refletida. A onda de compressão é convertida em onda de tração, mas a direção de vibração das partículas, na direção longitudinal, permanece inalterada.
 
-    col2.write("A intensidade do sinal ultrassônico decai quanto maior a distância percorrida pelo feixe ultrassônico dentro do material. Utilizando-se um osciloscópio, com o sinal recebido, determina-se a curva de atenuação do sinal descrita pela equação")
+        A intensidade do sinal ultrassônico decai exponencialmente com a distância percorrida ($x$), conforme a curva de atenuação:
+    """)
 
     col2.latex(r'''
         \begin{equation}
@@ -360,11 +473,9 @@ def materiais_nao_metalicos_page():
         \end{equation}
     ''')
 
-    col2.markdown("nela, um dos parâmetros de maior interesse é o coeficiente de atenuação $\\alpha$, que descreve o quanto o sinal decai com base na distância percorrida, dado em dB/m")
+    col2.markdown("em que o **coeficiente de atenuação ($\\alpha$)** (em dB/m) descreve o decaimento do sinal em função da distância percorrida. Esta sequência de eventos é fundamental para a compreensão dos próximos ensaios.")
 
-    col2.write("Tal sequência de eventos é fundamental para o entendimento dos 3 ensaios citados anteriormente.")
-
-    col2.markdown("##### Cronometragem do tempo de propagação da onda de tensão")
+    col2.markdown("##### Cronometragem do tempo de propagação da onda de tensão (ToF)")
     
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
@@ -374,7 +485,13 @@ def materiais_nao_metalicos_page():
         width=350
     )
 
-    col2.write("No ensaio de cronometragem do tempo de viagem do pulso acústico, a extremidade impactada pode possuir tanto acelerômetros quanto transdutores dependendo do circuito utilizado para a medição. Fundamentalmente, esse tipo de ensaio requer que os sensores sejam posicionados nas extremidades da barra nas faces laterais, já que o impacto ocorre na seção transversal. Associados a um cronômetro, um acelerômetro é responsável por captar o sinal da onda de compressão e iniciar a contagem do cronômetro. O pulso, ao alcançar a extremidade oposta é detectado por outro acelerômetro que envia o sinal para o cronômetro pausar a contagem. A partir do tempo obtido e utilizando conceitos de cinemática do movimento retilíneo e uniforme, determina-se a velocidade de propagação conhecendo-se o comprimento da barra ensaiada")
+    col2.write("""
+        Neste ensaio (Time of Flight - ToF), os sensores (acelerômetros ou transdutores) são tipicamente posicionados nas faces laterais das extremidades da barra. O impacto ocorre na seção transversal.
+        
+        Um acelerômetro capta o sinal da onda de compressão e inicia a contagem do cronômetro. Ao alcançar a extremidade oposta, o pulso é detectado pelo segundo acelerômetro, que pausa a contagem.
+
+        Com o tempo ($\Delta t$) e o comprimento da barra ($L$), a velocidade de propagação ($V$) é determinada por cinemática do movimento retilíneo e uniforme:
+    """)
 
     col2.latex(r'''
         \begin{equation}
@@ -384,7 +501,11 @@ def materiais_nao_metalicos_page():
 
     col2.markdown("##### Método do pulso-eco")
 
-    col2.write("Quando se trata do método de pulso-eco, o aparato experimental consiste em utilizar um sensor, normalmente um transdutor, fixado na extremidade à que será impactada da barra. A onda de tensão de baixa frequência enviada através da barra alcança o sensor e a amplitude do sinal é medida em função do tempo. A distância entre dois pulsos mostrados na tela do osciloscópio estão relacionados ao tempo que o pulso demorou para viajar duas vezes o comprimento da barra, portanto, a relação da cinemática torna-se")
+    col2.write("""
+        No método de pulso-eco, um sensor (geralmente um transdutor) é fixado na extremidade impactada da barra. A onda de tensão atinge o sensor, e sua amplitude é medida em função do tempo no osciloscópio.
+
+        A distância temporal entre dois pulsos no osciloscópio representa o tempo que o pulso levou para percorrer o comprimento da barra duas vezes (ida e volta). Portanto, a velocidade de propagação é:
+    """)
 
     col2.latex(r'''
         \begin{equation}
@@ -394,7 +515,11 @@ def materiais_nao_metalicos_page():
 
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
-    col2.write("Neste método é interessante ressaltar que ao analisar a velocidade e aceleração das partículas em função do tempo, nota-se que a velocidade decai exponencialmente, enquanto que a aceleração permanece constante até que a propagação seja totalmente atenuada. Além disso o comportamento das curvas do sinal é distinto em cada caso. As partículas por estarem sujeita à vibração longitudinal causada pela onda de compressão, oscilam em torno de um ponto de equilíbrio. Se traçássemos um segmento vertical contendo este ponto, notaríamos que em metade do tempo a onda se move concordando com o sentido de propagação e, na outra metade, realiza um movimento que discorda do sentido positivo da propagação. Já com relação à aceleração das partículas, os pulsos ocupam somente o primeiro quadrante do gráfico, mostrando que a aceleração pode ser maior ou igual a zero, porém, sempre concorda com o sentido da onda de compressão.")
+    col2.write("""
+        Ao analisar a velocidade e a aceleração das partículas em função do tempo, nota-se que a velocidade decai exponencialmente, enquanto a aceleração se mantém constante até que a propagação seja atenuada.
+
+        Os gráficos de sinal apresentam comportamentos distintos: as partículas, sujeitas à vibração longitudinal, oscilam em torno de um ponto de equilíbrio (metade do tempo no sentido de propagação, metade no sentido oposto). Já a aceleração das partículas concentra-se no primeiro quadrante do gráfico, indicando que a aceleração é maior ou igual a zero, sempre concordando com o sentido da onda de compressão.
+    """)
 
     col3.image(
         "imagens/pulso-eco.png", 
@@ -412,21 +537,29 @@ def materiais_nao_metalicos_page():
         width=350
     )
 
-    col2.write("No método *pitch and catch* o aparato consiste na associação de transdutores, um de emissão e outro de recepção do sinal acústico, a um osciloscópio. Diferente dos métodos que envolvem impactar o espécime de forma abrupta, neste a emissão origina-se do sinal elétrico enviado pelo osciloscópio através dos cabos a ele conectados, transmissão para o transdutor emissor e conversão do sinal elétrico pelo transdutor em ondas mecânicas que atravessam o material. Os transdutores, dispostos nas faces laterais nos extremos da amostra longilínea, são responsáveis pela emissão e recepção do sinal. Neste ensaio, o transdutor receptor, capta o sinal e o osciloscópio mostra a amplitude da tensão em volts como função do tempo. Esse método também pode ser utilizado na obtenção das grandezas mostradas anteriormente.")
-
+    # REVISÃO: Correção da frase incompleta
+    col2.write("""
+        No método *pitch and catch*, o aparato utiliza a associação de dois transdutores — um de emissão e outro de recepção do sinal acústico — conectados a um osciloscópio.
+        
+        Diferente dos métodos de impacto, a emissão se origina de um sinal elétrico enviado pelo osciloscópio, que é transmitido ao transdutor emissor e convertido em onda acústica. **Esta onda se propaga pelo espécime e é captada pelo transdutor receptor, que a converte de volta em sinal elétrico para análise no osciloscópio.**
+    """)
+    
     col2.markdown("##### Posicionamento dos acelerômetros")
 
-    col2.write("Durante os ensaios em barras de madeira, deve-se atentar quanto ao posicionamento dos acelerômetros na peça, tendo em vista que a intensidade do sinal depende diretamente do local em que eles se encontram ou quais faces eles são apoiados em relação à fonte de impacto.")
+    # REVISÃO: Melhoria na clareza e fluidez do parágrafo
+    col2.write("""
+        Durante os ensaios em barras de madeira, deve-se considerar o posicionamento dos acelerômetros na peça, pois a **intensidade e a qualidade do sinal dependem diretamente do local** em que são fixados e de quais faces são utilizados em relação à fonte de impacto. O arranjo dos sensores influencia o tipo de onda captada (longitudinal, flexural ou torsional) e a precisão da medição.
+    """) 
 
     col2.info("""
-        **Referências**
+        **Referências Bibliográficas**
               
         * **FALCÃO BAUER**, **L. A.** Materiais de Construção. 6. ed. Rio de Janeiro: LTC – Livros Técnicos e Científicos, 2019.
               
         * **17TH INTERNATIONAL NONDESTRUCTIVE TESTING AND EVALUATION OF WOOD SYMPOSIUM**. Proceedings. Vol. 2. [S.l.: s.n.], 2011. ISBN 978-963-98838-3-3.
-    
-        * **ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS**. NBR 7190:2022 — Projeto de estruturas de madeira. Rio de Janeiro: ABNT, 2022.      
-        """)
+        
+        * **ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS**. NBR 7190:2022 — Projeto de estruturas de madeira. Rio de Janeiro: ABNT, 2022.      
+    """)
 
 if __name__ == "__main__":
     materiais_nao_metalicos_page()
