@@ -17,7 +17,8 @@ data = {
         "Calculadora de propriedades mecânicas",
         "Comandos do Git",
         "Ensaio de compressão paralela às fibras",
-        "Bases teóricas - Propagação de ondas acústicas em sólidos ortotrópicos"
+        "Bases teóricas - Propagação de ondas acústicas em sólidos ortotrópicos",
+        "Imagens vetorizadas"
     ],
     "Tipo de Input/Output": [ # Renomeado de 'Tipo de Arquivos'
         "N/A", # Alterado de "" para N/A
@@ -32,6 +33,7 @@ data = {
         ":violet-badge[GIT]",
         ":yellow-badge[TEX]",
         ":yellow-badge[TEX]",
+        ":red-badge[IPE]/:orange-badge[PDF]"
     ],
     "Objetivo Principal": [ # Renomeado de 'Função'
         "Formalizar empréstimos de equipamentos e materiais do LabEND",
@@ -45,7 +47,8 @@ data = {
         "Obter propriedades mecânicas de materiais ortotrópicos a partir do ensaio de propagação de ondas ultrassônicas",
         "Guia rápido de comandos básicos do Git",
         "Documento com instruções para o ensaio de compressão",
-        "Documento apresentando as bases teóricas para propagação de ondas ultrassônicas em espécimes poliédricas"
+        "Documento apresentando as bases teóricas para propagação de ondas ultrassônicas em espécimes poliédricas",
+        "Múltiplas imagens relacionadas aos tópicos de pesquisa do LabEND"
     ],
     "Categoria": [ # Rótulos revisados para maior clareza
         ":violet-badge[:material/assignment: Logística / Formulários]",
@@ -60,6 +63,7 @@ data = {
         ":green-badge[:material/book: Guia Rápido / Referência]",
         ":green-badge[:material/book: Guia Rápido / Referência]",
         ":green-badge[:material/book: Guia Rápido / Referência]",
+        ":green-badge[:material/book: Guia Rápido / Referência]"
     ],
     "Código-fonte (GitHub)": [ # Renomeado de 'Repositório'
         "N/A", # Alterado de "" para N/A
@@ -73,7 +77,8 @@ data = {
         "[`/matriz-de-rigidez`](https://github.com/renansg67/matriz-de-rigidez)",
         "[`/git-guia`](https://github.com/renansg67/git-guia)",
         "N/A", # Alterado de "" para N/A
-        "N/A"  # Alterado de "" para N/A
+        "N/A",  # Alterado de "" para N/A
+        "[`vetores`](https://github.com/renansg67/vetores)"
     ],
     "Acesso (App/Doc)": [ # Renomeado de 'Link'
         "[`forms`](https://forms.gle/bZvLQF5eLDx3da1i8)",
@@ -88,6 +93,7 @@ data = {
         "N/A", # Alterado de "" para N/A
         "[`Overleaf Doc`](https://www.overleaf.com/9556632885xxjbjbjcswmr#0405e3)", # Link text alterado
         "[`Overleaf Doc`](https://www.overleaf.com/read/jmcwjfypgpnk#4302fd)",  # Link text alterado
+        "N/A"
     ]
 }
 

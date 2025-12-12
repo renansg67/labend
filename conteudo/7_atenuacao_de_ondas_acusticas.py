@@ -1,40 +1,8 @@
 import streamlit as st
-from assets.audio_tools import gerar_pulso_amortecido
 
 def atenuacao_de_ondas_acusticas():
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
-    taxa_amostragem = 44100
-    duracao_base = 0.5 # 500 ms de duração base para o pulso
-
-    # 1. SINAL SÃO (Baixa Atenuação)
-    sinal_sa = gerar_pulso_amortecido(
-        frequencia_hz=880, 
-        duracao_seg=duracao_base,
-        amplitude_max=0.9,
-        taxa_amostragem=taxa_amostragem,
-        decaimento_rapidez=18 # Decaimento rápido
-    )
-
-    # 2. SINAL DETERIORADO (Alta Atenuação e Dispersão)
-    sinal_deteriorado = gerar_pulso_amortecido(
-        frequencia_hz=300, 
-        duracao_seg=duracao_base * 1.5,
-        amplitude_max=0.4, # Amplitude reduzida
-        taxa_amostragem=taxa_amostragem,
-        decaimento_rapidez=5, # Decaimento lento
-        atraso_seg=0.1 # Simula atraso de TOF
-    )
-
-    with col3:
-        st.markdown("##### Material Sã (Baixa Atenuação)")
-        st.audio(sinal_sa, sample_rate=taxa_amostragem)
-        st.markdown("> **Simula:** Pulso agudo, curto e de alta intensidade.")
-
-    with col3:
-        st.markdown("##### Material Deteriorado (Alta Atenuação)")
-        st.audio(sinal_deteriorado, sample_rate=taxa_amostragem)
-        st.markdown("> **Simula:** Pulso grave, longo e de baixa intensidade (dispersão e perda de energia).")
 
     col2.title("Atenuação de ondas acústicas em sólidos")
 
@@ -65,10 +33,10 @@ def atenuacao_de_ondas_acusticas():
 
     col2.write("A atenuação é o fenômeno físico no qual a intensidade da onda é reduzida em função da distância percorrida no material. Isso ocorre devido à conversão da energia da onda acústica em outras formas de energia, como calor. A energia da onda acústica é atenuada de acordo com a seguinte expressão:")
 
-    col2.latex(r"""
-        \begin{equation}
+    col2.markdown(r"""
+        $$
             I=I_{0}e^{-2\alpha x}
-        \end{equation}
+        $$
     """)
 
     col2.write("Onde:")
@@ -82,10 +50,10 @@ def atenuacao_de_ondas_acusticas():
 
     col2.write("Ao reorganizar a equação e aplicar o logaritmo natural, obtém-se o coeficiente de atenuação:")
 
-    col2.latex(r"""
-        \begin{equation}
+    col2.markdown(r"""
+        $$
             \alpha=\dfrac{1}{2x}\ln\left(\dfrac{I_{0}}{I}\right)
-        \end{equation}
+        $$
     """)
 
     col2.markdown("#### Fatores que afetam o coeficiente de atenuação")
@@ -119,16 +87,16 @@ def atenuacao_de_ondas_acusticas():
     col2.write("""
         A dispersão (*scattering*) é o principal mecanismo de atenuação em materiais não homogêneos, como aços e ligas metálicas, que contêm grãos cristalinos. Esses grãos atuam como fontes dispersoras, desviando a trajetória da onda.
         
-        A dispersão está diretamente relacionada à razão entre o comprimento de onda ($\lambda$) e o tamanho médio do grão ($d_{\\text{grão}}$).
+        A dispersão está diretamente relacionada à razão entre o comprimento de onda ($\\lambda$) e o tamanho médio do grão ($d_{\\text{grão}}$).
         
         Existem dois regimes principais de dispersão que se distinguem por essa razão  :
     """)
 
-    col3.info("O coeficiente de atenuação por dispersão pode ser expresso como $\\\alpha_{\\text{dispersão}}=A\cdot f^{m}$, onde $A$ é uma constante e o expoente $m$ (que varia de 1 a 4) depende do regime de dispersão.")
+    col3.info("O coeficiente de atenuação por dispersão pode ser expresso como $\\alpha_{\\text{dispersão}}=A\\cdot f^{m}$, onde $A$ é uma constante e o expoente $m$ (que varia de 1 a 4) depende do regime de dispersão.")
 
-    col2.markdown("##### Regime de Dispersão Rayleigh ($\lambda \gg d_{\\text{grão}}$)")
+    col2.markdown("##### Regime de Dispersão Rayleigh ($\\lambda \\gg d_{\\text{grão}}$)")
     col2.write("""
-        Ocorre quando o comprimento de onda é **muito maior** que o tamanho do grão ($\lambda/d_{\\text{grão}} > 10$).
+        Ocorre quando o comprimento de onda é **muito maior** que o tamanho do grão ($\\lambda/d_{\\text{grão}} > 10$).
         * **Atenuação:** O coeficiente de atenuação é proporcional à **quarta potência da frequência** ($f^{4}$), tornando a atenuação muito sensível a pequenas variações de frequência. É o regime dominante em materiais com grãos muito pequenos ou ao utilizar transdutores de baixa frequência.
     """)
 
@@ -140,7 +108,7 @@ def atenuacao_de_ondas_acusticas():
 
     col2.subheader("Impacto das fontes dispersoras")
 
-    col2.write("A maior dispersão do feixe ultrassônico faz com que parte da energia retorne na direção da fonte, dificultando a análise e, em casos extremos, impedindo a penetração completa da onda no material. Para contornar esse problema, a alternativa é a redução da frequência do transdutor, diminuindo o coeficiente de atenuação por dispersão, conforme a expressão $\\alpha_{\\text{dispersão}} \propto f^{m}$.")
+    col2.write("A maior dispersão do feixe ultrassônico faz com que parte da energia retorne na direção da fonte, dificultando a análise e, em casos extremos, impedindo a penetração completa da onda no material. Para contornar esse problema, a alternativa é a redução da frequência do transdutor, diminuindo o coeficiente de atenuação por dispersão, conforme a expressão $\\alpha_{\\text{dispersão}} \\propto f^{m}$.")
 
     col2.write("Em materiais com porosidade elevada (como o concreto), o mecanismo de dispersão também é relevante, sendo as partículas de agregados e os vazios as principais fontes dispersoras. A presença de fontes dispersoras de tamanhos variados resulta em um comportamento de atenuação complexo, exigindo um estudo aprofundado da microestrutura para a seleção da frequência ideal do transdutor.")
 

@@ -49,10 +49,10 @@ def propagacao_de_ondas_acusticas():
 
     col2.markdown("Em materiais sólidos, quando ondas incidem em ângulo normal à sua superfície, pode ocorrer tanto a reflexão de parte do feixe ultrassônico quanto a transmissão pela interface que separa dois meios. Estudos demonstraram que é possível relacionar as parcelas transmitida e refletida do feixe acústico por meio da grandeza denominada *impedância acústica*, representada pelo símbolo $Z$. Ela é definida como o produto entre a massa específica e a velocidade de propagação do som no meio:")
 
-    col2.latex(r"""
-        \begin{equation}
+    col2.markdown(r"""
+        $$
             Z=\rho V
-        \end{equation}
+        $$
     """)
 
     col2.subheader("Coeficientes de reflexão e transmissão")
@@ -61,18 +61,18 @@ def propagacao_de_ondas_acusticas():
 
     col2.markdown("Definindo-se os coeficientes de reflexão e transmissão do feixe acústico como $R$ e $T$, respectivamente, a soma de ambas as parcelas deve ser igual a 1, desconsiderando perdas por conversão em outros modos de energia:")
 
-    col2.latex(r"""
-        \begin{equation}
+    col2.markdown(r"""
+        $$
             R+T=1
-        \end{equation}
+        $$
     """)
 
     col2.markdown("Considerando dois meios com impedâncias acústicas $Z_{1}$ e $Z_{2}$, o coeficiente de reflexão é dado por:")
 
-    col2.latex(r"""
-        \begin{equation}
+    col2.markdown(r"""
+        $$
             R=\left(\dfrac{Z_{2}-Z_{1}}{Z_{2}+Z_{1}}\right)^{\!\!2}
-        \end{equation}
+        $$
     """)
 
     col2.subheader("Fenômeno da refração")
@@ -81,10 +81,10 @@ def propagacao_de_ondas_acusticas():
 
     col2.write("Quando a velocidade aumenta, o feixe acústico afasta-se da normal; quando diminui, aproxima-se dela, obedecendo à lei de Snell, que relaciona ângulos de incidência e refração com as velocidades de propagação, comprimentos de onda e índices de refração:")
 
-    col2.latex(r"""
-        \begin{equation}
+    col2.markdown(r"""
+        $$
             \dfrac{\sin\alpha_{1}}{\sin\alpha_{2}}=\dfrac{V_{1}}{V_{2}}=\dfrac{\lambda_{1}}{\lambda_{2}}=\dfrac{n_{2}}{n_{1}}
-        \end{equation}
+        $$
     """)
 
     col2.write("Nota-se uma relação inversamente proporcional entre a velocidade de propagação e o comprimento de onda em relação ao índice de refração. Essa equação permite calcular velocidades ou ângulos, desde que se disponha de informações suficientes.")
@@ -100,21 +100,21 @@ def propagacao_de_ondas_acusticas():
 
     col2.write("A partir da lei de Snell, considerando $\\alpha_{2}=90^{\\circ}$ e $\\sin 90^{\\circ}=1$, a equação do ângulo crítico $\\alpha_{\\text{cr}}$ torna-se:")
 
-    col2.latex(r"""
-        \begin{equation}
+    col2.markdown(r"""
+        $$
             \alpha_{\text{cr}}=\arcsin\left(\dfrac{V_{1}}{V_{2}}\right)
-        \end{equation}
+        $$
     """)
 
     col2.write("Em termos das ondas longitudinais e transversais:")
 
-    col2.latex(r"""
-        \begin{equation}
+    col2.markdown(r"""
+        $$
             \begin{matrix}
                 (\alpha_{\text{cr}})_{1}=\arcsin\dfrac{(V_{L})_{1}}{(V_{L})_{2}} &
                 (\alpha_{\text{cr}})_{2}=\arcsin\dfrac{(V_{T})_{1}}{(V_{T})_{2}}
             \end{matrix}
-        \end{equation}
+        $$
     """)
 
     col2.subheader("Divergência do feixe acústico")
@@ -123,20 +123,20 @@ def propagacao_de_ondas_acusticas():
 
     col2.write("O ângulo de divergência do feixe é dado por:")
 
-    col2.latex(r"""
-        \begin{equation}
+    col2.markdown(r"""
+        $$
             \phi=\arcsin\left(1.2\dfrac{\lambda}{D}\right)
-        \end{equation}
+        $$
     """)
 
     col2.subheader("Ressonância")
 
     col2.write("A frequência de ressonância de um corpo de prova é obtida pela relação:")
 
-    col2.latex(r"""
-        \begin{equation}
+    col2.markdown(r"""
+        $$
             f=n\dfrac{V}{2L}
-        \end{equation}
+        $$
     """)
 
     col2.write("em que $n$ corresponde à ordem do harmônico. Para $n=1$, tem-se a frequência de ressonância fundamental.")
@@ -146,10 +146,10 @@ def propagacao_de_ondas_acusticas():
     # REVISÃO: Adicionado tag de imagem para clareza visual.
     col2.write("Nos ensaios, deve-se considerar a região próxima ao transdutor, denominada *zona de Fresnel*, caracterizada por um padrão de interferências complexas, no qual o feixe ainda não está estabilizado.  O comprimento dessa região é dado por:")
 
-    col2.latex(r"""
-        \begin{equation}
+    col2.markdown(r"""
+        $$
             N=\dfrac{D^{2}}{4\lambda}
-        \end{equation}
+        $$
     """)
 
     col2.write("O conhecimento da zona de Fresnel é fundamental para a correta análise dos sinais obtidos durante o ensaio.")
@@ -185,18 +185,18 @@ def propagacao_de_ondas_acusticas():
 
     col2.markdown("Outro fator que pode afetar a propagação são as propriedades físicas do material, como o módulo de elasticidade e a densidade. Ambos influenciam a velocidade de propagação de ondas ultrassônicas. A equação que relaciona essas grandezas assemelha-se ao comportamento presente em uma corda tensionada quando se deseja medir o tempo de propagação de um pulso após esta ser excitada, em que as grandezas envolvidas são: a tensão na corda $\\tau$, a densidade linear da corda $\\mu$, dada em kg/m no SI, e a velocidade de propagação do pulso:")
 
-    col2.latex(r"""
-        \begin{equation}
+    col2.markdown(r"""
+        $$
             V=\sqrt{\dfrac{\tau}{\mu}}
-        \end{equation}
+        $$
     """)
 
     col2.markdown("Quando se adapta a mesma equação para um corpo sólido, a tensão na corda torna-se o módulo de elasticidade, ou módulo de Young ($Y$); a densidade linear torna-se a massa específica por unidade de volume $\\rho$; e a velocidade de propagação da onda transversal gerada na corda torna-se a velocidade de propagação do pulso acústico, que pode variar entre frequências audíveis e inaudíveis (ultrassônicas), como é visto na equação abaixo:")
 
-    col2.latex(r"""
-        \begin{equation}
+    col2.markdown(r"""
+        $$
             Y=\rho V^{2}
-        \end{equation}
+        $$
     """)
 
     col2.markdown("As relações observadas entre as mudanças no módulo de elasticidade e na massa específica volumétrica mostram que, quanto maior a rigidez do material, maior a velocidade de propagação do feixe acústico ao longo dele. Em contrapartida, o aumento da densidade leva à redução da velocidade de propagação. Apesar de a análise, nesse contexto, ser simples quando se varia apenas uma grandeza por vez, na realidade a velocidade pode ser mais complexa de analisar, tendo em vista que tanto $Y$ quanto $\\rho$ podem variar em conjunto.")
@@ -210,26 +210,26 @@ def propagacao_de_ondas_acusticas():
     
     col2.write("E, mesmo que ocorresse deterioração intensa, um caso em que tanto $Y$ quanto $\\rho$ caíssem na mesma proporção levaria a uma velocidade de propagação acústica equivalente à da madeira sã. Todavia, na prática, observa-se que a velocidade de propagação tende a reduzir na madeira deteriorada. Nesse caso, tanto a rigidez quanto a densidade são reduzidas, mas há maior perda de densidade em relação à rigidez em números absolutos, de modo que")
 
-    col2.latex(r"""
-        \begin{equation}
+    col2.markdown(r"""
+        $$
             \sqrt{\dfrac{Y_{\text{sã}}}{\rho_{\text{sã}}}}>\sqrt{\dfrac{Y_{\text{deteriorada}}}{\rho_{\text{deteriorada}}}}
-        \end{equation}
+        $$
     """)
 
     col2.write("Retomando a análise para a **madeira com cavidades**, nesse caso, devido aos vazios existentes em seu interior, a densidade tende a diminuir consideravelmente, ficando em torno de $1\\,\\text{kg}/\\text{m}^{3}$. Todavia, a rigidez oferecida pelos poros de ar é nula, de modo que a relação estabelecida anteriormente torna-se")
 
-    col2.latex(r"""
-        \begin{equation}
+    col2.markdown(r"""
+        $$
             \sqrt{\dfrac{Y_{\text{sã}}}{\rho_{\text{sã}}}}>\sqrt{\dfrac{Y_{\text{deteriorada}}}{\rho_{\text{deteriorada}}}}>\sqrt{\dfrac{Y_{\text{cavidade}}}{\rho_{\text{cavidade}}}}
-        \end{equation}
+        $$
     """)
 
     col2.write("Em termos das velocidades:")
 
-    col2.latex(r"""
-        \begin{equation}
+    col2.markdown(r"""
+        $$
             V_{\text{sã}}>V_{\text{deteriorada}}>V_{\text{cavidade}}
-        \end{equation}
+        $$
     """)
 
     col2.markdown("A partir da relação estabelecida, conclui-se que, quanto maior o valor proveniente da razão $Y/\\rho$, maior a velocidade de propagação das ondas acústicas.")

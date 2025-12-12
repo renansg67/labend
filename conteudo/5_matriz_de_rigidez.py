@@ -249,7 +249,7 @@ def matriz_de_rigidez_page():
         & & S_{22} & & &\\
         & & & 2(S_{22}-S_{23}) & & \\
         & & & & S_{55} & \\
-        & &' & & & S_{55}\\
+        & & & & & S_{55}\\
     \end{bmatrix}
     """)
 
@@ -310,7 +310,7 @@ def matriz_de_rigidez_page():
     col2.markdown("##### Propagação de ondas no plano 12")
 
     col2.latex(r"""
-    \begin{equation}
+
         \begin{bmatrix}
             \Gamma_{11}-\rho V^{2} & \Gamma_{12} & \Gamma_{13}\\
             \Gamma_{12} & \Gamma_{22}-\rho V^{2} & \Gamma_{23}\\
@@ -321,29 +321,29 @@ def matriz_de_rigidez_page():
             p_{2}\\
             p_{3}
         \end{bmatrix}=0
-    \end{equation}
+    
     """)
 
     col2.latex(r"""
-        \begin{equation}
+    
             \Gamma_{12}^{2}=(\Gamma_{11}-\rho V^{2})(\Gamma_{22}-\rho V^{2})
-        \end{equation}
+        
     """)
 
     col2.latex(r"""
-        \begin{equation}
+    
             [(C_{12}+C_{66})n_{1}n_{2}]^{2}=(C_{11}n_{1}^{2}+C_{66}n_{2}^{2}-\rho V^{2})(C_{66}n_{1}^{2}+C_{22}n_{2}^{2}-\rho V^{2})
-        \end{equation}
+        
     """)
 
     col2.latex(r"""
-        \begin{equation}
+    
             C_{12}=\dfrac{\sqrt{(C_{11}n_{1}^{2}+C_{66}n_{2}^{2}-\rho V^{2})(C_{66}n_{1}^{2}+C_{22}n_{2}^{2}-\rho V^{2})}-C_{66}n_{1}n_{2}}{n_{1}n_{2}}
-        \end{equation}
+        
     """)
 
     col2.latex(r"""
-        \begin{equation}
+    
             \begin{bmatrix}
                 \Gamma_{11}-\rho V^{2} & \Gamma_{12}&\\
                 \Gamma_{12} & \Gamma_{22}-\rho V^{2}&\\
@@ -354,59 +354,59 @@ def matriz_de_rigidez_page():
                 p_{2}\\
                 0
             \end{bmatrix}=0
-        \end{equation}
+        
     """)
 
     col2.latex(r"""
-        \begin{equation}
+    
             \dfrac{p_{1}}{p_{2}}=\dfrac{\Gamma_{12}}{\rho V^{2}-\Gamma_{11}}=\dfrac{\rho V^{2}-\Gamma_{22}}{\Gamma_{12}}
-        \end{equation}
+        
     """)
 
     col2.latex(r"""
-        \begin{equation}
+    
             2V_{Q_{L},Q_{T}}^{2}\rho=(\Gamma_{11}+\Gamma_{22})\pm[(\Gamma_{11}-\Gamma_{22})^{2}+4\Gamma_{12}^{2}]^{1/2}
-        \end{equation}
+        
     """)
 
     col2.latex(r"""
-        \begin{equation}
+    
             2V_{T}^{2}\rho=\Gamma_{33}
-        \end{equation}
+        
     """)
 
     col2.markdown("##### Propagação de ondas no plano 13")
 
     col2.latex(r"""
-        \begin{equation}
+    
             \begin{bmatrix}
                 \Gamma_{11}-\rho V^{2} & 0 & \Gamma_{13}\\
                 0 & \Gamma_{22}-\rho V^{2} & 0\\
                 \Gamma_{13} & 0 & \Gamma_{33}-\rho V^{2}
             \end{bmatrix}=0
-        \end{equation}
+        
     """)
 
     col2.latex(r"""
-        \begin{equation}
+    
             \Gamma_{13}^{2}=(\Gamma_{11}-\rho V^{2})(\Gamma_{33}-\rho V^{2})
-        \end{equation}
+        
     """)
 
     col2.latex(r"""
-        \begin{equation}
+    
             [(C_{13}+C_{55})n_{1}n_{3}]^{2}=(C_{11}n_{1}^{2}+C_{55}n_{3}^{2}-\rho V^{2})(C_{55}n_{1}^{2}+C_{33}n_{3}^{2}-\rho V^{2})
-        \end{equation}
+        
     """)
 
     col2.latex(r"""
-        \begin{equation}
+    
             C_{13}=\dfrac{\sqrt{(C_{11}n_{1}^{2}+C_{55}n_{3}^{2}-\rho V^{2})(C_{55}n_{1}^{2}+C_{33}n_{3}^{2}-\rho V^{2})}-C_{55}n_{1}n_{3}}{n_{1}n_{3}}
-        \end{equation}
+        
     """)
 
     col2.latex(r"""
-        \begin{equation}
+    
             \begin{bmatrix}
                 \Gamma_{11}-\rho V^{2} & & \Gamma_{13}\\
                 & \Gamma_{22}-\rho V^{2}&\\
@@ -417,59 +417,59 @@ def matriz_de_rigidez_page():
                 0\\
                 p_{3}
             \end{bmatrix}=0
-        \end{equation}
+        
     """)
 
     col2.latex(r"""
-        \begin{equation}
+    
             \dfrac{p_{1}}{p_{3}}=\dfrac{\Gamma_{13}}{\rho V^{2}-\Gamma_{11}}=\dfrac{\rho V^{2}-\Gamma_{33}}{\Gamma_{13}}
-        \end{equation}
+        
     """)
 
     col2.latex(r"""
-        \begin{equation}
+    
             2V_{Q_{L},Q_{T}}^{2}\rho=(\Gamma_{11}+\Gamma_{33})\pm[(\Gamma_{11}-\Gamma_{33})^{2}+4\Gamma_{13}^{2}]^{1/2}
-        \end{equation}
+        
     """)
 
     col2.latex(r"""
-        \begin{equation}
+    
             2V_{T}^{2}\rho=\Gamma_{22}
-        \end{equation}
+        
     """)
 
     col2.markdown("##### Propagação de ondas no plano 23")
 
     col2.latex(r"""
-        \begin{equation}
+    
             \begin{bmatrix}
             \Gamma_{11}-\rho V^{2} & 0 & 0\\
             0 & \Gamma_{22}-\rho V^{2} & \Gamma_{23}\\
             0 & \Gamma_{23} & \Gamma_{33}-\rho V^{2}
             \end{bmatrix}=0
-        \end{equation}
+        
     """)
 
     col2.latex(r"""
-        \begin{equation}
+    
             \Gamma_{23}^{2}=(\Gamma_{22}-\rho V^{2})(\Gamma_{33}-\rho V^{2})
-        \end{equation}
+        
     """)
 
     col2.latex(r"""
-        \begin{equation}
+    
             [(C_{23}+C_{44})n_{2}n_{2}]^{2}=(C_{22}n_{2}^{2}+C_{44}n_{3}^{2}-\rho V^{2})(C_{44}n_{2}^{2}+C_{33}n_{3}^{2}-\rho V^{2})
-        \end{equation}
+        
     """)
 
     col2.latex(r"""
-        \begin{equation}
+    
             C_{23}=\dfrac{\sqrt{(C_{22}n_{2}^{2}+C_{44}n_{3}^{2}-\rho V^{2})(C_{44}n_{2}^{2}+C_{33}n_{3}^{2}-\rho V^{2})}-C_{44}n_{2}n_{3}}{n_{2}n_{3}}
-        \end{equation}
+        
     """)
 
     col2.latex(r"""
-        \begin{equation}
+    
             \begin{bmatrix}
                 \Gamma_{11}-\rho V^{2} & &\\
                 & \Gamma_{22}-\rho V^{2}& \Gamma_{23}\\
@@ -480,25 +480,25 @@ def matriz_de_rigidez_page():
                 p_{2}\\
                 p_{3}
             \end{bmatrix}=0
-        \end{equation}
+        
     """)
 
     col2.latex(r"""
-        \begin{equation}
+    
             \dfrac{p_{2}}{p_{3}}=\dfrac{\Gamma_{23}}{\rho V^{2}-\Gamma_{22}}=\dfrac{\rho V^{2}-\Gamma_{33}}{\Gamma_{23}}
-        \end{equation}
+        
     """)
 
     col2.latex(r"""
-        \begin{equation}
+    
             2V_{Q_{L},Q_{T}}^{2}\rho=(\Gamma_{22}+\Gamma_{33})\pm[(\Gamma_{22}-\Gamma_{33})^{2}+4\Gamma_{23}^{2}]^{1/2}
-        \end{equation}
+        
     """)
 
     col2.latex(r"""
-        \begin{equation}
+    
             2V_{T}^{2}\rho=\Gamma_{11}
-        \end{equation}
+        
     """)
 
     data = [

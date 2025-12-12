@@ -1,0 +1,24 @@
+[theme]
+# Esquema de cores base: "dark" para um visual sóbrio
+base = "dark" 
+
+# Cor primária (toque de cor, como um bordô profundo/violeta real)
+primaryColor = "#8A2BE2" 
+
+# Cor de fundo principal (cinza escuro quase preto)
+backgroundColor = "#1a1a2e" 
+
+# Cor de fundo secundária (para sidebar e widgets, um cinza ligeiramente mais claro)
+secondaryBackgroundColor = "#2a2a3e" 
+
+# Cor do texto (branco suave para contraste)
+textColor = "#e0e0e0" 
+
+# --- Configuração de Fontes do Google ---
+
+# Fonte principal (Roboto do Google Fonts)
+# URL usada: fonts.googleapis.com
+# O nome da família é "Roboto"
+
+font = "Roboto:https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+codeFont = "'Space Mono':https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"

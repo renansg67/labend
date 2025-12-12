@@ -1,7 +1,7 @@
 import time
 import streamlit as st
 
-def stream_text(text, delay=0.02):
+def stream_text(text, delay):
     """
     Gera palavras uma por uma a partir de um texto.
     
@@ -13,8 +13,4 @@ def stream_text(text, delay=0.02):
         yield word + " "
         time.sleep(delay)
 
-# --- Como usar ---
-texto_exemplo = "Olá! Eu sou uma função generalizada que pode ler qualquer string."
-
-if st.button("Stream Texto"):
-    st.write_stream(stream_text(texto_exemplo))
+    return st.write_stream(stream_text(text))
