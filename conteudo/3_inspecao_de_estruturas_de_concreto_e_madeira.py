@@ -321,7 +321,7 @@ def inspecao_concreto():
 
     col2.latex(r"\text{H}_2\text{CO}_3 + \text{Ca(OH)}_2 \rightarrow \text{CaCO}_3 + \text{H}_2\text{O}")
 
-    col2.write("Este processo resulta na **diminuição do pH** do concreto (de $\sim 13$ para neutro) na região afetada, o que leva à despassivação e posterior corrosão das armaduras.")
+    col2.write("Este processo resulta na **diminuição do pH** do concreto (de $\\sim 13$ para neutro) na região afetada, o que leva à despassivação e posterior corrosão das armaduras.")
 
     col2.markdown("#### Reações Químicas da Corrosão por Carbonatação")
 
@@ -361,7 +361,7 @@ def inspecao_concreto():
     col2.subheader("Ensaio de Resistividade Elétrica")
 
     col2.markdown("""
-        Este ensaio avalia a **predisposição das armaduras à corrosão** com base na medição da resistividade ($\rho$) na superfície do concreto.
+        Este ensaio avalia a **predisposição das armaduras à corrosão** com base na medição da resistividade ($\\rho$) na superfície do concreto.
         
         A resistividade é uma grandeza física que quantifica a dificuldade do material em conduzir corrente elétrica, expressa geralmente em $\\text{k}\\Omega\\,\\text{cm}$ para concreto.
     """)
@@ -369,7 +369,7 @@ def inspecao_concreto():
     col2.latex(r"\rho=\dfrac{RA}{L}")
 
     col2.markdown("""
-        * $R$: resistência elétrica ($\Omega$)
+        * $R$: resistência elétrica ($\\Omega$)
         * $A$: área da seção transversal do material condutor
         * $L$: comprimento do condutor
         

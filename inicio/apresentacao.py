@@ -62,7 +62,7 @@ def apresentacao_page():
     )
     col3.image(
         "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Betonkorrosion_unter_Autobahnbruecke_%2802%29.JPG/330px-Betonkorrosion_unter_Autobahnbruecke_%2802%29.JPG",
-        caption="Ensaio de profundidade de carbonatação como ensaio complementar a outros ENDs",
+        caption="Ensaio de profundidade de carbonatação como complemento a outros ENDs",
         width="stretch"
     )
     col4.image(

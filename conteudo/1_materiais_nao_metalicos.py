@@ -1,4 +1,6 @@
 import streamlit as st
+from assets.fft_tools import plot_fft_analysis
+import numpy as np
 
 def materiais_nao_metalicos_page():
     col1, col2, col3 = st.columns([.25, 3, 1.5])
@@ -83,21 +85,21 @@ def materiais_nao_metalicos_page():
 
     # REVISÃO: Quebra de parágrafo 2 em lista para melhor visualização da etapa normativa
     col2.write("""
-        Este ensaio (Esclerometria) mede, através do impacto, a dureza superficial do concreto, avaliada nos primeiros 2 cm da superfície. A leitura é um valor adimensional baseado na reflexão do êmbulo.
+        Este ensaio mede, através do impacto, a dureza superficial do concreto, avaliada nos primeiros 2 cm da superfície. A leitura é um valor adimensional baseado na reflexão do êmbulo.
         
         Devido à repetibilidade exigida, é crucial seguir rigorosamente a **ABNT NBR 7584:2012** para a calibração e execução:
         
         **1. Calibração:**
         * Utilizar uma bigorna específica.
         * Realizar no mínimo 10 impactos para obter um índice esclerométrico igual a 80.
-        * O **fator de correção ($k$)** do esclerômetro é calculado a partir dos índices obtidos e do índice nominal ($I_{E_{\text{nom}}}$), fornecido pelo fabricante:
+        * O **fator de correção ($k$)** do esclerômetro é calculado a partir dos índices obtidos e do índice nominal ($I_{E_{\\text{nom}}}$), fornecido pelo fabricante:
     """)
 
     col2.latex(r'''
         \begin{equation}
             k=\dfrac{n I_{E_{\text{nom}}}}{\displaystyle\sum_{i=1}^{n}I_{E_{i}}}
         \end{equation}
-    ''')
+    ''', width="stretch")
 
     col2.write("""
         **2. Ensaio na Área de Interesse:**
@@ -115,7 +117,7 @@ def materiais_nao_metalicos_page():
         \begin{equation}
             I_{E\alpha}=k\cdot I_{E}
         \end{equation}
-    ''')
+    ''', width="stretch")
 
     # REVISÃO: Parágrafo 3 em lista para fatores de influência
     col2.write("""
@@ -135,7 +137,7 @@ def materiais_nao_metalicos_page():
         A análise neste ensaio baseia-se na interpretação do sinal de ondas mecânicas (acústicas) produzidas no meio. A frequência de propagação varia conforme a excitação do corpo de prova ou estrutura:
         
         * **Ondas Acústicas (Audíveis):** Baixa frequência, produzidas tipicamente por um impacto na superfície.
-        * **Ondas Ultrassônicas:** Frequência acima de 20 kHz, produzidas por transdutores especializados.
+        * **Ondas Ultrassônicas:** Frequência acima de 20 kHz, produzidas por transdutores específicos.
 
         Os métodos subsequentes são dinâmicos e envolvem a propagação de ondas de tensão, que podem ser de curta ou longa duração.
         
@@ -153,9 +155,9 @@ def materiais_nao_metalicos_page():
         \begin{equation}
             V_{L}=\sqrt{\dfrac{2\mu+\lambda}{\rho}}
         \end{equation}
-    ''')
+    ''', width="stretch")
 
-    col2.write("em que $\mu$ e $\lambda$ são os parâmetros de Lamé, que relacionam as propriedades elásticas de um material e podem ser expressos em função do módulo de elasticidade longitudinal ($E$), do módulo de elasticidade transversal ($G$), e do coeficiente de Poisson ($\nu$):")
+    col2.write("em que $\\mu$ e $\\lambda$ são os parâmetros de Lamé, que relacionam as propriedades elásticas de um material e podem ser expressos em função do módulo de elasticidade longitudinal ($E$), do módulo de elasticidade transversal ($G$), e do coeficiente de Poisson ($\\nu$):")
 
     col2.latex(r'''
         \begin{matrix}
@@ -163,29 +165,29 @@ def materiais_nao_metalicos_page():
         \end{matrix}
     ''')
 
-    col2.write("Para ondas transversais, a equação é simplificada, não dependendo de $\lambda$:")
+    col2.write("Para ondas transversais, a equação é simplificada, não dependendo de $\\lambda$:")
 
     col2.latex(r'''
         \begin{equation}
             V_{T}=\sqrt{\dfrac{\mu}{\rho}}
         \end{equation}
-    ''')
+    ''', width="stretch")
 
-    col2.write("Outras relações fundamentais, como o módulo volumétrico ($\kappa$), obtido sob pressão simultânea em todas as faces, são apresentadas:")
+    col2.write("Outras relações fundamentais, como o módulo volumétrico ($\\kappa$), obtido sob pressão simultânea em todas as faces de um elemento cúbico infinitesimal, são apresentadas:")
 
     col2.latex(r'''
         \begin{equation}
             \kappa=\dfrac{E}{3(1-2\nu)}
         \end{equation}
-    ''')
+    ''', width="stretch")
 
-    col2.write("O módulo de elasticidade ($E$) e o coeficiente de Poisson ($\nu$) também podem ser reescritos em função de $\mu$ e $\lambda$:")
+    col2.write("O módulo de elasticidade ($E$) e o coeficiente de Poisson ($\\nu$) também podem ser reescritos em função de $\\mu$ e $\\lambda$:")
 
     col2.latex(r'''
         \begin{equation}
             E=\dfrac{\mu(2\mu+3\lambda)}{\mu+\lambda}
         \end{equation}
-    ''')
+    ''', width="stretch")
 
     col2.write("e")
 
@@ -193,9 +195,9 @@ def materiais_nao_metalicos_page():
         \begin{equation}
             \nu=\dfrac{\lambda}{2(\mu+\lambda)}
         \end{equation}
-    ''')
+    ''', width="stretch")
 
-    col2.write("Ao expressar a lei de Hooke em função dos parâmetros de Lamé, considerando as tensões principais ($\sigma$) e as deformações principais ($u$):")
+    col2.write("Ao expressar a lei de Hooke em função dos parâmetros de Lamé, considerando as tensões principais ($\\sigma$) e as deformações principais ($u$):")
 
     col2.latex(r'''
         \begin{equation}
@@ -205,7 +207,7 @@ def materiais_nao_metalicos_page():
                 \sigma_{zz}&=&(2\mu+\lambda)u_{zz}+\lambda(u_{xx}+u_{yy})
             \end{array}
         \end{equation}
-    ''')
+    ''', width="stretch")
 
     col2.write("e as seguintes condições de carregamento:")
 
@@ -213,13 +215,13 @@ def materiais_nao_metalicos_page():
         \begin{equation}
             P=(2\mu+\lambda)\left(\dfrac{P}{E}\right)+\lambda\left(-\dfrac{2\nu P}{E}\right)
         \end{equation}
-    ''')
+    ''', width="stretch")
 
     col2.latex(r'''
         \begin{equation} 
             0=(2\mu+\lambda)\left(-\dfrac{\nu P}{E}\right)+\lambda\left(\dfrac{P}{E}-\dfrac{\nu P}{E}\right)
         \end{equation}
-    ''')
+    ''', width="stretch")
 
     # REVISÃO: Conclusão do bloco matemático mais clara
     col2.markdown("a partir das quais se derivam as equações que relacionam $\\lambda=f(E,\\nu)$, $\\nu=f(\\mu,\\lambda)$ e $E=f(\\mu,\\lambda)$.")
@@ -238,7 +240,7 @@ def materiais_nao_metalicos_page():
         \begin{equation}
             E_{\text{din}}=CMn^{2}
         \end{equation}
-    ''')
+    ''', width="stretch")
 
     col2.markdown("em que $C$ é o fator de forma, $M$ é a massa do corpo de prova e $n$ é a frequência de ressonância fundamental.")
 
@@ -255,13 +257,13 @@ def materiais_nao_metalicos_page():
         \begin{equation}
             E_{\text{din}}=f(\rho,\nu,V)
         \end{equation}
-    ''')
+    ''', width="stretch")
 
     col2.latex(r'''
         \begin{equation}
             V=\sqrt{\dfrac{E_{\text{din}}(1-\nu)}{\rho(1+\nu)(1-2\nu)}}
         \end{equation}
-    ''')
+    ''', width="stretch")
 
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
@@ -273,7 +275,7 @@ def materiais_nao_metalicos_page():
         \begin{equation}
             E=f(V)
         \end{equation}
-    ''')
+    ''', width="stretch")
 
     col2.write("Resistência à compressão")
 
@@ -281,7 +283,7 @@ def materiais_nao_metalicos_page():
         \begin{equation}
             f_{C}=f(V)
         \end{equation}
-    ''')
+    ''', width="stretch")
 
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
@@ -319,19 +321,19 @@ def materiais_nao_metalicos_page():
     col2.header("Madeira")
 
     col2.write("""
-        A caracterização de peças em madeira segue a **ABNT NBR 7190:2022**. A norma exige que as propriedades de resistência e rigidez sejam obtidas na **condição-padrão**, com a umidade das peças em **12%**.
+        A caracterização de peças em madeira segue a **ABNT NBR 7190:2022**. A norma exige que as propriedades de resistência e rigidez sejam obtidas na **condição-padrão**, com a umidade das peças em **12%**. Ou seja, caso a umidade seja diferente deste valor, os parâmetros obtidos precisam ser reajustados para a condição aparente, caso a umidade fosse de 12%.
 
-        A umidade em base seca ($U_{\text{BS}}$) é calculada por:
+        A umidade em base seca ($U_{\\text{BS}}$) é calculada por:
     """)
 
     col2.latex(r'''
         \begin{equation}
             U_{\text{BS}}=\dfrac{m_{\text{inicial}}-m_{\text{seca}}}{m_{\text{seca}}}=\dfrac{m_{\text{água}}}{m_{\text{seca}}}
         \end{equation}
-    ''')
+    ''', width="stretch")
 
     col2.markdown(
-        "Além da umidade, consideram-se os diferentes tipos de densidade medidos em amostras de madeira: Densidade básica ($\rho_{\\text{b\\'{a}sica}}$) e densidade aparente ($\rho_{\\text{aparente}}$). "
+        "Além da umidade, consideram-se os diferentes tipos de densidade medidos em amostras de madeira: Densidade básica ($\\rho_{\\text{b\\'{a}sica}}$) e densidade aparente ($\\rho_{\\text{aparente}}$). "
         "Essas grandezas são definidas por:"
     )
 
@@ -341,7 +343,7 @@ def materiais_nao_metalicos_page():
                 \rho_{\text{básica}}=\dfrac{m_{\text{seca}}}{v_{\text{saturado}}} & \rho_{\text{aparente}}=\dfrac{m_{\text{aparente}}}{v_{\text{aparente}}}
             \end{matrix}
         \end{equation}
-    ''')
+    ''', width="stretch")
 
     col2.write("As propriedades de resistência ($f$) e rigidez ($E$) podem ser corrigidas para a umidade-padrão de 12% conforme as seguintes equações, onde $U$ é a umidade atual:")
 
@@ -352,7 +354,7 @@ def materiais_nao_metalicos_page():
                 E_{12}&=E_{U}\big(1+0.02(U-12)\big)
             \end{array}
         \end{equation}
-    ''')
+    ''', width="stretch")
 
     col2.write("Com essas considerações, a caracterização pode ser realizada utilizando métodos como: vibração transversal, modos de vibração, flexão estática e propagação de ondas de tensão.")
 
@@ -366,11 +368,16 @@ def materiais_nao_metalicos_page():
         \begin{equation}
             \text{MOE}=\dfrac{f^{2}WS^{3}}{2.46Ig}
         \end{equation}
-    ''')
+    ''', width="stretch")
 
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
     col2.write("a partir do aparato experimental abaixo:")
+
+    col2.container(horizontal_alignment="center").image(
+        "imagens/vibracao-transversal-livre.png",
+        width=650
+    )
 
     col2.markdown("##### Método dos modos de vibração")
 
@@ -382,13 +389,64 @@ def materiais_nao_metalicos_page():
         Com essa grandeza, é possível calcular o módulo de elasticidade ($E$) e o módulo de cisalhamento ou elasticidade transversal ($G$):
     """)
 
+    col1, col2, col3 = st.columns([.25, 3, 1.5])
+    
+    with col2:
+        st.write("""
+            A **Análise de Fourier**, usando a Transformada Rápida de Fourier (FFT), é a base para entender ensaios vibracionais e acústicos. Ela nos permite ver a composição interna de um sinal.
+            
+            Um sinal complexo capturado no **Domínio do Tempo** (gráfico esquerdo) é decomposto em suas frequências constituintes no **Domínio da Frequência** (gráfico direito).
+        """)
+        
+
+
+        # --- PARÂMETROS GLOBAIS ---
+        fs = 1000       # Taxa de amostragem (1000 amostras por segundo)
+        duracao = 5     # Duração do sinal (5 segundos)
+        N = fs * duracao # Número total de pontos
+        t = np.linspace(0.0, duracao, N, endpoint=False)
+
+        # --- GERAÇÃO DE UM SINAL COMPLEXO GENÉRICO ---
+        # Componente 1: Frequência Base (10 Hz, amplitude alta)
+        f1 = 10  
+        amp1 = 1.0
+        # Componente 2: Harmônico ou Frequência Secundária (30 Hz, amplitude média)
+        f2 = 30
+        amp2 = 0.5
+        # Ruído de fundo (para um espectro mais realista)
+        ruido = 0.15 
+        
+        sinal_generico = (
+            amp1 * np.sin(2.0 * np.pi * f1 * t) +
+            amp2 * np.sin(2.0 * np.pi * f2 * t) +
+            ruido * np.random.randn(N)
+        )
+        
+        # Gera os gráficos usando a função importada
+        fig_tempo_gen, fig_freq_gen = plot_fft_analysis(sinal_generico, fs, "Exemplo")
+
+
+        # --- EXIBIÇÃO NO STREAMLIT ---
+        
+        st.subheader("Visualização e Decomposição do Sinal")
+        
+        col_t_gen, col_f_gen = st.columns(2)
+        
+        with col_t_gen:
+            st.plotly_chart(fig_tempo_gen)
+            st.markdown(f"Domínio do Tempo: Mostra a amplitude total do sinal em função do tempo. A onda parece complexa porque é a **soma** de todas as frequências presentes.")
+
+        with col_f_gen:
+            st.plotly_chart(fig_freq_gen)
+            st.markdown(f"Domínio da Frequência (FFT): Separa o sinal em picos. Vemos dois picos principais, um em **{f1} Hz** (o mais alto, amplitude {amp1}) e outro em **{f2} Hz** (amplitude {amp2}), que são as frequências que compõem o sinal.")
+
     col2.write("Modo de Vibração Longitudinal:")
 
     col2.latex(r'''
         \begin{equation}
             E=4\rho L^{2}\left(\!\dfrac{f_{L,n}}{n}\!\right)^{2}
         \end{equation}
-    ''')
+    ''', width="stretch")
 
     col2.write("Modo Flexional:")
 
@@ -396,7 +454,7 @@ def materiais_nao_metalicos_page():
         \begin{equation}
             E=\dfrac{4\pi^{2}L^{4}\rho f_{F,n}^{2}A}{Ik_{i}^{4}}
         \end{equation}
-    ''')
+    ''', width="stretch")
 
     col2.write("Modo Torsional:")
 
@@ -404,7 +462,7 @@ def materiais_nao_metalicos_page():
         \begin{equation}
             G=4\rho l^{2}\left(\dfrac{f_{n}^{T}}{n}\right)^{2}
         \end{equation}
-    ''')
+    ''', width="stretch")
 
     col2.subheader("**Ensaio de flexão estática**")
 
@@ -416,7 +474,7 @@ def materiais_nao_metalicos_page():
         \begin{equation}
             E_{0}=\dfrac{1}{4}\left(\dfrac{L}{b}\right)^{\!\!3}\dfrac{\Delta F}{\Delta e}\dfrac{1}{h}
         \end{equation}
-    ''')
+    ''', width="stretch")
 
     col2.write("Essa equação é obtida pela combinação da equação de Euler para a deflexão no meio do vão livre e do momento de inércia da seção retangular:")
 
@@ -426,7 +484,7 @@ def materiais_nao_metalicos_page():
                 \Delta e=\dfrac{\Delta FL^{3}}{48E_{0}I} & I = \dfrac{b^{3}h}{12}
             \end{matrix}
         \end{equation}
-    ''')
+    ''', width="stretch")
 
     col2.write("seguindo o aparato experimental mostrado:")
 
@@ -438,7 +496,7 @@ def materiais_nao_metalicos_page():
     )
 
     col2.markdown("""
-        Para que o ensaio seja considerado **não destrutivo** (ou minimamente destrutivo), a carga $\Delta F$ aplicada deve ser limitada a **$10\\%$ a $40\\%$ da carga máxima de ruptura** da peça, a qual precisa ser estimada previamente. O módulo de elasticidade $E_{0}$ é então calculado a partir da deflexão máxima $\Delta e$, obtida por sensores de deslocamento.
+        Para que o ensaio seja considerado **não destrutivo** (ou minimamente destrutivo), a carga $\\Delta F$ aplicada deve ser limitada a **$10\\%$ a $40\\%$ da carga máxima de ruptura** da peça, a qual precisa ser estimada previamente. O módulo de elasticidade $E_{0}$ é então calculado a partir da deflexão máxima $\\Delta e$, obtida por sensores de deslocamento.
     """)
 
     col2.subheader("Método da propagação de ondas de tensão")
@@ -471,7 +529,7 @@ def materiais_nao_metalicos_page():
         \begin{equation}
             I(x)=I_{0}e^{-\alpha x}
         \end{equation}
-    ''')
+    ''', width="stretch")
 
     col2.markdown("em que o **coeficiente de atenuação ($\\alpha$)** (em dB/m) descreve o decaimento do sinal em função da distância percorrida. Esta sequência de eventos é fundamental para a compreensão dos próximos ensaios.")
 
@@ -490,14 +548,14 @@ def materiais_nao_metalicos_page():
         
         Um acelerômetro capta o sinal da onda de compressão e inicia a contagem do cronômetro. Ao alcançar a extremidade oposta, o pulso é detectado pelo segundo acelerômetro, que pausa a contagem.
 
-        Com o tempo ($\Delta t$) e o comprimento da barra ($L$), a velocidade de propagação ($V$) é determinada por cinemática do movimento retilíneo e uniforme:
+        Com o tempo ($\\Delta t$) e o comprimento da barra ($L$), a velocidade de propagação ($V$) é determinada por cinemática do movimento retilíneo e uniforme:
     """)
 
     col2.latex(r'''
         \begin{equation}
             V=\dfrac{L}{\Delta t}
         \end{equation}
-    ''')
+    ''', width="stretch")
 
     col2.markdown("##### Método do pulso-eco")
 
@@ -511,7 +569,7 @@ def materiais_nao_metalicos_page():
         \begin{equation}
             V=\dfrac{2L}{\Delta t}
         \end{equation}
-    ''')
+    ''', width="stretch")
 
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 

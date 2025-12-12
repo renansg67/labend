@@ -1,4 +1,5 @@
 import streamlit as st
+import graphviz
 
 def classificacao_madeira_estrutural_page():
     col1, col2, col3 = st.columns([.25, 3, 1.5])
@@ -37,18 +38,7 @@ def classificacao_madeira_estrutural_page():
         - ABNT NBR 7190-7: Métodos de ensaio para caracterização de madeira lamelada colada cruzada estrutural
     """)
 
-    col2.graphviz_chart('''
-        digraph {
-            "Lote de Madeira" -> "Tipo de Floresta"
-            "Tipo de Floresta" -> "Plantada"
-            "Tipo de Floresta" -> "Nativa"
-            "Plantada" -> "Homogêneo"
-            "Plantada" -> "Não homogêneo"
-            "Nativa" -> "ABNT NBR 7190-3"
-            "Homogêneo" -> "ABNT NBR 7190-4"
-            "Não homogêneo" -> "ABNT NBR 7190-2"
-        }
-    ''', width="stretch")
+    col2.image("imagens/graphviz.png")
 
     col2.header("Sobre os Ensaios e a ABNT NBR 7190:2022")
 
@@ -116,9 +106,9 @@ def classificacao_madeira_estrutural_page():
 
     # REVISÃO: Texto simplificado e com foco na correção de umidade
     col2.markdown("""
-        A densidade aparente ($\rho_{12}$) é determinada na **condição-padrão de 12% de umidade** (Umidade de Equilíbrio), conforme estipulado pela norma.
+        A densidade aparente ($\\rho_{12}$) é determinada na **condição-padrão de 12% de umidade** (Umidade de Equilíbrio), conforme estipulado pela norma.
         
-        Para peças ensaiadas com umidade diferente da padrão (no intervalo de $10\\%$ a $25\\%$), deve ser aplicada uma correção da densidade medida ($\rho_{\text{test}}$) para a densidade aparente padrão através da seguinte relação:
+        Para peças ensaiadas com umidade diferente da padrão (no intervalo de $10\\%$ a $25\\%$), deve ser aplicada uma correção da densidade medida ($\\rho_{\\text{test}}$) para a densidade aparente padrão através da seguinte relação:
     """)
 
     col2.latex(r"""
