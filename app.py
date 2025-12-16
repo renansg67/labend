@@ -16,6 +16,10 @@ pages = {
         st.Page("./conteudo/7_atenuacao_de_ondas_acusticas.py", title="Atenuação de Ondas Acústicas", icon=":material/cadence:"),
         st.Page("./conteudo/8_morfologia_vegetal.py", title="Morfologia Vegetal", icon=":material/waves:"),
     ],
+    "Extras": [
+        st.Page("./extras/extra_atenuacao.py", title="Atenuação", icon=":material/waves:"),
+        st.Page("./extras/snell_calculator.py", title="Snell", icon=":material/waves:")
+    ],
     "Links Auxiliares": [
         st.Page("./aux_files/links_auxiliares.py", title="Início", icon=":material/assignment:")
     ],

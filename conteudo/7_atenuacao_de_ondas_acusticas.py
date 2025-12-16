@@ -58,8 +58,6 @@ def atenuacao_de_ondas_acusticas():
 
     col2.markdown("#### Fatores que afetam o coeficiente de atenuação")
 
-    col2.write("O coeficiente de atenuação ($\\alpha$) é um parâmetro fundamental que reflete a capacidade do material de absorver e dispersar a energia acústica. Os principais fatores que o afetam são:")
-
     col2.markdown("""
         * **Frequência do transdutor:** Quanto maior a frequência, maior a atenuação.
         * **Distância percorrida:** A atenuação aumenta com a distância.

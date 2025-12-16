@@ -70,15 +70,17 @@ def materiais_nao_metalicos_page():
 
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
-    col3.image("https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Burden_Poured_Concrete_Bunker_01.jpg/960px-Burden_Poured_Concrete_Bunker_01.jpg", caption="Chris Burden – 'Pouren Concrete Bunker' (2003). Estação ferroviária de Deutschlandsberg, Estíria (Áustria).")
-    
     col3.info("""
         **Ensaios não destrutivos em estruturas em concreto: Aplicação e métodos de ensaio**
-              
+
+        *Resumo: Apresenta múltiplos métodos não destrutivos aplicados para avaliação de estruturas de concreto, trazendo à tona uma abordagem análoga aos diagnósticos médicos adaptada para estruturas de concreto e aço. Ao final, é apresentado o GPR (Ground Penetrate Radar) da Proceq e o público é convidado a trazer perguntas e dúvidas ao palestrante.*      
+        
         Canal: Instituto de Engenharia
               
-        [Link para YouTube](https://www.youtube.com/watch?v=eFt-84qv7TU)
+        [:material/double_arrow: Link para YouTube (Clique aqui)](https://www.youtube.com/watch?v=eFt-84qv7TU)
     """)
+
+    col3.image("https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Burden_Poured_Concrete_Bunker_01.jpg/960px-Burden_Poured_Concrete_Bunker_01.jpg", caption="Chris Burden – 'Pouren Concrete Bunker' (2003). Estação ferroviária de Deutschlandsberg, Estíria (Áustria).")
 
     # REVISÃO: Subheader com o termo técnico "Esclerometria"
     col2.subheader("Ensaio de Dureza Superficial (Esclerometria)")
@@ -94,6 +96,16 @@ def materiais_nao_metalicos_page():
         * Realizar no mínimo 10 impactos para obter um índice esclerométrico igual a 80.
         * O **fator de correção ($k$)** do esclerômetro é calculado a partir dos índices obtidos e do índice nominal ($I_{E_{\\text{nom}}}$), fornecido pelo fabricante:
     """)
+
+    col3.image(
+        "https://images.tcdn.com.br/img/img_prod/296307/1845_2_20250918172330.jpg",
+        caption=(
+            "O **Esclerômetro** (ou martelo de teste de concreto) é um instrumento de ensaio **não destrutivo** "
+            "que estima a resistência à compressão do concreto pela medição da dureza superficial. É "
+            "amplamente utilizado na engenharia civil para verificar a uniformidade e as características mecânicas "
+            "em estruturas já construídas (**Fonte:** [colar.com](https://www.colar.com/instrumentos-de-medicao/medidor-de-dureza-esclerometro?srsltid=AfmBOoq_kWnQmdORLh87YQV8DLszj46gTHTMkGVijU225rtwxvtF9xdQ))"
+        )
+    )
 
     col2.markdown(r'''
     $$
@@ -601,7 +613,11 @@ def materiais_nao_metalicos_page():
         * **17TH INTERNATIONAL NONDESTRUCTIVE TESTING AND EVALUATION OF WOOD SYMPOSIUM**. Proceedings. Vol. 2. [S.l.: s.n.], 2011. ISBN 978-963-98838-3-3.
         
         * **ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS**. NBR 7190:2022 — Projeto de estruturas de madeira. Rio de Janeiro: ABNT, 2022.      
-    """)
+    
+        * **ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS**. NBR 7584: concreto – avaliação da dureza superficial pelo esclerômetro de reflexão. Rio de Janeiro, 2013.
+              
+        * **ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS**. NBR 8802: concreto – determinação da velocidade de propagação de onda ultrassônica. Rio de Janeiro, 2019.
+              """)
 
 if __name__ == "__main__":
     materiais_nao_metalicos_page()
