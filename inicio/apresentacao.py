@@ -28,7 +28,10 @@ def apresentacao_page():
     col2.markdown("# 🧱 _LabEND_ | Portal de Ensaios Não Destrutivos")
 
     # Imagem de capa
-    col3.image("imagens/intro-cap-1.jpg") 
+    col3.image(
+        "https://github.com/renansg67/vetores/blob/master/png/intro-cap-1.jpg?raw=true",
+        caption="Ensaio de ultrassom para determinação de descontinuidades internas no material."
+    ) 
 
     # Bloco de texto de Boas-Vindas (Revisado para usar funções Streamlit)
     col2.subheader("Bem-vindo(a)! 👋")

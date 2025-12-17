@@ -8,7 +8,10 @@ def materiais_nao_metalicos_page():
     # REVISÃO: Título mais conciso e profissional
     col2.title("Ensaios Não Destrutivos (END) em Materiais de Construção Não Metálicos")
 
-    col3.image("https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Reciprocal_roof_structure%2C_the_Octagonal_Shelter%2C_Mags_Wood_in_Evanton_Community_Wood_%28geograph_6866216%29.jpg/960px-Reciprocal_roof_structure%2C_the_Octagonal_Shelter%2C_Mags_Wood_in_Evanton_Community_Wood_%28geograph_6866216%29.jpg", caption="Estrutura de Cobertura Recíproca ('Reciprocal Roof'), o Abrigo Octogonal em Mags Wood. **Crédito e Licença:** Julian Paren, via geograph.org.uk (CC BY-SA 2.0).")
+    col3.image(
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Reciprocal_roof_structure%2C_the_Octagonal_Shelter%2C_Mags_Wood_in_Evanton_Community_Wood_%28geograph_6866216%29.jpg/960px-Reciprocal_roof_structure%2C_the_Octagonal_Shelter%2C_Mags_Wood_in_Evanton_Community_Wood_%28geograph_6866216%29.jpg", 
+        caption="Estrutura de Cobertura Recíproca ('Reciprocal Roof'), o Abrigo Octogonal em Mags Wood. **Crédito e Licença:** Julian Paren, via geograph.org.uk (CC BY-SA 2.0)."
+    )
 
     col2.expander(":material/book: Sumário", expanded=True).markdown('''
         - [Início](#inicio)
@@ -34,7 +37,10 @@ def materiais_nao_metalicos_page():
 
     col2.header("Início")
     
-    col3.image("https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/HD.6D.698_%2812365544204%29.jpg/960px-HD.6D.698_%2812365544204%29.jpg", caption="Um dispositivo de monitoramento revolucionário, capaz de detectar instantaneamente falhas em soldas, foi desenvolvido no Laboratório do Noroeste do Pacífico como parte do programa de pesquisa e desenvolvimento em ensaios não destrutivos da AEC. (c. 1970)")
+    col3.image(
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/HD.6D.698_%2812365544204%29.jpg/960px-HD.6D.698_%2812365544204%29.jpg", 
+        caption="Um dispositivo de monitoramento revolucionário, capaz de detectar instantaneamente falhas em soldas, foi desenvolvido no Laboratório do Noroeste do Pacífico como parte do programa de pesquisa e desenvolvimento em ensaios não destrutivos da AEC. (c. 1970)"
+    )
 
     # REVISÃO: Parágrafo 1 - Simplificação e melhoria da fluidez
     col2.write("""
@@ -379,7 +385,7 @@ def materiais_nao_metalicos_page():
     col2.write("a partir do aparato experimental abaixo:")
 
     col2.container(horizontal_alignment="center").image(
-        "imagens/vibracao-transversal-livre.png",
+        "https://github.com/renansg67/vetores/blob/master/png/vibracao-transversal-livre.png?raw=true",
         width=650
     )
 
@@ -489,7 +495,7 @@ def materiais_nao_metalicos_page():
 
     
     col2.container(horizontal_alignment="center").image(
-        "imagens/flexao-3-pontos.png", 
+        "https://github.com/renansg67/vetores/blob/master/png/flexao-3-pontos.png?raw=true", 
         caption="Ensaio de 3 pontos de viga deitada.",
         width=650
     )
@@ -509,7 +515,7 @@ def materiais_nao_metalicos_page():
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
     col3.image(
-        "imagens/curva-atenuacao.png", 
+        "https://github.com/renansg67/vetores/blob/master/png/curva-atenuacao.png?raw=true", 
         caption="Curva de atenuação com decaimento exponencial.",
         width=350
     )
@@ -536,7 +542,7 @@ def materiais_nao_metalicos_page():
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
     col3.image(
-        "imagens/cronometragem.png", 
+        "https://github.com/renansg67/vetores/blob/master/png/cronometragem.png?raw=true", 
         caption="Cronometragem do tempo de propagação da onda de tensão entre acelerômetros.",
         width=350
     )
@@ -586,7 +592,7 @@ def materiais_nao_metalicos_page():
     col2.markdown("##### *Pitch and catch*")
 
     col3.image(
-        "imagens/pitch-and-catch.png", 
+        "https://github.com/renansg67/vetores/blob/master/png/pitch-and-catch.png?raw=true", 
         caption="Arranjo do aparato para ensaio de pitch and catch.",
         width=350
     )
