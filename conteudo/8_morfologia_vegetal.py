@@ -47,7 +47,10 @@ col2.write("""
 Em coníferas, o xilema normalmente é composto somente por traqueides  e células de raio, raramente parênquima axial. No floema, há presença de células crivadas em sucessão. Devido ao rompimento que ocorre nas camadas de maior diâmetro na epiderme, o felogênio é responsável por produzir súber para fora e feloderme para dentro.
 """)
 
-col3.image("imagens/tronco-partes.png", width=220)
+col3.image(
+    "https://github.com/renansg67/vetores/blob/master/png/tronco-partes.png?raw=true", 
+    width=220
+)
 
 col2.table(data=[
     {"Atributo": "Folhas", "Gimnospermas": "Aciculifoliadas", "Angiospermas": "Latifoliadas"},

@@ -15,20 +15,25 @@ def apresentacao_page():
     )
     col3.image(
         "https://upload.wikimedia.org/wikipedia/commons/a/aa/Gymnosperm_Stem_Circular_Bordered_Pits_in_Pinus_Wood_%2836484401545%29.jpg",
-        caption="Pontoações Areoladas Circulares em Pinus (Detalhe)"
+        caption="Pontuações Areoladas Circulares em Pinus (Detalhe)"
     )
     col4.image(
         "https://upload.wikimedia.org/wikipedia/commons/a/ac/Gymnosperm_Stem_Soft_Wood_in_Pinus_%2836087426450%29.jpg",
         caption="Madeira Macia de Pinus (Visão Tangencial)"
     )
-    
+
     # Colunas principais
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
-    col2.markdown("# 🧱 _LabEND_ | Portal de Ensaios Não Destrutivos")
+    col2.markdown("# 🧱 LME | LabEND - Laboratório de Materiais e Estruturas | Ensaios Não Destrutivos")
+
+    col2.image("https://github.com/renansg67/vetores/blob/master/png/landing-page.png?raw=true")
 
     # Imagem de capa
-    col3.image("imagens/intro-cap-1.jpg") 
+    col3.image(
+        "https://github.com/renansg67/vetores/blob/master/png/intro-cap-1.jpg?raw=true",
+        caption="Ensaio de ultrassom para determinação de descontinuidades internas no material."
+    ) 
 
     # Bloco de texto de Boas-Vindas (Revisado para usar funções Streamlit)
     col2.subheader("Bem-vindo(a)! 👋")

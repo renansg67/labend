@@ -164,13 +164,13 @@ def inspecao_de_arvores():
     )
 
     col3.image(
-        "imagens/secao1.png",
+        "https://github.com/renansg67/vetores/blob/master/png/secao1.png?raw=true",
         caption="Arranjo de transdutores ao longo da seção transversal.",
         width=400
     )
 
     col3.image(
-        "imagens/secao2.png",
+        "https://github.com/renansg67/vetores/blob/master/png/secao2.png?raw=true",
         caption=(
             "Mapa de calor gerado a partir da interpolação das velocidades ao longo de vários caminhos."
         ),
@@ -246,7 +246,7 @@ def inspecao_de_arvores():
     col2.latex(r"H=L(\tan\alpha\pm\tan\beta)")
 
     col2.image(
-        "imagens/hipsometro.png",
+        "https://github.com/renansg67/vetores/blob/master/png/hipsometro.png?raw=true",
         caption="Diferentes situações de uso do hipsômetro."
     )
 

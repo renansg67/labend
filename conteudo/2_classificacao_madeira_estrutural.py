@@ -37,7 +37,7 @@ def classificacao_madeira_estrutural_page():
         - ABNT NBR 7190-7: Métodos de ensaio para caracterização de madeira lamelada colada cruzada estrutural
     """)
 
-    col2.image("imagens/graphviz.png")
+    col2.image("https://github.com/renansg67/vetores/blob/master/png/graphviz.png?raw=true")
 
     col2.header("Sobre os Ensaios e a ABNT NBR 7190:2022")
 
