@@ -76,6 +76,13 @@ def inspecao_concreto():
 
     col2.subheader("Penetrografia")
 
+    col1, col2, col3 = st.columns([.25, 3, 1.5])
+
+    col3.image(
+        "https://github.com/renansg67/vetores/blob/master/png/resi2.jpg?raw=true",
+        caption="Resistógrafo IML RESI PD Series 500"
+    )
+
     # REVISÃO: Uso de lista para as premissas
     col2.write("""
         A penetrografia utiliza **micro brocas** de pequeno diâmetro que penetram no interior da madeira, fornecendo parâmetros de resistência à penetração e resistência ao giro.
@@ -90,9 +97,9 @@ def inspecao_concreto():
         As **curvas de amplitude** obtidas (gráficos de resistência) permitem ao operador diferenciar regiões de **madeira sã** daquelas com rachaduras internas, deterioração, cavidades ou galerias.
     """)
 
-    col2.subheader("*Pilodyn*")
-
     col1, col2, col3 = st.columns([.25, 3, 1.5])
+
+    col2.subheader("*Pilodyn*")
 
     col3.image("https://www.researchgate.net/profile/Pieters-M-2/publication/277127938/figure/fig6/AS:669537175367692@1536641510502/The-Pilodyn-wood-tester-De-Pilodyn-houttester.ppm")
 
@@ -180,7 +187,7 @@ def inspecao_concreto():
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
     col3.image(
-        "imagens/pacometria.webp",
+        "https://github.com/renansg67/vetores/blob/master/png/pacometria.webp?raw=true",
         caption="Bosch D-tect: detector por radar eletromagnético para localizar tubulações, cabos e estruturas ocultas com precisão."
     )
 
@@ -302,7 +309,7 @@ def inspecao_concreto():
     col3.image("https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Reinforcement_corrosion.JPG/960px-Reinforcement_corrosion.JPG", caption="Corrosion of reinforcement in concrete, dgania b, israel")
 
     col3.image(
-        "./imagens/carbonatacao1.png", 
+        "https://github.com/renansg67/vetores/blob/master/png/carbonatacao1.png?raw=true", 
         caption="Processo de formação de carbonato de cálcio $\\text{CaCO}_{3}$ em duas etapas.", 
         width=300
     )
@@ -334,7 +341,7 @@ def inspecao_concreto():
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
     col3.image(
-        "./imagens/carbonatacao2.png", 
+        "https://github.com/renansg67/vetores/blob/master/png/carbonatacao2.png?raw=true", 
         caption="Estágios de avanço da frente de carbonatação.",    
     )
 
@@ -457,6 +464,11 @@ def inspecao_concreto():
     """)
 
     col2.write("O tratamento de dados recomendado pela ASTM envolve a construção de **curvas equipotenciais** para mapear as áreas de maior corrosão. A correção do processo de corrosão geralmente envolve o uso de inibidores seguido de inspeções periódicas de acompanhamento.")
+
+    col2.image(
+        "https://github.com/renansg67/vetores/blob/master/png/pot-corrosao.png?raw=true",
+        caption="Mapa de curvas equipotencias apresentando armadura em estágio avançado de corrosão."
+    )
 
     col2.subheader("Radar de Penetração de Solo (GPR)")
 

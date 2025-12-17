@@ -1,5 +1,25 @@
 import streamlit as st
 
+ # Colunas de imagens ilustrativas (Anatomia da Madeira)
+col1, col2, col3, col4 = st.columns([1, 1, 1, 1])
+
+col1.image(
+    "https://upload.wikimedia.org/wikipedia/commons/6/6e/Woody_Dicot_Stem_Cross_Section_Quercus_Wood_40x_%2834991087693%29.jpg",
+    caption="Seção Transversal de Madeira Dicotiledônea (Angiosperma)"
+)
+col2.image(
+    "https://upload.wikimedia.org/wikipedia/commons/4/4c/Gymnosperm_Stem_Soft_Wood_in_Pinus_%2836087417260%29.jpg",
+    caption="Seção Transversal de Madeira de Conífera (Gimnosperma - Pinus)"
+)
+col3.image(
+    "https://upload.wikimedia.org/wikipedia/commons/a/aa/Gymnosperm_Stem_Circular_Bordered_Pits_in_Pinus_Wood_%2836484401545%29.jpg",
+    caption="Pontuações Areoladas Circulares em Pinus (Detalhe)"
+)
+col4.image(
+    "https://upload.wikimedia.org/wikipedia/commons/a/ac/Gymnosperm_Stem_Soft_Wood_in_Pinus_%2836087426450%29.jpg",
+    caption="Madeira Macia de Pinus (Visão Tangencial)"
+)
+
 col1, col2, col3 = st.columns([.25, 3, 1.5])
 
 col2.title("Morfologia Vegetal")
@@ -47,7 +67,10 @@ col2.write("""
 Em coníferas, o xilema normalmente é composto somente por traqueides  e células de raio, raramente parênquima axial. No floema, há presença de células crivadas em sucessão. Devido ao rompimento que ocorre nas camadas de maior diâmetro na epiderme, o felogênio é responsável por produzir súber para fora e feloderme para dentro.
 """)
 
-col3.image("imagens/tronco-partes.png", width=220)
+col3.image(
+    "https://github.com/renansg67/vetores/blob/master/png/tronco-partes.png?raw=true", 
+    width=220
+)
 
 col2.table(data=[
     {"Atributo": "Folhas", "Gimnospermas": "Aciculifoliadas", "Angiospermas": "Latifoliadas"},

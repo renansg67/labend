@@ -8,7 +8,10 @@ def materiais_nao_metalicos_page():
     # REVISÃO: Título mais conciso e profissional
     col2.title("Ensaios Não Destrutivos (END) em Materiais de Construção Não Metálicos")
 
-    col3.image("https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Reciprocal_roof_structure%2C_the_Octagonal_Shelter%2C_Mags_Wood_in_Evanton_Community_Wood_%28geograph_6866216%29.jpg/960px-Reciprocal_roof_structure%2C_the_Octagonal_Shelter%2C_Mags_Wood_in_Evanton_Community_Wood_%28geograph_6866216%29.jpg", caption="Estrutura de Cobertura Recíproca ('Reciprocal Roof'), o Abrigo Octogonal em Mags Wood. **Crédito e Licença:** Julian Paren, via geograph.org.uk (CC BY-SA 2.0).")
+    col3.image(
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Reciprocal_roof_structure%2C_the_Octagonal_Shelter%2C_Mags_Wood_in_Evanton_Community_Wood_%28geograph_6866216%29.jpg/960px-Reciprocal_roof_structure%2C_the_Octagonal_Shelter%2C_Mags_Wood_in_Evanton_Community_Wood_%28geograph_6866216%29.jpg", 
+        caption="Estrutura de Cobertura Recíproca ('Reciprocal Roof'), o Abrigo Octogonal em Mags Wood. **Crédito e Licença:** Julian Paren, via geograph.org.uk (CC BY-SA 2.0)."
+    )
 
     col2.expander(":material/book: Sumário", expanded=True).markdown('''
         - [Início](#inicio)
@@ -34,7 +37,10 @@ def materiais_nao_metalicos_page():
 
     col2.header("Início")
     
-    col3.image("https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/HD.6D.698_%2812365544204%29.jpg/960px-HD.6D.698_%2812365544204%29.jpg", caption="Um dispositivo de monitoramento revolucionário, capaz de detectar instantaneamente falhas em soldas, foi desenvolvido no Laboratório do Noroeste do Pacífico como parte do programa de pesquisa e desenvolvimento em ensaios não destrutivos da AEC. (c. 1970)")
+    col3.image(
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/HD.6D.698_%2812365544204%29.jpg/960px-HD.6D.698_%2812365544204%29.jpg", 
+        caption="Um dispositivo de monitoramento revolucionário, capaz de detectar instantaneamente falhas em soldas, foi desenvolvido no Laboratório do Noroeste do Pacífico como parte do programa de pesquisa e desenvolvimento em ensaios não destrutivos da AEC. (c. 1970)"
+    )
 
     # REVISÃO: Parágrafo 1 - Simplificação e melhoria da fluidez
     col2.write("""
@@ -104,7 +110,8 @@ def materiais_nao_metalicos_page():
             "que estima a resistência à compressão do concreto pela medição da dureza superficial. É "
             "amplamente utilizado na engenharia civil para verificar a uniformidade e as características mecânicas "
             "em estruturas já construídas (**Fonte:** [colar.com](https://www.colar.com/instrumentos-de-medicao/medidor-de-dureza-esclerometro?srsltid=AfmBOoq_kWnQmdORLh87YQV8DLszj46gTHTMkGVijU225rtwxvtF9xdQ))"
-        )
+        ),
+        width=400
     )
 
     col2.markdown(r'''
@@ -323,6 +330,14 @@ def materiais_nao_metalicos_page():
         A umidade em base seca ($U_{\\text{BS}}$) é calculada por:
     """)
 
+    col1, col2, col3 = st.columns([.25, 3, 1.5])
+
+    col3.image(
+        "https://github.com/renansg67/vetores/blob/master/png/merlin2.jpg?raw=true",
+        caption="Medidor de umidade capacitivo (Merlin). Por meio da leitura indireta, obtém-se o valor da umidade em base seca como estimativa.",
+        width=400
+    )
+
     col2.markdown(r'''
     $$
             U_{\text{BS}}=\dfrac{m_{\text{total}}-m_{\text{seca}}}{m_{\text{seca}}}=\dfrac{m_{\text{água}}}{m_{\text{seca}}}
@@ -351,7 +366,11 @@ def materiais_nao_metalicos_page():
             \end{matrix}
     $$''', width="stretch")
 
-    col2.write("As propriedades de resistência ($f$) e rigidez ($E$) podem ser corrigidas para a umidade-padrão de 12% conforme as seguintes equações, onde $U$ é a umidade atual:")
+    col2.write("As propriedades de resistência ($f$) e rigidez ($E$) podem ser corrigidas para a umidade-padrão de 12% conforme as seguintes equações, onde $U$ é a umidade atual¹:")
+
+    col1, col2, col3 = st.columns([.25, 3, 1.5])
+
+    col3.info(':material/info: ¹Ver NBR 7190-1:2022 - "5.6.1 Condição-padrão de referência"')
 
     col2.markdown(r'''
     $$
@@ -379,7 +398,7 @@ def materiais_nao_metalicos_page():
     col2.write("a partir do aparato experimental abaixo:")
 
     col2.container(horizontal_alignment="center").image(
-        "imagens/vibracao-transversal-livre.png",
+        "https://github.com/renansg67/vetores/blob/master/png/vibracao-transversal-livre.png?raw=true",
         width=650
     )
 
@@ -468,12 +487,32 @@ def materiais_nao_metalicos_page():
     col2.subheader("**Ensaio de flexão estática**")
 
     col2.write("""
-        Para a determinação do módulo de elasticidade, pode-se empregar o ensaio de 3 pontos ou o de 4 pontos. A **ABNT NBR 7190 (Parte 4)** permite a determinação do módulo de elasticidade na flexão estática para lotes de florestas plantadas não homogêneos, utilizando a equação:
+        Para a determinação do módulo de elasticidade, pode-se empregar o ensaio de 3 pontos¹ ou o de 4 pontos². A permite a determinação do módulo de elasticidade na flexão estática para lotes de florestas plantadas não homogêneos, utilizando a equação:
+    """)
+
+    col1, col2, col3 = st.columns([.25, 3, 1.5])
+
+    col3.info("""
+        ¹Ver ABNT NBR 7190-2:2022 - 7. Classificação mecânica\\
+        ²Ver ABNT NBR 7190-4:2022 - 8.2. Resistência e rigidez à flexão\\
+        ³Nos ensaios de flexão adota-se\\
+            $L=18\\times\\text{Espessura (altura) nominal da peça}$\\
+        Portanto, no ensaio de 3 pontos, como a peça encontra-se deitada, $L=18b$. Enquanto que no ensaio de 4 pontos, com a peça na posição de maior inércia, $L=18h$
     """)
 
     col2.markdown(r'''
     $$
             E_{0}=\dfrac{1}{4}\left(\dfrac{L}{b}\right)^{\!\!3}\dfrac{\Delta F}{\Delta e}\dfrac{1}{h}
+    $$''', width="stretch")
+
+    col2.markdown(r'''
+    $$
+            E_{0}=\dfrac{1}{4}\left(\dfrac{18b}{b}\right)^{\!\!3}\dfrac{\Delta F}{\Delta e}\dfrac{1}{h}
+    $$''', width="stretch")
+
+    col2.markdown(r'''
+    $$
+            E_{0}=1458\bigg(\dfrac{\Delta F}{\Delta e}\dfrac{1}{h}\bigg)
     $$''', width="stretch")
 
     col2.write("Essa equação é obtida pela combinação da equação de Euler para a deflexão no meio do vão livre e do momento de inércia da seção retangular:")
@@ -489,7 +528,7 @@ def materiais_nao_metalicos_page():
 
     
     col2.container(horizontal_alignment="center").image(
-        "imagens/flexao-3-pontos.png", 
+        "https://github.com/renansg67/vetores/blob/master/png/flexao-3-pontos.png?raw=true", 
         caption="Ensaio de 3 pontos de viga deitada.",
         width=650
     )
@@ -509,7 +548,7 @@ def materiais_nao_metalicos_page():
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
     col3.image(
-        "imagens/curva-atenuacao.png", 
+        "https://github.com/renansg67/vetores/blob/master/png/curva-atenuacao.png?raw=true", 
         caption="Curva de atenuação com decaimento exponencial.",
         width=350
     )
@@ -536,7 +575,7 @@ def materiais_nao_metalicos_page():
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
     col3.image(
-        "imagens/cronometragem.png", 
+        "https://github.com/renansg67/vetores/blob/master/png/cronometragem.png?raw=true", 
         caption="Cronometragem do tempo de propagação da onda de tensão entre acelerômetros.",
         width=350
     )
@@ -576,7 +615,7 @@ def materiais_nao_metalicos_page():
     """)
 
     col3.image(
-        "imagens/pulso-eco.png", 
+        "https://github.com/renansg67/vetores/blob/master/png/pulso-eco.png?raw=true", 
         caption="Arranjo do aparato para ensaio de pulso-eco.",
         width=350
     )
@@ -586,7 +625,7 @@ def materiais_nao_metalicos_page():
     col2.markdown("##### *Pitch and catch*")
 
     col3.image(
-        "imagens/pitch-and-catch.png", 
+        "https://github.com/renansg67/vetores/blob/master/png/pitch-and-catch.png?raw=true", 
         caption="Arranjo do aparato para ensaio de pitch and catch.",
         width=350
     )

@@ -303,7 +303,7 @@ def matriz_de_rigidez_page():
     col1, col2, col3 = st.columns([.25, 3, 1.5])
 
     col3.image(
-        "imagens/velocidades.png",
+        "https://github.com/renansg67/vetores/blob/master/png/velocidades.png?raw=true",
         caption="Velocidades das ondas longitudinais e transversais nas direções principais e planos."
     )
 

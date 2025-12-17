@@ -1,12 +1,12 @@
 import streamlit as st
-import pandas as pd
 
-st.title("Links Auxiliares do LabEND")
+st.title("Links Auxiliares")
 
 # Definição dos dados com colunas renomeadas e categorias revisadas
 data = {
     "Ferramenta": [ # Renomeado de 'Descrição'
         "Formulário de empréstimos",
+        "Planilha de controle de empréstimos",
         "Downsampling de arquivos",
         "Concatenar arquivos",
         "Renomear e reordenar colunas",
@@ -22,6 +22,7 @@ data = {
     ],
     "Tipo de Input/Output": [ # Renomeado de 'Tipo de Arquivos'
         "N/A", # Alterado de "" para N/A
+        "N/A",
         ":gray-badge[CSV]",
         ":gray-badge[CSV]",
         ":gray-badge[CSV]",
@@ -37,6 +38,7 @@ data = {
     ],
     "Objetivo Principal": [ # Renomeado de 'Função'
         "Formalizar empréstimos de equipamentos e materiais do LabEND",
+        "Gerenciar empréstimos num painel centralizado",
         "Reduzir densidade de pontos de dados amostrais visando otimizar consumo de memória e renderização de gráficos",
         "Compilar múltiplos arquivos em somente um",
         "Renomear, reordenar e padronizar exportação de arquivos com cabeçalho bem definido",
@@ -51,6 +53,7 @@ data = {
         "Múltiplas imagens relacionadas aos tópicos de pesquisa do LabEND"
     ],
     "Categoria": [ # Rótulos revisados para maior clareza
+        ":violet-badge[:material/assignment: Logística / Formulários]",
         ":violet-badge[:material/assignment: Logística / Formulários]",
         ":red-badge[:material/timeline: Processamento de Dados]",
         ":red-badge[:material/timeline: Processamento de Dados]",
@@ -67,6 +70,7 @@ data = {
     ],
     "Código-fonte (GitHub)": [ # Renomeado de 'Repositório'
         "N/A", # Alterado de "" para N/A
+        "N/A",
         "[`/downsampling`](https://github.com/renansg67/downsampling)",
         "[`/concat-csv`](https://github.com/renansg67/processador-csv)",
         "[`/processador-csv`](https://github.com/renansg67/processador-csv)",
@@ -82,8 +86,9 @@ data = {
     ],
     "Acesso (App/Doc)": [ # Renomeado de 'Link'
         "[`forms`](https://forms.gle/bZvLQF5eLDx3da1i8)",
+        "[`sheets`](https://docs.google.com/spreadsheets/d/12GUGSf5Z5_UEz962kZsG24193v3ZdR5JeeUNIhXVq6Y/edit?usp=sharing)",
         "[`/streamlit/downsampling`](https://downsampling-csv.streamlit.app/)",
-        "[`/streamlit/concat-csv`](https://concat-csv.streamlit.app/)",
+        "[`/streamlit/concat-csv`](https://concat-csv-file.streamlit.app/)",
         "[`/streamlit/processador-csv`](https://processador-csv.streamlit.app/)",
         "[`/streamlit/processador-xlsx`](https://processador-xlsx.streamlit.app/)",
         "N/A", # Alterado de "" para N/A

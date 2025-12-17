@@ -1,115 +1,131 @@
 import streamlit as st
 import numpy as np
-# Importa as funcoes do arquivo snell_calculator.py
-from assets.snell import (
-    calcular_refracao, 
-    criar_figura_refracao,
-    calcular_impedancia,
-    calcular_coeficientes_transmissao_reflexao,
-    calcular_energia_transmitida,
-    calcular_angulo_critico
-)
+import plotly.graph_objects as go
 
-# 1. Configuração e Título
-st.set_page_config(layout="wide", page_title="Refracao Acustica e Transmissao - Lei de Snell")
+# --- CONFIGURAÇÃO DA PÁGINA ---
+st.set_page_config(layout="wide", page_title="Snell Explorer NDT")
 
-st.title("Simulação da Refração e Transmissão de Ondas Acústicas")
-st.markdown("Calcula o ângulo de refração (Lei de Snell) e a transmissão de energia (baseado na Impedância Acústica) ao passar da interface entre dois meios.")
+st.title("🔦 Refração Acústica e Transmissão de Energia")
+st.caption("Análise de interface baseada na Lei de Snell e Impedância Acústica")
 
-# Define as colunas principais (Entrada e Visualização/Resultados)
-col_input, col_display = st.columns([.5, 2], gap="large")
-
-# --- A. Configuracoes de Entrada (Coluna Esquerda) ---
-with col_input:
-    # Agrupamento visual dos inputs com um container
-    with st.container(border=True): 
-        st.markdown("#### Parâmetros de Entrada")
-        
-        # Meio 1 (Incidente)
-        st.markdown("##### Meio 1 (Incidência)")
-        v1 = st.number_input("Velocidade do Som, $V_1$ (m/s)", 
-                             value=1500.0, min_value=1.0, step=10.0, format="%.1f")
-        rho1 = st.number_input("Massa Específica, $\\rho_1$ (kg/m³)", 
-                               value=1000.0, min_value=1.0, step=10.0, format="%.1f")
-        E_incidente = st.number_input("Energia Incidente, $E_{\\text{inc}}$ (unidades)",
-                                       value=100.0, min_value=0.0, step=1.0, format="%.1f")
-        
-        # Meio 2 (Refratado)
-        st.markdown("##### Meio 2 (Refração)")
-        v2 = st.number_input("Velocidade do Som, $V_2$ (m/s)", 
-                             value=343.0, min_value=1.0, step=10.0, format="%.1f")
-        rho2 = st.number_input("Massa Específica, $\\rho_2$ (kg/m³)", 
-                               value=1.2, min_value=0.1, step=0.1, format="%.2f")
-        
-        # Angulo de Incidencia
-        st.markdown("##### Ângulo de Entrada")
-        theta1_graus = st.slider("Ângulo de Incidência ($\\theta_1$ em graus)", 
-                                 min_value=0.0, max_value=90.0, value=30.0, step=0.1, format="%.1f")
-
-# --- B. Processamento e Resultados (Coluna Direita) ---
-with col_display:
-    st.markdown("#### Resultados da Simulação")
+# --- SIDEBAR ---
+with st.sidebar:
+    st.header("⚙️ Parâmetros de Entrada")
     
-    # Processamento de todos os cálculos
-    Z1 = calcular_impedancia(rho1, v1)
-    Z2 = calcular_impedancia(rho2, v2)
-    R, T = calcular_coeficientes_transmissao_reflexao(Z1, Z2)
-    E_trans = calcular_energia_transmitida(E_incidente, T)
-    E_refle = E_incidente * R
-    angulo_critico_graus = calcular_angulo_critico(v1, v2)
-    theta2_rad, resultado_msg = calcular_refracao(v1, v2, theta1_graus, angulo_critico_graus)
-    
-    
-    # --- B1. Impedância e Coeficientes de Transmissão ---
-    col_Z, col_coef = st.columns(2)
-
-    col_Z.markdown("##### Transmissão e Reflexão (Incidência Normal)")
-    col_Z.markdown("Cálculos baseados na Impedância Acústica ($\\mathbf{Z = \\rho V}$), assumindo incidência **normal** ($\\mathbf{\\theta_1 = 0^\\circ}$).")
-    
-    with col_Z:
-        st.metric(label="Impedância Acústica Meio 1 ($Z_1$)", value=f"{Z1:,.2f} kg/(m²⋅s)")
-        st.metric(label="Impedância Acústica Meio 2 ($Z_2$)", value=f"{Z2:,.2f} kg/(m²⋅s)")
-        st.metric(label="Coeficiente de Reflexão ($R$)", value=f"{R:.4f} ({R*100:.2f} %)")
-        st.metric(label="Coeficiente de Transmissão ($T$)", value=f"{T:.4f} ({T*100:.2f} %)")
-        st.metric(label="Energia Transmitida ($E_{\\text{trans}}$)", value=f"{E_trans:.2f} unidades")
-
-
-    with col_coef:
-        st.markdown("**Resultado da Refração:**")
-        st.info(resultado_msg)
+    st.subheader("🌐 Meio 1 (Incidente)")
+    v1 = st.number_input("$v_1$ (m/s)", value=1500.0, step=100.0)
+    rho1 = st.number_input(r"$\rho_1$ (kg/m³)", value=1000.0, step=50.0)
         
-        if angulo_critico_graus is not None:
-            st.markdown(f"**Ângulo Crítico ($\\alpha_{{cr}}$)**: {angulo_critico_graus:.2f}°")
-            st.markdown("Reflexão Total Interna ocorre quando $\\theta_{1} \\ge \\alpha_{cr}$.")
+    st.subheader("🌐 Meio 2 (Refratado)")
+    v2 = st.number_input("$v_2$ (m/s)", value=3000.0, step=100.0)
+    rho2 = st.number_input(r"$\rho_2$ (kg/m³)", value=2700.0, step=50.0)
+    
+    st.divider()
+    theta1_deg = st.slider(r"Ângulo de Incidência $\theta_1$ (°)", 0.0, 90.0, 20.0, 0.5)
+
+# --- PROCESSAMENTO TÉCNICO ---
+Z1 = rho1 * v1
+Z2 = rho2 * v2
+
+# Coeficientes (Incidência Normal)
+r_coeff = (Z2 - Z1) / (Z2 + Z1)
+R = r_coeff**2
+T = 1 - R
+
+# Ângulo Crítico
+sin_crit = v1 / v2 if v1 < v2 else None
+ang_critico = np.degrees(np.arcsin(sin_crit)) if sin_crit and sin_crit <= 1 else None
+
+# Snell
+sin_theta2 = (v2 / v1) * np.sin(np.radians(theta1_deg))
+reflexao_total = sin_theta2 > 1.0
+theta2_deg = np.degrees(np.arcsin(sin_theta2)) if not reflexao_total else None
+
+# --- INTERFACE PRINCIPAL ---
+tab1, tab2 = st.tabs(["📊 Simulação Visual", "📖 Teoria e Fórmulas"])
+
+with tab1:
+    col_viz, col_info = st.columns([2, 1], gap="large")
+    
+    with col_viz:
+        # --- CRIAÇÃO DO GRÁFICO PLOTLY ---
+        fig = go.Figure()
+        length = 10
+        
+        # 1. Áreas dos Meios (Fundo sutil)
+        fig.add_hrect(y0=0, y1=12, fillcolor="blue", opacity=0.05, line_width=0, name="Meio 1")
+        fig.add_hrect(y0=-12, y1=0, fillcolor="orange", opacity=0.05, line_width=0, name="Meio 2")
+        
+        # 2. Linha da Interface e Normal
+        fig.add_hline(y=0, line=dict(color="black", width=2))
+        fig.add_vline(x=0, line=dict(color="gray", width=1, dash="dash"))
+
+        # 3. Raio Incidente
+        x_inc = -length * np.sin(np.radians(theta1_deg))
+        y_inc = length * np.cos(np.radians(theta1_deg))
+        fig.add_trace(go.Scatter(x=[x_inc, 0], y=[y_inc, 0], mode='lines',
+                                 line=dict(color='blue', width=4), name=r'Raio Incidente'))
+
+        # 4. Raio Refletido (Energia R)
+        x_ref = length * np.sin(np.radians(theta1_deg))
+        y_ref = length * np.cos(np.radians(theta1_deg))
+        fig.add_trace(go.Scatter(x=[0, x_ref], y=[0, y_ref], mode='lines',
+                                 line=dict(color='red', width=max(1, 4 * R), dash='dot'), 
+                                 name=f'Reflexão ({R*100:.1f}%)'))
+
+        # 5. Raio Refratado ou Mensagem de Reflexão Total
+        if not reflexao_total:
+            x_refr = length * np.sin(np.radians(theta2_deg))
+            y_refr = -length * np.cos(np.radians(theta2_deg))
+            fig.add_trace(go.Scatter(x=[0, x_refr], y=[0, y_refr], mode='lines',
+                                     line=dict(color='green', width=max(1, 4 * T)), 
+                                     name=r'Refração'))
         else:
-            st.markdown("**Ângulo Crítico:** Não existe (o meio 2 é mais lento que o meio 1, $V_1 \\ge V_2$).")
-    
-        # Visualização (gráfico)
-        fig = criar_figura_refracao(theta1_graus, theta2_rad, resultado_msg, angulo_critico_graus)
+            fig.add_annotation(x=0, y=-5, text="REFLEXÃO TOTAL INTERNA", showarrow=False, 
+                               font=dict(size=16, color="red"))
+
+        fig.update_layout(
+            height=600,
+            showlegend=True,
+            xaxis=dict(range=[-11, 11], showgrid=False, zeroline=False, visible=False),
+            yaxis=dict(range=[-11, 11], showgrid=False, zeroline=False, visible=False),
+            margin=dict(l=0, r=0, t=20, b=0),
+            paper_bgcolor='rgba(0,0,0,0)', # Fundo transparente
+            plot_bgcolor='rgba(0,0,0,0)'   # Fundo transparente
+        )
         st.plotly_chart(fig, use_container_width=True)
+
+    with col_info:
+        st.subheader("Resultados")
         
+        if reflexao_total:
+            st.error(r"Ocorre Reflexão Total ($\theta_1 > \theta_{cr}$)")
+        
+        # Uso de st.metric padrão
+        st.metric(label=r"Ângulo de Refração ($\theta_2$)", 
+                  value=f"{theta2_deg:.2f}°" if not reflexao_total else "N/A")
+        
+        st.metric(label=r"Ângulo Crítico ($\theta_{cr}$)", 
+                  value=f"{ang_critico:.2f}°" if ang_critico else "N/A")
+        
+        st.divider()
+        st.write("**Distribuição de Energia:**")
+        st.metric("Transmissão (T)", f"{T*100:.1f} %")
+        st.metric("Reflexão (R)", f"{R*100:.1f} %")
+        st.progress(T)
 
-
-# --- C. Fórmulas de Referência ---
-st.markdown("---")
-# Usando um expander para reduzir o espaço ocupado por fórmulas de referência
-with st.expander("Fórmulas Teóricas de Referência", expanded=False): 
-    st.markdown("##### Impedância Acústica e Coeficientes (Incidência Normal)")
-    st.latex(r'''
-        Z=\rho V \quad \text{(Impedância Acústica)}
-    ''')
-    st.latex(r'''
-        R=\left(\dfrac{Z_{2}-Z_{1}}{Z_{2}+Z_{1}}\right)^{\!\!2} \quad \text{(Coeficiente de Reflexão)}
-    ''')
-    st.latex(r'''
-        T=1-R \quad \text{e} \quad E_{\text{trans}}=E_{\text{inc}} \cdot T \quad \text{(Coeficiente e Energia Transmitida)}
-    ''')
-
-    st.markdown("##### Lei de Snell (Refração) e Ângulo Crítico")
-    if angulo_critico_graus is not None:
-        st.latex(r'''
-            \alpha_{\text{cr}}=\arcsin\left(\dfrac{V_{1}}{V_{2}}\right) \quad \text{Se } V_2 > V_1
-        ''')
-    st.latex(r'''
-        \dfrac{\sin\alpha_{1}}{\sin\alpha_{2}}=\dfrac{V_{1}}{V_{2}} \implies \theta_2 = \arcsin \left( \frac{V_2}{V_1} \sin(\theta_1) \right)
-    ''')
+with tab2:
+    st.header("Referencial Teórico")
+    c1, c2 = st.columns(2)
+    with c1:
+        st.subheader("Lei de Snell-Descartes")
+        st.latex(r"\frac{\sin \theta_1}{v_1} = \frac{\sin \theta_2}{v_2}")
+        st.markdown(r"""
+        Define a mudança de direção do feixe sônico ao passar de um meio com velocidade $v_1$ 
+        para um meio com velocidade $v_2$.
+        """)
+    with c2:
+        st.subheader("Impedância e Reflexão")
+        st.latex(r"Z = \rho \cdot v")
+        st.latex(r"R = \left( \frac{Z_2 - Z_1}{Z_2 + Z_1} \right)^2")
+        st.markdown(r"A eficiência da transmissão depende do casamento de impedâncias ($Z$).")
