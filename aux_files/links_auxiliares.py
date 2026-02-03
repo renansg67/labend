@@ -18,7 +18,8 @@ data = {
         "Comandos do Git",
         "Ensaio de compressão paralela às fibras",
         "Bases teóricas - Propagação de ondas acústicas em sólidos ortotrópicos",
-        "Imagens vetorizadas"
+        "Imagens vetorizadas",
+        "Dados com propriedades dos materiais"
     ],
     "Tipo de Input/Output": [ # Renomeado de 'Tipo de Arquivos'
         "N/A", # Alterado de "" para N/A
@@ -34,7 +35,8 @@ data = {
         ":violet-badge[GIT]",
         ":yellow-badge[TEX]",
         ":yellow-badge[TEX]",
-        ":red-badge[IPE]/:orange-badge[PDF]"
+        ":red-badge[IPE]/:orange-badge[PDF]",
+        ":red-badge[XML]/:gray-badge[CSV]"
     ],
     "Objetivo Principal": [ # Renomeado de 'Função'
         "Formalizar empréstimos de equipamentos e materiais do LabEND",
@@ -50,7 +52,8 @@ data = {
         "Guia rápido de comandos básicos do Git",
         "Documento com instruções para o ensaio de compressão",
         "Documento apresentando as bases teóricas para propagação de ondas ultrassônicas em espécimes poliédricas",
-        "Múltiplas imagens relacionadas aos tópicos de pesquisa do LabEND"
+        "Múltiplas imagens relacionadas aos tópicos de pesquisa do LabEND",
+        "Escalonar input com propriedades de múltiplos materiais no Workbench do Ansys"
     ],
     "Categoria": [ # Rótulos revisados para maior clareza
         ":violet-badge[:material/assignment: Logística / Formulários]",
@@ -66,7 +69,8 @@ data = {
         ":green-badge[:material/book: Guia Rápido / Referência]",
         ":green-badge[:material/book: Guia Rápido / Referência]",
         ":green-badge[:material/book: Guia Rápido / Referência]",
-        ":green-badge[:material/book: Guia Rápido / Referência]"
+        ":green-badge[:material/book: Guia Rápido / Referência]",
+        ":red-badge[:material/timeline: Processamento de Dados]"
     ],
     "Código-fonte (GitHub)": [ # Renomeado de 'Repositório'
         "N/A", # Alterado de "" para N/A
@@ -82,7 +86,8 @@ data = {
         "[`/git-guia`](https://github.com/renansg67/git-guia)",
         "N/A", # Alterado de "" para N/A
         "N/A",  # Alterado de "" para N/A
-        "[`vetores`](https://github.com/renansg67/vetores)"
+        "[`vetores`](https://github.com/renansg67/vetores)",
+        "[`ansys-xml`](https://github.com/renansg67/ansys-xml)"
     ],
     "Acesso (App/Doc)": [ # Renomeado de 'Link'
         "[`forms`](https://forms.gle/bZvLQF5eLDx3da1i8)",
@@ -98,7 +103,8 @@ data = {
         "N/A", # Alterado de "" para N/A
         "[`Overleaf Doc`](https://www.overleaf.com/9556632885xxjbjbjcswmr#0405e3)", # Link text alterado
         "[`Overleaf Doc`](https://www.overleaf.com/read/jmcwjfypgpnk#4302fd)",  # Link text alterado
-        "N/A"
+        "N/A",
+        "[`/streamlit/ansys-xml`](https://ansys-xml.streamlit.app)"
     ]
 }
 
